@@ -109,23 +109,6 @@ content:
           
           • **Community Building**: Establishing open-source development practices and preparing for DAO governance structure to enable community-driven protocol evolution
 
-  - title: Education
-    layout: list
-    content:
-      - layout: left
-        title: Qaz University
-        caption: 2010 - 2014
-        sub_title: BSc Computer Science
-        quote: >
-          A comprehensive computer science education that provided the foundation for my career in software development and blockchain technology.
-        description: | # this will include new lines to allow paragraphs
-          During my university years, I developed fundamental skills in computer science, mathematics, and software engineering that have proven invaluable in my blockchain development career. The program covered essential topics including:
-          
-          • **Data Structures & Algorithms**: Core foundation for efficient blockchain and distributed systems design
-          • **Systems Programming**: Low-level programming skills now applied in Rust blockchain development
-          • **Cryptography & Security**: Academic foundation that supports my work in blockchain security and smart contract development
-          • **Software Engineering Practices**: Project management and collaborative development skills essential for leading open-source projects like Clutch Protocol
-
   - title: Beyond the Code
     layout: text
     content: | # this will include new lines to allow paragraphs
