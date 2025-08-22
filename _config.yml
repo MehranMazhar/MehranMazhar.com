@@ -109,6 +109,36 @@ content:
           
           • **Community Building**: Establishing open-source development practices and preparing for DAO governance structure to enable community-driven protocol evolution
 
+  - title: Academic Foundation
+    layout: list
+    content:
+      - layout: left
+        title: Master's Thesis - Blockchain-Based Ride-Sharing Network
+        link: github.com/MehranMazhar/master-thesis
+        link_text: View Research Repository
+        sub_title: "A blockchain-based network to reduce the travel cost in the Ride-Sharing service"
+        caption: Master's Research Project
+        additional_links:
+          - title: Full Thesis PDF
+            icon: fas fa-file-pdf
+            url: https://github.com/MehranMazhar/master-thesis/blob/main/MehranMazhar_Thesis.pdf
+          - title: Research Presentation
+            icon: fas fa-presentation
+            url: https://github.com/MehranMazhar/master-thesis/blob/main/MehranMazhar_Thesis_Presentation.pdf
+        quote: >
+          Academic research that laid the theoretical foundation for Clutch Protocol - demonstrating how blockchain technology can revolutionize ride-sharing economics and reduce travel costs.
+        description: | # this will include new lines to allow paragraphs
+          My master's thesis represents the academic foundation that directly evolved into **Clutch Protocol**. This comprehensive research project explored:
+          
+          • **Economic Analysis**: Detailed comparison between traditional centralized ride-sharing models vs. blockchain-based decentralized alternatives
+          • **Technical Architecture**: Design of blockchain infrastructure specifically optimized for ride-sharing applications
+          • **Cost Reduction Strategies**: Mathematical modeling demonstrating how decentralized networks can significantly reduce travel costs for users
+          • **Security & Trust**: Implementation of cryptographic protocols ensuring secure, trustless transactions between riders and drivers
+          
+          The thesis advisor was **MohammadHossein ShafiAbadi, Ph.D.**, and the research included practical modeling of both current ride-share systems and the proposed blockchain-based alternative. This academic work provided the theoretical validation that I'm now implementing in practice with Clutch Protocol.
+          
+          *This research directly demonstrates that Clutch Protocol isn't just another blockchain project - it's the real-world implementation of peer-reviewed academic research.*
+
   - title: Beyond the Code
     layout: text
     content: | # this will include new lines to allow paragraphs
