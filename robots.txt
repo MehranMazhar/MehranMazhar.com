@@ -1,0 +1,30 @@
+User-agent: *
+Allow: /
+
+# Allow all search engines to crawl all content
+# This helps with indexing your Clutch Protocol projects and thesis research
+
+# Block access to any temporary or admin files (if they exist)
+Disallow: /_site/
+Disallow: /assets/css/
+Disallow: /assets/js/
+Disallow: /*.scss
+Disallow: /*.sass
+Disallow: /*.yml
+Disallow: /*.yaml
+
+# Sitemap location
+Sitemap: https://mehranmazhar.com/sitemap.xml
+
+# Additional instructions for major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Crawl-delay (optional - uncomment if needed)
+# Crawl-delay: 1
