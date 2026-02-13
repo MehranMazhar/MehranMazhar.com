@@ -1,15 +1,10 @@
 User-agent: *
 Allow: /
 
-# Allow all search engines to crawl all content
-# This helps with indexing your Clutch Protocol projects and thesis research
-
-# Block access to any temporary or admin files (if they exist)
-Disallow: /_site/
-Disallow: /*.scss
-Disallow: /*.sass
-Disallow: /*.yml
-Disallow: /*.yaml
+# Block non-public files
+Disallow: /_config.yml
+Disallow: /Gemfile
+Disallow: /.nojekyll
 
 # Sitemap location
 Sitemap: https://mehranmazhar.com/sitemap.xml
@@ -20,9 +15,3 @@ Allow: /
 
 User-agent: Bingbot
 Allow: /
-
-User-agent: Slurp
-Allow: /
-
-# Crawl-delay (optional - uncomment if needed)
-# Crawl-delay: 1
