@@ -587,6 +587,24 @@ strong {
   color: var(--text-secondary);
 }
 
+.about__skill-group {
+  margin-bottom: 20px;
+}
+
+.about__skill-group:last-child {
+  margin-bottom: 0;
+}
+
+.about__skill-group-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--accent-primary);
+  margin-bottom: 10px;
+  display: block;
+}
+
 /* ============================================
    PROJECTS SECTION
    ============================================ */
