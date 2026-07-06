@@ -587,6 +587,24 @@ strong {
   color: var(--text-secondary);
 }
 
+.about__skill-group {
+  margin-bottom: 20px;
+}
+
+.about__skill-group:last-child {
+  margin-bottom: 0;
+}
+
+.about__skill-group-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--accent-primary);
+  margin-bottom: 10px;
+  display: block;
+}
+
 /* ============================================
    PROJECTS SECTION
    ============================================ */
@@ -1404,4 +1422,91 @@ strong {
   outline: 2px solid var(--accent-primary);
   outline-offset: 4px;
   border-radius: 4px;
+}
+
+/* ============================================
+   EDUCATION SECTION
+   ============================================ */
+.education__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.edu-card__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.edu-card {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 24px 28px;
+  transition: all var(--transition-fast);
+}
+
+.edu-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-color-hover);
+  transform: translateY(-2px);
+}
+
+.edu-card__icon {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(99, 102, 241, 0.1);
+  border-radius: var(--radius-sm);
+  color: var(--accent-primary);
+  font-size: 1.2rem;
+}
+
+.edu-card__date {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--accent-primary);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.edu-card__degree {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.edu-card__school {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+}
+
+.edu-card__note {
+  font-size: 0.83rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.project-featured__stats-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.contact__actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
