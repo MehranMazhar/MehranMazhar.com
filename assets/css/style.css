@@ -1429,7 +1429,13 @@ strong {
    ============================================ */
 .education__grid {
   display: grid;
+  grid-template-columns: 1fr;
   gap: 20px;
+}
+
+.edu-card__body {
+  flex: 1;
+  min-width: 0;
 }
 
 .edu-card {
