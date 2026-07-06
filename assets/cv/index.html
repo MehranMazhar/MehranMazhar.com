@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mehran Mazhar — CV</title>
+<style>
+  :root { --ink:#1a1a2e; --muted:#555; --accent:#4f46e5; --line:#e2e2ec; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  @page { size: A4; margin: 14mm 14mm; }
+  html,body { background:#fff; color:var(--ink);
+    font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 10.5pt; line-height: 1.45; }
+  .wrap { max-width: 800px; margin: 0 auto; padding: 24px; }
+  header { border-bottom: 2px solid var(--accent); padding-bottom: 12px; margin-bottom: 16px; }
+  h1 { font-size: 22pt; letter-spacing: 0.5px; }
+  .title { color: var(--accent); font-weight: 600; font-size: 11.5pt; margin-top: 2px; }
+  .contact { margin-top: 8px; font-size: 9pt; color: var(--muted); display: flex; flex-wrap: wrap; gap: 4px 14px; }
+  .contact a { color: var(--muted); text-decoration: none; }
+  section { margin-top: 16px; }
+  h2 { font-size: 10.5pt; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent);
+    border-bottom: 1px solid var(--line); padding-bottom: 4px; margin-bottom: 8px; }
+  .job { margin-bottom: 11px; }
+  .job__head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .job__role { font-weight: 700; font-size: 10.5pt; }
+  .job__org { color: var(--accent); font-weight: 600; }
+  .job__date { color: var(--muted); font-size: 9pt; white-space: nowrap; }
+  ul { margin: 4px 0 0 16px; }
+  li { margin-bottom: 2px; }
+  .summary { color: #333; }
+  .skills p { margin-bottom: 3px; }
+  .skills b { color: var(--ink); }
+  .edu { margin-bottom: 7px; }
+  .edu__deg { font-weight: 600; }
+  .edu__meta { color: var(--muted); font-size: 9pt; }
+  .muted { color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Mehran Mazhar</h1>
+    <div class="title">Senior Full-Stack .NET Developer &amp; Blockchain Engineer</div>
+    <div class="contact">
+      <span>Tehran, Iran</span>
+      <a href="mailto:mehran.mazhar@gmail.com">mehran.mazhar@gmail.com</a>
+      <a href="https://mehranmazhar.com">mehranmazhar.com</a>
+      <a href="https://github.com/MehranMazhar">github.com/MehranMazhar</a>
+      <a href="https://linkedin.com/in/mehran-mazhar">linkedin.com/in/mehran-mazhar</a>
+    </div>
+  </header>
+
+  <section>
+    <h2>Summary</h2>
+    <p class="summary">
+      Senior full-stack developer with 10+ years delivering enterprise portals, B2B travel and
+      reservation platforms, workflow-automation systems, and IoT solutions on the .NET stack
+      (C#, ASP.NET Core, SQL Server). Creator of Clutch Protocol, an open-source blockchain-based
+      ride-sharing network written in Rust, developed from master's thesis research.
+    </p>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+
+    <div class="job">
+      <div class="job__head">
+        <span><span class="job__role">Senior Full-Stack Developer (.NET)</span> — <span class="job__org">Parto CRS / Fly Today</span></span>
+        <span class="job__date">Dec 2018 — Present</span>
+      </div>
+      <ul>
+        <li>Design and develop B2B flight and hotel reservation systems with C#, ASP.NET Core, and SQL Server.</li>
+        <li>Build and maintain REST / Web API services integrating GDS and third-party supplier feeds.</li>
+        <li>Develop responsive front-end interfaces and internal tools for booking and fare management.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job__head">
+        <span><span class="job__role">.NET &amp; IoT Developer</span> — <span class="job__org">Vanda IoT Communication Technology</span></span>
+        <span class="job__date">Apr 2018 — Oct 2018</span>
+      </div>
+      <ul>
+        <li>Developed an IoT device management and monitoring portal on Microsoft Azure IoT Hub.</li>
+        <li>Built a dual-channel touch switch with cloud connectivity and network cameras with face detection.</li>
+        <li>Programmed embedded hardware in Python and Arduino; authored content for iot-lab.ir.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job__head">
+        <span><span class="job__role">Full-Stack Web Developer</span> — <span class="job__org">Sepna &amp; Tehran Municipality ICT Organization</span></span>
+        <span class="job__date">Oct 2014 — Feb 2018</span>
+      </div>
+      <ul>
+        <li>Co-developed an ITIL-based ITSM platform for Tehran Municipality ICT, including a custom workflow engine for business-process automation.</li>
+        <li>Built enterprise portals on DotNetNuke and single-page apps with Angular.</li>
+        <li>Developed ASP.NET (Web Forms, MVC, Core) applications and WCF / ASMX web services.</li>
+        <li>Designed SQL Server databases with stored procedures, functions, and reporting.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job__head">
+        <span><span class="job__role">Founder &amp; Lead Blockchain Engineer</span> — <span class="job__org">Clutch Protocol (open-source side project)</span></span>
+        <span class="job__date">2024 — Present</span>
+      </div>
+      <ul>
+        <li>Implemented a blockchain core in Rust with Aura consensus for high throughput and low latency.</li>
+        <li>Built the API layer, a TypeScript SDK, and a React demo application.</li>
+        <li>Implemented client-side transaction signing with secp256k1 / ed25519.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="skills">
+    <h2>Skills</h2>
+    <p><b>.NET Stack:</b> C#, ASP.NET Core, ASP.NET MVC / Web Forms, Web API, WCF, SQL Server, Microsoft Azure</p>
+    <p><b>Blockchain:</b> Rust, Smart Contracts, Cryptography (secp256k1 / ed25519), libp2p, P2P networking</p>
+    <p><b>Frontend:</b> Angular, React, TypeScript, JavaScript, HTML, CSS</p>
+    <p><b>Other:</b> DotNetNuke, MongoDB, Docker, Git, Python, Arduino, ITIL / ITSM</p>
+  </section>
+
+  <section>
+    <h2>Education</h2>
+    <div class="edu">
+      <div class="edu__deg">M.Sc., Computer Software Engineering <span class="edu__meta">— Islamic Azad University, 2023</span></div>
+      <div class="muted">Thesis: a blockchain-based network to reduce travel cost in ride-sharing services.</div>
+    </div>
+    <div class="edu">
+      <div class="edu__deg">B.Sc., Computer Software Engineering <span class="edu__meta">— Islamic Azad University, Islamshahr Branch, 2018</span></div>
+    </div>
+    <div class="edu">
+      <div class="edu__deg">A.Sc., Computer Software Engineering <span class="edu__meta">— Shahid Babaei College, Qazvin, 2015</span></div>
+    </div>
+  </section>
+</div>
+</body>
+</html>
