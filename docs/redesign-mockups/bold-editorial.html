@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mehran Mazhar — Bold editorial (redesign mockup)</title>
+</head>
+<body>
+<style>
+  .ed-root{
+    --paper:#f4f1ea;
+    --paper-2:#ece7db;
+    --ink:#16130f;
+    --ink-soft:#4b463d;
+    --line:#c9c2b2;
+    --accent:#e4572e;
+    --accent-ink:#b23c1b;
+    --serif:Georgia,"Times New Roman",Times,serif;
+    --mono:ui-monospace,"SF Mono",Consolas,"Liberation Mono",Menlo,monospace;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --gutter:clamp(20px,5vw,80px);
+    --maxw:1280px;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  .ed-root *{box-sizing:border-box;}
+  .ed-root ::selection{background:var(--accent);color:#fff;}
+  .ed-root a{color:inherit;text-decoration:none;}
+  .ed-root img{max-width:100%;display:block;}
+  .ed-root :focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:2px;}
+
+  .ed-wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--gutter);}
+
+  .ed-mono{font-family:var(--mono);letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;}
+  .ed-serif{font-family:var(--serif);}
+
+  /* ---------- SKIP LINK ---------- */
+  .ed-skip{position:absolute;left:-999px;top:0;background:var(--ink);color:var(--paper);padding:10px 16px;z-index:2000;font-family:var(--mono);font-size:.72rem;}
+  .ed-skip:focus{left:8px;top:8px;}
+
+  /* ---------- NAV ---------- */
+  .ed-nav{position:sticky;top:0;z-index:1000;background:rgba(244,241,234,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--ink);}
+  .ed-nav__inner{max-width:var(--maxw);margin:0 auto;padding:14px var(--gutter);display:flex;align-items:center;justify-content:space-between;gap:20px;}
+  .ed-logo{font-family:var(--mono);font-weight:700;font-size:1.05rem;letter-spacing:.02em;white-space:nowrap;}
+  .ed-logo b{color:var(--accent);}
+  .ed-navlinks{display:flex;align-items:center;gap:6px;list-style:none;margin:0;padding:0;}
+  .ed-navlinks a{font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;padding:8px 10px;color:var(--ink-soft);position:relative;transition:color .2s;}
+  .ed-navlinks a:hover{color:var(--ink);}
+  .ed-navlinks a::after{content:"";position:absolute;left:10px;right:10px;bottom:4px;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .25s;}
+  .ed-navlinks a:hover::after{transform:scaleX(1);}
+  .ed-cta{border:1.5px solid var(--ink)!important;color:var(--ink)!important;padding:9px 16px!important;background:var(--accent);color:#fff!important;transition:background .2s,color .2s;}
+  .ed-cta::after{display:none;}
+  .ed-cta:hover{background:var(--ink)!important;color:#fff!important;}
+  .ed-burger{display:none;flex-direction:column;gap:5px;background:none;border:1.5px solid var(--ink);padding:9px;cursor:pointer;border-radius:2px;}
+  .ed-burger span{width:22px;height:2px;background:var(--ink);transition:transform .3s,opacity .3s;}
+  .ed-burger.is-open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .ed-burger.is-open span:nth-child(2){opacity:0;}
+  .ed-burger.is-open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+  /* ---------- TICKER ---------- */
+  .ed-ticker{background:var(--ink);color:var(--paper);overflow:hidden;border-bottom:1px solid var(--ink);}
+  .ed-ticker__track{display:inline-flex;white-space:nowrap;will-change:transform;animation:ed-marquee 34s linear infinite;}
+  .ed-ticker span{font-family:var(--mono);font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;padding:9px 26px;position:relative;}
+  .ed-ticker span::after{content:"✦";color:var(--accent);position:absolute;right:-4px;top:50%;transform:translateY(-50%);}
+  @keyframes ed-marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+  /* ---------- SECTION FRAME ---------- */
+  .ed-sec{padding:clamp(60px,9vw,120px) 0;border-top:1px solid var(--line);position:relative;}
+  .ed-sec:first-of-type{border-top:none;}
+  .ed-head{display:flex;align-items:flex-end;gap:clamp(16px,3vw,40px);margin-bottom:clamp(36px,5vw,64px);border-bottom:2px solid var(--ink);padding-bottom:18px;flex-wrap:wrap;}
+  .ed-head__num{font-family:var(--serif);font-size:clamp(3.4rem,9vw,7rem);line-height:.8;font-weight:700;color:transparent;-webkit-text-stroke:1.5px var(--ink);text-stroke:1.5px var(--ink);letter-spacing:-.03em;}
+  .ed-head__meta{display:flex;flex-direction:column;gap:6px;padding-bottom:6px;}
+  .ed-head__kicker{color:var(--accent);}
+  .ed-head__title{font-family:var(--serif);font-size:clamp(1.9rem,4.4vw,3.2rem);line-height:1;font-weight:700;letter-spacing:-.02em;}
+  .ed-head__spacer{margin-left:auto;}
+  .ed-head__idx{font-family:var(--mono);font-size:.7rem;color:var(--ink-soft);letter-spacing:.14em;padding-bottom:8px;}
+
+  /* ---------- HERO ---------- */
+  .ed-hero{position:relative;padding:clamp(48px,7vw,96px) 0 clamp(40px,6vw,80px);overflow:hidden;}
+  .ed-hero__bg{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:64px 64px;opacity:.4;mask-image:radial-gradient(ellipse 90% 70% at 30% 30%,#000,transparent 80%);-webkit-mask-image:radial-gradient(ellipse 90% 70% at 30% 30%,#000,transparent 80%);pointer-events:none;}
+  .ed-hero__inner{position:relative;}
+  .ed-hero__greet{color:var(--accent);margin-bottom:14px;}
+  .ed-hero__name{font-family:var(--serif);font-weight:700;font-size:clamp(3.2rem,13.5vw,9.5rem);line-height:.86;letter-spacing:-.035em;margin:0 0 .12em;}
+  .ed-hero__name em{font-style:italic;color:var(--accent);}
+  .ed-hero__title{font-family:var(--serif);font-size:clamp(1.15rem,3vw,2rem);font-weight:400;line-height:1.2;max-width:22ch;margin:0 0 26px;color:var(--ink-soft);}
+  .ed-hero__title b{color:var(--ink);font-weight:700;}
+  .ed-hero__desc{max-width:60ch;font-size:1.05rem;color:var(--ink-soft);margin:0 0 32px;border-left:3px solid var(--accent);padding-left:18px;}
+  .ed-hero__desc strong{color:var(--ink);}
+  .ed-hero__actions{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:44px;}
+
+  /* buttons */
+  .ed-btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;padding:14px 22px;border:1.5px solid var(--ink);cursor:pointer;transition:transform .18s,background .2s,color .2s,box-shadow .2s;background:var(--paper);border-radius:2px;}
+  .ed-btn svg{width:16px;height:16px;flex:none;}
+  .ed-btn--solid{background:var(--ink);color:var(--paper);box-shadow:5px 5px 0 var(--accent);}
+  .ed-btn--solid:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--accent);}
+  .ed-btn--ghost:hover{background:var(--accent);border-color:var(--accent);color:#fff;transform:translateY(-2px);}
+  .ed-btn--sm{padding:11px 16px;font-size:.68rem;}
+  .ed-btn--lg{padding:17px 30px;font-size:.82rem;}
+
+  .ed-hero__stack{display:flex;flex-wrap:wrap;align-items:center;gap:14px;padding-top:24px;border-top:1px solid var(--line);}
+  .ed-hero__stack-label{color:var(--ink-soft);}
+  .ed-pills{display:flex;flex-wrap:wrap;gap:8px;}
+  .ed-pill{font-family:var(--mono);font-size:.72rem;letter-spacing:.04em;padding:7px 13px;border:1px solid var(--ink);border-radius:999px;background:var(--paper);}
+  .ed-pill:nth-child(odd){background:var(--ink);color:var(--paper);}
+
+  /* ---------- ABOUT ---------- */
+  .ed-about{display:grid;grid-template-columns:1fr 1.35fr;gap:clamp(28px,5vw,64px);align-items:start;}
+  .ed-portrait{position:relative;}
+  .ed-portrait__box{aspect-ratio:4/5;background:var(--paper-2) url("/images/profile.jpg") center/cover no-repeat;border:1.5px solid var(--ink);position:relative;}
+  .ed-portrait__box::after{content:"MEHRAN MAZHAR";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:.7rem;letter-spacing:.3em;color:var(--ink-soft);}
+  .ed-portrait__frame{position:absolute;inset:14px -14px -14px 14px;border:1.5px solid var(--accent);z-index:-1;}
+  .ed-portrait__tag{position:absolute;bottom:-14px;left:-14px;background:var(--accent);color:#fff;font-family:var(--mono);font-size:.66rem;letter-spacing:.16em;padding:7px 12px;text-transform:uppercase;}
+  .ed-about__body p{font-family:var(--serif);font-size:1.22rem;line-height:1.55;margin:0 0 20px;}
+  .ed-about__body p:first-child{font-size:1.5rem;line-height:1.4;}
+  .ed-about__body mark{background:linear-gradient(transparent 62%,rgba(228,87,46,.35) 0);color:inherit;padding:0 1px;}
+  .ed-exp-h{font-family:var(--mono);font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;margin:36px 0 20px;padding-top:20px;border-top:1px solid var(--line);color:var(--accent);}
+  .ed-skillgroups{display:grid;grid-template-columns:1fr 1fr;gap:26px;}
+  .ed-skillgroup__label{font-family:var(--serif);font-size:1.25rem;font-weight:700;margin-bottom:12px;display:flex;align-items:baseline;gap:8px;}
+  .ed-skillgroup__label span{font-family:var(--mono);font-size:.62rem;color:var(--accent);letter-spacing:.1em;}
+  .ed-skilllist{list-style:none;margin:0;padding:0;}
+  .ed-skilllist li{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px dashed var(--line);font-family:var(--mono);font-size:.82rem;}
+  .ed-skilllist li svg{width:15px;height:15px;color:var(--accent);flex:none;}
+
+  /* ---------- PROJECT ---------- */
+  .ed-proj__lede{font-family:var(--serif);font-size:clamp(1.5rem,3.6vw,2.4rem);line-height:1.28;letter-spacing:-.01em;max-width:24ch;margin:0 0 8px;}
+  .ed-proj__lede em{font-style:italic;color:var(--accent);}
+  .ed-proj__sub{font-family:var(--mono);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 36px;}
+  .ed-proj__quote{font-family:var(--serif);font-size:1.2rem;line-height:1.55;color:var(--ink-soft);max-width:70ch;margin:0 0 36px;}
+  .ed-repos{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1.5px solid var(--ink);margin-bottom:44px;}
+  .ed-repo{padding:26px;border-right:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);display:flex;flex-direction:column;gap:10px;position:relative;transition:background .2s;min-width:0;}
+  .ed-repo:nth-child(2n){border-right:none;}
+  .ed-repo:nth-last-child(-n+2){border-bottom:none;}
+  .ed-repo:hover{background:var(--paper-2);}
+  .ed-repo__top{display:flex;align-items:center;justify-content:space-between;gap:12px;}
+  .ed-repo__name{font-family:var(--mono);font-size:1rem;font-weight:700;color:var(--ink);word-break:break-word;}
+  .ed-repo__name b{color:var(--accent);}
+  .ed-repo__arrow{width:18px;height:18px;color:var(--ink-soft);flex:none;transition:transform .2s,color .2s;}
+  .ed-repo:hover .ed-repo__arrow{transform:translate(3px,-3px);color:var(--accent);}
+  .ed-repo__desc{font-size:.95rem;color:var(--ink-soft);margin:0;flex:1;}
+  .ed-repo__desc strong{color:var(--ink);}
+  .ed-repo__tags{display:flex;flex-wrap:wrap;gap:6px;}
+  .ed-repo__tags span{font-family:var(--mono);font-size:.64rem;letter-spacing:.06em;padding:4px 9px;border:1px solid var(--line);border-radius:999px;background:var(--paper);}
+
+  .ed-stats-label{font-family:var(--mono);font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin:0 0 18px;}
+  .ed-stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);margin-bottom:40px;}
+  .ed-stat{padding:26px 20px;border-right:1px solid var(--line);}
+  .ed-stat:last-child{border-right:none;}
+  .ed-stat__val{font-family:var(--serif);font-size:clamp(2.4rem,6vw,3.8rem);font-weight:700;line-height:.9;letter-spacing:-.03em;color:var(--accent);}
+  .ed-stat__label{font-family:var(--mono);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;margin-top:10px;}
+  .ed-stat__note{font-size:.8rem;color:var(--ink-soft);margin-top:4px;}
+
+  /* ---------- TIMELINE ---------- */
+  .ed-tl{position:relative;}
+  .ed-tl__item{display:grid;grid-template-columns:200px 1fr;gap:clamp(20px,4vw,56px);padding:34px 0;border-top:1px solid var(--line);position:relative;}
+  .ed-tl__item:first-child{border-top:none;padding-top:0;}
+  .ed-tl__date{font-family:var(--mono);font-size:.78rem;letter-spacing:.06em;color:var(--accent);padding-top:6px;}
+  .ed-tl__date b{display:block;color:var(--ink-soft);font-weight:400;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;margin-top:6px;}
+  .ed-tl__role{font-family:var(--serif);font-size:clamp(1.35rem,2.8vw,1.9rem);font-weight:700;line-height:1.1;letter-spacing:-.01em;margin:0 0 4px;}
+  .ed-tl__co{font-family:var(--mono);font-size:.86rem;letter-spacing:.04em;color:var(--ink-soft);display:inline-flex;align-items:center;gap:7px;margin-bottom:14px;}
+  .ed-tl__co a:hover,a.ed-tl__co:hover{color:var(--accent);}
+  .ed-tl__co svg{width:14px;height:14px;}
+  .ed-tl__quote{font-family:var(--serif);font-size:1.12rem;font-style:italic;color:var(--ink);margin:0 0 14px;}
+  .ed-tl__list{margin:0 0 16px;padding-left:0;list-style:none;}
+  .ed-tl__list li{position:relative;padding-left:22px;margin-bottom:8px;color:var(--ink-soft);font-size:.98rem;}
+  .ed-tl__list li::before{content:"→";position:absolute;left:0;color:var(--accent);font-family:var(--mono);}
+  .ed-tl__list strong{color:var(--ink);}
+  .ed-tl__tags{display:flex;flex-wrap:wrap;gap:7px;}
+  .ed-tl__tags span{font-family:var(--mono);font-size:.66rem;letter-spacing:.05em;padding:5px 11px;border:1px solid var(--ink);border-radius:2px;}
+
+  /* ---------- EDUCATION ---------- */
+  .ed-edu{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1.5px solid var(--ink);}
+  .ed-edu__card{padding:32px 28px;border-right:1.5px solid var(--ink);position:relative;transition:background .2s;}
+  .ed-edu__card:last-child{border-right:none;}
+  .ed-edu__card:hover{background:var(--paper-2);}
+  .ed-edu__year{font-family:var(--serif);font-size:3rem;font-weight:700;line-height:1;color:transparent;-webkit-text-stroke:1.3px var(--accent);text-stroke:1.3px var(--accent);letter-spacing:-.03em;display:block;margin-bottom:18px;}
+  .ed-edu__deg{font-family:var(--serif);font-size:1.3rem;font-weight:700;line-height:1.2;margin:0 0 8px;}
+  .ed-edu__school{font-family:var(--mono);font-size:.78rem;letter-spacing:.04em;color:var(--ink-soft);margin:0 0 12px;}
+  .ed-edu__note{font-size:.92rem;color:var(--ink-soft);margin:0;line-height:1.5;}
+
+  /* ---------- RESEARCH ---------- */
+  .ed-res{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(28px,5vw,60px);align-items:start;}
+  .ed-res__label{color:var(--accent);margin-bottom:14px;}
+  .ed-res__title{font-family:var(--serif);font-size:clamp(1.7rem,4vw,2.7rem);line-height:1.14;font-weight:700;letter-spacing:-.015em;margin:0 0 18px;}
+  .ed-res__advisor{font-family:var(--mono);font-size:.82rem;color:var(--ink-soft);margin:0 0 20px;}
+  .ed-res__advisor strong{color:var(--ink);}
+  .ed-res__quote{font-family:var(--serif);font-size:1.14rem;line-height:1.55;color:var(--ink-soft);border-left:3px solid var(--accent);padding-left:18px;margin:0 0 24px;}
+  .ed-res__note{font-size:.95rem;color:var(--ink-soft);margin:0 0 26px;}
+  .ed-res__actions{display:flex;flex-wrap:wrap;gap:12px;}
+  .ed-res__grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1.5px solid var(--ink);}
+  .ed-hi{padding:22px;border-right:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);}
+  .ed-hi:nth-child(2n){border-right:none;}
+  .ed-hi:nth-last-child(-n+2){border-bottom:none;}
+  .ed-hi svg{width:22px;height:22px;color:var(--accent);margin-bottom:12px;}
+  .ed-hi strong{display:block;font-family:var(--serif);font-size:1.08rem;margin-bottom:6px;}
+  .ed-hi p{margin:0;font-size:.86rem;color:var(--ink-soft);line-height:1.45;}
+
+  /* ---------- INTERESTS ---------- */
+  .ed-sub{font-family:var(--serif);font-size:clamp(1.2rem,2.6vw,1.6rem);color:var(--ink-soft);max-width:56ch;margin:-24px 0 44px;line-height:1.4;}
+  .ed-int{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:2px solid var(--ink);}
+  .ed-int__card{padding:34px 24px;border-right:1px solid var(--line);border-bottom:2px solid var(--ink);position:relative;transition:transform .2s;}
+  .ed-int__card:last-child{border-right:none;}
+  .ed-int__card:hover{transform:translateY(-4px);background:var(--paper-2);}
+  .ed-int__num{font-family:var(--mono);font-size:.7rem;color:var(--accent);letter-spacing:.14em;position:absolute;top:16px;right:18px;}
+  .ed-int__icon{width:34px;height:34px;color:var(--ink);margin-bottom:18px;}
+  .ed-int__icon svg{width:100%;height:100%;}
+  .ed-int__card h3{font-family:var(--serif);font-size:1.4rem;font-weight:700;margin:0 0 10px;}
+  .ed-int__card p{margin:0;font-size:.92rem;color:var(--ink-soft);line-height:1.5;}
+
+  /* ---------- CONTACT ---------- */
+  .ed-contact{border-top:1px solid var(--line);background:var(--ink);color:var(--paper);}
+  .ed-contact .ed-wrap{padding-top:clamp(70px,10vw,140px);padding-bottom:clamp(70px,10vw,140px);}
+  .ed-contact__label{color:var(--accent);margin-bottom:18px;}
+  .ed-contact__title{font-family:var(--serif);font-size:clamp(2.4rem,8vw,6rem);line-height:.94;font-weight:700;letter-spacing:-.03em;margin:0 0 24px;max-width:16ch;}
+  .ed-contact__title em{font-style:italic;color:var(--accent);}
+  .ed-contact__text{font-size:1.1rem;color:#cfc8ba;max-width:56ch;margin:0 0 38px;}
+  .ed-contact__actions{display:flex;flex-wrap:wrap;gap:16px;}
+  .ed-contact .ed-btn{background:transparent;border-color:var(--paper);color:var(--paper);}
+  .ed-contact .ed-btn--solid{background:var(--accent);border-color:var(--accent);color:#fff;box-shadow:5px 5px 0 rgba(255,255,255,.18);}
+  .ed-contact .ed-btn--solid:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 rgba(255,255,255,.25);}
+  .ed-contact .ed-btn--ghost:hover{background:var(--paper);color:var(--ink);}
+
+  /* ---------- FOOTER ---------- */
+  .ed-foot{background:var(--ink);color:var(--paper);border-top:1px solid #35302a;}
+  .ed-foot .ed-wrap{padding-top:44px;padding-bottom:44px;display:flex;flex-direction:column;align-items:center;gap:22px;text-align:center;}
+  .ed-foot__social{display:flex;gap:14px;}
+  .ed-foot__social a{width:44px;height:44px;border:1px solid #4a443c;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background .2s,border-color .2s,transform .2s;}
+  .ed-foot__social a:hover{background:var(--accent);border-color:var(--accent);transform:translateY(-3px);}
+  .ed-foot__social svg{width:19px;height:19px;}
+  .ed-foot__credit{font-family:var(--mono);font-size:.76rem;color:#cfc8ba;margin:0;}
+  .ed-foot__credit b{color:var(--paper);}
+  .ed-foot__copy{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;color:#8a8377;margin:0;text-transform:uppercase;}
+
+  /* ---------- REVEAL ---------- */
+  .ed-reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);}
+  .ed-reveal.is-in{opacity:1;transform:none;}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media(max-width:960px){
+    .ed-navlinks{position:fixed;inset:0 0 0 auto;width:min(80vw,320px);background:var(--paper);border-left:1.5px solid var(--ink);flex-direction:column;align-items:flex-start;justify-content:flex-start;padding:90px 28px 40px;gap:4px;transform:translateX(105%);transition:transform .3s ease;box-shadow:-20px 0 60px rgba(0,0,0,.12);}
+    .ed-navlinks.is-open{transform:none;}
+    .ed-navlinks li{width:100%;}
+    .ed-navlinks a{display:block;width:100%;font-size:.9rem;padding:12px 4px;border-bottom:1px solid var(--line);}
+    .ed-cta{text-align:center;margin-top:12px;}
+    .ed-burger{display:flex;z-index:1100;}
+    .ed-about{grid-template-columns:1fr;}
+    .ed-portrait{max-width:360px;}
+    .ed-res{grid-template-columns:1fr;}
+    .ed-tl__item{grid-template-columns:1fr;gap:6px;}
+    .ed-tl__date{padding-top:0;}
+  }
+  @media(max-width:720px){
+    .ed-edu{grid-template-columns:1fr;}
+    .ed-edu__card{border-right:none;border-bottom:1.5px solid var(--ink);}
+    .ed-edu__card:last-child{border-bottom:none;}
+    .ed-int{grid-template-columns:1fr 1fr;}
+    .ed-int__card:nth-child(2n){border-right:none;}
+    .ed-stats{grid-template-columns:1fr 1fr;}
+    .ed-stat:nth-child(2n){border-right:none;}
+    .ed-stat:nth-child(-n+2){border-bottom:1px solid var(--line);}
+  }
+  @media(max-width:520px){
+    .ed-repos{grid-template-columns:1fr;}
+    .ed-repo{border-right:none;}
+    .ed-repo:nth-last-child(2){border-bottom:1.5px solid var(--ink);}
+    .ed-res__grid{grid-template-columns:1fr;}
+    .ed-hi{border-right:none;}
+    .ed-hi:nth-last-child(2){border-bottom:1.5px solid var(--ink);}
+    .ed-skillgroups{grid-template-columns:1fr;}
+    .ed-int{grid-template-columns:1fr;}
+    .ed-int__card{border-right:none;}
+    .ed-head__spacer,.ed-head__idx{display:none;}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .ed-reveal{opacity:1!important;transform:none!important;transition:none!important;}
+    .ed-ticker__track{animation:none;}
+    .ed-root *{scroll-behavior:auto!important;}
+  }
+  html{scroll-behavior:smooth;}
+</style>
+
+<div class="ed-root">
+  <a href="#ed-main" class="ed-skip">Skip to content</a>
+
+  <!-- NAV -->
+  <nav class="ed-nav" aria-label="Primary">
+    <div class="ed-nav__inner">
+      <a href="#ed-hero" class="ed-logo">&lt;<b>MM</b> /&gt;</a>
+      <button class="ed-burger" id="edBurger" aria-label="Toggle menu" aria-expanded="false" aria-controls="edNavLinks">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="ed-navlinks" id="edNavLinks">
+        <li><a href="#ed-about">About</a></li>
+        <li><a href="#ed-projects">Projects</a></li>
+        <li><a href="#ed-experience">Experience</a></li>
+        <li><a href="#ed-education">Education</a></li>
+        <li><a href="#ed-research">Research</a></li>
+        <li><a href="#ed-interests">Beyond Code</a></li>
+        <li><a href="mailto:mehran.mazhar@gmail.com" class="ed-cta">Get in Touch</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- TICKER -->
+  <div class="ed-ticker" aria-hidden="true">
+    <div class="ed-ticker__track" id="edTicker">
+      <span>Senior .NET Developer</span><span>Blockchain Engineer</span><span>Creator of Clutch Protocol</span><span>10+ Years on the .NET Stack</span><span>Rust · C# · Azure</span><span>Open Source</span>
+      <span>Senior .NET Developer</span><span>Blockchain Engineer</span><span>Creator of Clutch Protocol</span><span>10+ Years on the .NET Stack</span><span>Rust · C# · Azure</span><span>Open Source</span>
+    </div>
+  </div>
+
+  <main id="ed-main">
+
+    <!-- HERO -->
+    <header class="ed-hero" id="ed-hero">
+      <div class="ed-hero__bg" aria-hidden="true"></div>
+      <div class="ed-wrap ed-hero__inner">
+        <p class="ed-mono ed-hero__greet ed-reveal">Hi, I'm — Portfolio / Vol. 01</p>
+        <h1 class="ed-hero__name ed-reveal">Mehran<br><em>Mazhar</em></h1>
+        <h2 class="ed-hero__title ed-reveal">Senior <b>Full-Stack .NET Developer</b> &amp; Blockchain Engineer</h2>
+        <p class="ed-hero__desc ed-reveal">
+          10+ years building enterprise web platforms, B2B travel &amp; reservation systems, and IoT
+          solutions on the .NET stack. Creator of <strong>Clutch Protocol</strong> — an open-source,
+          blockchain-based ride-sharing network written in Rust.
+        </p>
+        <div class="ed-hero__actions ed-reveal">
+          <a href="#ed-projects" class="ed-btn ed-btn--solid">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/></svg>
+            View My Work
+          </a>
+          <a href="/assets/Mehran-Mazhar-CV.pdf" download class="ed-btn ed-btn--ghost">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download CV
+          </a>
+        </div>
+        <div class="ed-hero__stack ed-reveal">
+          <span class="ed-mono ed-hero__stack-label">Tech Stack /</span>
+          <div class="ed-pills">
+            <span class="ed-pill">C# / .NET</span>
+            <span class="ed-pill">ASP.NET Core</span>
+            <span class="ed-pill">SQL Server</span>
+            <span class="ed-pill">Rust</span>
+            <span class="ed-pill">Azure</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ABOUT -->
+    <section class="ed-sec" id="ed-about" aria-labelledby="ed-about-t">
+      <div class="ed-wrap">
+        <div class="ed-head ed-reveal">
+          <span class="ed-head__num" aria-hidden="true">01</span>
+          <span class="ed-head__meta">
+            <span class="ed-mono ed-head__kicker">Section 01</span>
+            <span class="ed-head__title" id="ed-about-t">About Me</span>
+          </span>
+          <span class="ed-head__idx ed-head__spacer">The Profile</span>
+        </div>
+        <div class="ed-about">
+          <div class="ed-portrait ed-reveal">
+            <div class="ed-portrait__box" role="img" aria-label="Portrait of Mehran Mazhar"></div>
+            <div class="ed-portrait__frame" aria-hidden="true"></div>
+            <span class="ed-portrait__tag">Based in Iran · Remote</span>
+          </div>
+          <div class="ed-about__body ed-reveal">
+            <p>
+              I'm a senior full-stack developer with over a decade of experience delivering enterprise
+              portals, B2B travel and reservation platforms, workflow-automation systems, and IoT
+              solutions. My core stack is <mark>C#, ASP.NET Core, and SQL Server</mark>.
+            </p>
+            <p>
+              In recent years I've moved deeper into blockchain engineering. I'm the creator of
+              <mark>Clutch Protocol</mark>, an open-source decentralized ride-sharing network built in
+              Rust — a project that grew out of my master's thesis on reducing travel costs through
+              blockchain technology.
+            </p>
+            <h3 class="ed-exp-h">Core Expertise</h3>
+            <div class="ed-skillgroups">
+              <div class="ed-skillgroup">
+                <div class="ed-skillgroup__label">.NET Stack <span>A</span></div>
+                <ul class="ed-skilllist">
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 17l6-6-6-6"/><path d="M12 19h8"/></svg>C# / .NET</li>
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="6" rx="1"/><rect x="2" y="15" width="20" height="6" rx="1"/><line x1="6" y1="6" x2="6" y2="6"/></svg>ASP.NET Core</li>
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg>SQL Server</li>
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.6 13.4a5.5 5.5 0 0 0 7.8 0l3-3a5.5 5.5 0 0 0-7.8-7.8l-1.7 1.7"/><path d="M13.4 10.6a5.5 5.5 0 0 0-7.8 0l-3 3a5.5 5.5 0 0 0 7.8 7.8l1.7-1.7"/></svg>Web API &amp; WCF</li>
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>Microsoft Azure</li>
+                </ul>
+              </div>
+              <div class="ed-skillgroup">
+                <div class="ed-skillgroup__label">Blockchain <span>B</span></div>
+                <ul class="ed-skilllist">
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"/></svg>Rust</li>
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="14" x2="15" y2="14"/></svg>Smart Contracts</li>
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Cryptography</li>
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="2" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="16" y="16" width="6" height="6" rx="1"/><path d="M12 8v4M12 12H5v4M12 12h7v4"/></svg>libp2p &amp; P2P</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="ed-sec" id="ed-projects" aria-labelledby="ed-proj-t">
+      <div class="ed-wrap">
+        <div class="ed-head ed-reveal">
+          <span class="ed-head__num" aria-hidden="true">02</span>
+          <span class="ed-head__meta">
+            <span class="ed-mono ed-head__kicker">Section 02</span>
+            <span class="ed-head__title" id="ed-proj-t">Featured Project</span>
+          </span>
+          <span class="ed-head__idx ed-head__spacer">The Cover Story</span>
+        </div>
+
+        <h3 class="ed-proj__lede ed-reveal">Clutch Protocol — <em>decentralized</em> ride-sharing, rebuilt from the chain up.</h3>
+        <p class="ed-proj__sub ed-reveal">Featured Project · Open Source · Rust Blockchain</p>
+
+        <p class="ed-proj__quote ed-reveal">
+          An open-source, blockchain-based ride-sharing network designed to lower platform fees and
+          return more value to drivers through transparent, decentralized infrastructure. As creator and
+          lead developer, I designed and built its core components:
+        </p>
+
+        <div class="ed-repos ed-reveal">
+          <a href="https://github.com/clutch-protocol/clutch-node" target="_blank" rel="noopener" class="ed-repo">
+            <div class="ed-repo__top">
+              <span class="ed-repo__name">clutch-<b>node</b></span>
+              <svg class="ed-repo__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </div>
+            <p class="ed-repo__desc">Core blockchain implementation in <strong>Rust</strong> with Aura consensus for fast, energy-efficient validation.</p>
+            <div class="ed-repo__tags"><span>Rust</span><span>Blockchain</span><span>libp2p</span></div>
+          </a>
+          <a href="https://github.com/clutch-protocol/clutch-hub-api" target="_blank" rel="noopener" class="ed-repo">
+            <div class="ed-repo__top">
+              <span class="ed-repo__name">clutch-hub-<b>api</b></span>
+              <svg class="ed-repo__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </div>
+            <p class="ed-repo__desc">API layer bridging applications to the blockchain with real-time <strong>WebSocket</strong> support.</p>
+            <div class="ed-repo__tags"><span>Node.js</span><span>REST API</span><span>WebSocket</span></div>
+          </a>
+          <a href="https://github.com/clutch-protocol/clutch-hub-sdk-js" target="_blank" rel="noopener" class="ed-repo">
+            <div class="ed-repo__top">
+              <span class="ed-repo__name">clutch-hub-<b>sdk-js</b></span>
+              <svg class="ed-repo__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </div>
+            <p class="ed-repo__desc"><strong>TypeScript</strong> SDK enabling seamless integration for developers building on Clutch Protocol.</p>
+            <div class="ed-repo__tags"><span>TypeScript</span><span>SDK</span><span>npm</span></div>
+          </a>
+          <a href="https://github.com/clutch-protocol/clutch-hub-demo-app" target="_blank" rel="noopener" class="ed-repo">
+            <div class="ed-repo__top">
+              <span class="ed-repo__name">clutch-hub-<b>demo-app</b></span>
+              <svg class="ed-repo__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </div>
+            <p class="ed-repo__desc"><strong>React</strong>-based reference implementation showcasing the platform's capabilities.</p>
+            <div class="ed-repo__tags"><span>React</span><span>Demo</span><span>UI</span></div>
+          </a>
+        </div>
+
+        <p class="ed-stats-label ed-reveal">Protocol design targets</p>
+        <div class="ed-stats ed-reveal">
+          <div class="ed-stat">
+            <div class="ed-stat__val">5-8%</div>
+            <div class="ed-stat__label">Platform Fee</div>
+            <div class="ed-stat__note">vs 15-25% traditional</div>
+          </div>
+          <div class="ed-stat">
+            <div class="ed-stat__val">90%</div>
+            <div class="ed-stat__label">To Drivers</div>
+            <div class="ed-stat__note">Fee distribution</div>
+          </div>
+          <div class="ed-stat">
+            <div class="ed-stat__val">60%</div>
+            <div class="ed-stat__label">Cost Reduction</div>
+            <div class="ed-stat__note">For end users</div>
+          </div>
+          <div class="ed-stat">
+            <div class="ed-stat__val">DAO</div>
+            <div class="ed-stat__label">Governance</div>
+            <div class="ed-stat__note">Community-driven</div>
+          </div>
+        </div>
+
+        <div class="ed-reveal">
+          <a href="https://github.com/clutch-protocol" target="_blank" rel="noopener" class="ed-btn ed-btn--solid">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.57.1.78-.25.78-.55v-1.9c-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.28-1.7-1.28-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.26-1.28-5.26-5.7 0-1.26.45-2.29 1.2-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.75.81 1.2 1.84 1.2 3.1 0 4.43-2.7 5.4-5.28 5.69.42.36.79 1.06.79 2.14v3.17c0 .31.21.66.79.55A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg>
+            View Organization
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="ed-sec" id="ed-experience" aria-labelledby="ed-exp-t">
+      <div class="ed-wrap">
+        <div class="ed-head ed-reveal">
+          <span class="ed-head__num" aria-hidden="true">03</span>
+          <span class="ed-head__meta">
+            <span class="ed-mono ed-head__kicker">Section 03</span>
+            <span class="ed-head__title" id="ed-exp-t">Experience</span>
+          </span>
+          <span class="ed-head__idx ed-head__spacer">The Track Record</span>
+        </div>
+
+        <div class="ed-tl">
+          <article class="ed-tl__item ed-reveal">
+            <div class="ed-tl__date">Dec 2018 — Present<b>Current Role</b></div>
+            <div>
+              <h3 class="ed-tl__role">Senior Full-Stack Developer (.NET)</h3>
+              <span class="ed-tl__co">Parto CRS / Fly Today</span>
+              <p class="ed-tl__quote">Building B2B travel and airline reservation platforms serving agencies across the region.</p>
+              <ul class="ed-tl__list">
+                <li>Design and develop B2B flight and hotel reservation systems with C#, ASP.NET Core, and SQL Server</li>
+                <li>Build and maintain REST / Web API services integrating GDS and third-party supplier feeds</li>
+                <li>Develop internal tools and dashboards for booking and fare management</li>
+              </ul>
+              <div class="ed-tl__tags"><span>C#</span><span>ASP.NET Core</span><span>SQL Server</span><span>Web API</span></div>
+            </div>
+          </article>
+
+          <article class="ed-tl__item ed-reveal">
+            <div class="ed-tl__date">Apr 2018 — Oct 2018<b>Full-time</b></div>
+            <div>
+              <h3 class="ed-tl__role">.NET &amp; IoT Developer</h3>
+              <span class="ed-tl__co">Wenda IoT Communication Technology</span>
+              <p class="ed-tl__quote">Built device management and monitoring solutions on Microsoft Azure IoT Hub.</p>
+              <ul class="ed-tl__list">
+                <li>Developed an IoT device management and monitoring portal on Microsoft Azure IoT Hub</li>
+                <li>Built a dual-channel touch switch with cloud connectivity and network cameras with face detection</li>
+                <li>Programmed embedded hardware in Python and Arduino; authored content for iot-lab.ir</li>
+              </ul>
+              <div class="ed-tl__tags"><span>C#</span><span>Azure IoT Hub</span><span>Python</span><span>Arduino</span></div>
+            </div>
+          </article>
+
+          <article class="ed-tl__item ed-reveal">
+            <div class="ed-tl__date">Oct 2014 — Feb 2018<b>Full-time</b></div>
+            <div>
+              <h3 class="ed-tl__role">Full-Stack Web Developer</h3>
+              <span class="ed-tl__co">Sepna &amp; Tehran Municipality ICT Organization</span>
+              <p class="ed-tl__quote">Delivered enterprise portals and an ITIL-based IT service management platform.</p>
+              <ul class="ed-tl__list">
+                <li>Co-developed an ITIL-based ITSM platform for Tehran Municipality ICT, including a custom workflow engine for business-process automation</li>
+                <li>Built enterprise portals and custom modules on DotNetNuke</li>
+                <li>Developed ASP.NET (Web Forms, MVC, Core) applications and WCF / ASMX web services</li>
+                <li>Designed SQL Server databases with stored procedures, functions, and reporting</li>
+              </ul>
+              <div class="ed-tl__tags"><span>ASP.NET</span><span>DotNetNuke</span><span>WCF</span><span>SQL Server</span></div>
+            </div>
+          </article>
+
+          <article class="ed-tl__item ed-reveal">
+            <div class="ed-tl__date">2024 — Present<b>Side Project</b></div>
+            <div>
+              <h3 class="ed-tl__role">Founder &amp; Lead Blockchain Engineer</h3>
+              <a href="https://github.com/clutch-protocol" target="_blank" rel="noopener" class="ed-tl__co">
+                Clutch Protocol
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+              </a>
+              <p class="ed-tl__quote">Building an open-source, decentralized ride-sharing network on a custom Rust blockchain.</p>
+              <ul class="ed-tl__list">
+                <li><strong>Architecture &amp; Design:</strong> Implemented a blockchain core in Rust with Aura consensus for high throughput and low latency</li>
+                <li><strong>Full-Stack Development:</strong> Built the API layer, a TypeScript SDK, and a React demo application</li>
+                <li><strong>Protocol Design:</strong> Designed a tokenomics model distributing 90% of fees to drivers, 5% to validators, and 5% to developers</li>
+                <li><strong>Security:</strong> Implemented client-side transaction signing with secp256k1 / ed25519</li>
+              </ul>
+              <div class="ed-tl__tags"><span>Rust</span><span>Node.js</span><span>TypeScript</span><span>React</span><span>libp2p</span><span>Cryptography</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="ed-sec" id="ed-education" aria-labelledby="ed-edu-t">
+      <div class="ed-wrap">
+        <div class="ed-head ed-reveal">
+          <span class="ed-head__num" aria-hidden="true">04</span>
+          <span class="ed-head__meta">
+            <span class="ed-mono ed-head__kicker">Section 04</span>
+            <span class="ed-head__title" id="ed-edu-t">Education</span>
+          </span>
+          <span class="ed-head__idx ed-head__spacer">The Foundation</span>
+        </div>
+        <div class="ed-edu ed-reveal">
+          <div class="ed-edu__card">
+            <span class="ed-edu__year">2023</span>
+            <h3 class="ed-edu__deg">M.Sc., Computer Software Engineering</h3>
+            <p class="ed-edu__school">Islamic Azad University</p>
+            <p class="ed-edu__note">Thesis: a blockchain-based network to reduce travel cost in ride-sharing services — the foundation of Clutch Protocol.</p>
+          </div>
+          <div class="ed-edu__card">
+            <span class="ed-edu__year">2018</span>
+            <h3 class="ed-edu__deg">B.Sc., Computer Software Engineering</h3>
+            <p class="ed-edu__school">Islamic Azad University, Islamshahr Branch</p>
+          </div>
+          <div class="ed-edu__card">
+            <span class="ed-edu__year">2015</span>
+            <h3 class="ed-edu__deg">A.Sc., Computer Software Engineering</h3>
+            <p class="ed-edu__school">Shahid Babaei College, Qazvin</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESEARCH -->
+    <section class="ed-sec" id="ed-research" aria-labelledby="ed-res-t">
+      <div class="ed-wrap">
+        <div class="ed-head ed-reveal">
+          <span class="ed-head__num" aria-hidden="true">05</span>
+          <span class="ed-head__meta">
+            <span class="ed-mono ed-head__kicker">Section 05</span>
+            <span class="ed-head__title" id="ed-res-t">Academic Research</span>
+          </span>
+          <span class="ed-head__idx ed-head__spacer">The Thesis</span>
+        </div>
+        <div class="ed-res">
+          <div class="ed-res__left ed-reveal">
+            <p class="ed-mono ed-res__label">Master's Thesis</p>
+            <h3 class="ed-res__title">A Blockchain-Based Network to Reduce the Travel Cost in Ride-Sharing Services</h3>
+            <p class="ed-res__advisor">Advisor: <strong>MohammadHossein ShafiAbadi, Ph.D.</strong></p>
+            <p class="ed-res__quote">
+              Academic research that laid the theoretical foundation for Clutch Protocol — showing
+              how blockchain technology can improve ride-sharing economics and reduce travel costs.
+            </p>
+            <p class="ed-res__note">
+              This thesis is the academic groundwork for Clutch Protocol — the research is now being
+              put into practice as a working open-source implementation.
+            </p>
+            <div class="ed-res__actions">
+              <a href="https://github.com/MehranMazhar/master-thesis/blob/main/MehranMazhar_Thesis.pdf" target="_blank" rel="noopener" class="ed-btn ed-btn--solid ed-btn--sm">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                Full Thesis
+              </a>
+              <a href="https://github.com/MehranMazhar/master-thesis/blob/main/MehranMazhar_Thesis_Presentation.pdf" target="_blank" rel="noopener" class="ed-btn ed-btn--ghost ed-btn--sm">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                Presentation
+              </a>
+              <a href="https://github.com/MehranMazhar/master-thesis" target="_blank" rel="noopener" class="ed-btn ed-btn--ghost ed-btn--sm">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.57.1.78-.25.78-.55v-1.9c-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.28-1.7-1.28-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.26-1.28-5.26-5.7 0-1.26.45-2.29 1.2-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.75.81 1.2 1.84 1.2 3.1 0 4.43-2.7 5.4-5.28 5.69.42.36.79 1.06.79 2.14v3.17c0 .31.21.66.79.55A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg>
+                Repository
+              </a>
+            </div>
+          </div>
+          <div class="ed-res__grid ed-reveal">
+            <div class="ed-hi">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg>
+              <strong>Economic Analysis</strong>
+              <p>Detailed comparison between centralized and decentralized ride-sharing models.</p>
+            </div>
+            <div class="ed-hi">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.3 7 12 12 20.7 7"/><line x1="12" y1="22" x2="12" y2="12"/></svg>
+              <strong>Technical Architecture</strong>
+              <p>Blockchain infrastructure specifically optimized for ride-sharing applications.</p>
+            </div>
+            <div class="ed-hi">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v12c0 1.66 3.58 3 8 3s8-1.34 8-3V6"/><path d="M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3"/></svg>
+              <strong>Cost Reduction</strong>
+              <p>Mathematical modeling demonstrating significant travel cost reductions.</p>
+            </div>
+            <div class="ed-hi">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              <strong>Security &amp; Trust</strong>
+              <p>Cryptographic protocols ensuring secure, trustless transactions.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERESTS -->
+    <section class="ed-sec" id="ed-interests" aria-labelledby="ed-int-t">
+      <div class="ed-wrap">
+        <div class="ed-head ed-reveal">
+          <span class="ed-head__num" aria-hidden="true">06</span>
+          <span class="ed-head__meta">
+            <span class="ed-mono ed-head__kicker">Section 06</span>
+            <span class="ed-head__title" id="ed-int-t">Beyond the Code</span>
+          </span>
+          <span class="ed-head__idx ed-head__spacer">The Human</span>
+        </div>
+        <p class="ed-sub ed-reveal">
+          While I'm passionate about blockchain technology and building decentralized systems,
+          I believe in maintaining a balanced lifestyle.
+        </p>
+        <div class="ed-int ed-reveal">
+          <div class="ed-int__card">
+            <span class="ed-int__num">/ 01</span>
+            <div class="ed-int__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/><circle cx="17" cy="6" r="2.2"/></svg></div>
+            <h3>Mountaineering</h3>
+            <p>Drawing inspiration from nature's complexity and finding parallels between navigating challenging terrains and solving complex technical problems.</p>
+          </div>
+          <div class="ed-int__card">
+            <span class="ed-int__num">/ 02</span>
+            <div class="ed-int__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5a2.12 2.12 0 0 0-3-3L13 8 4.8 6.2a1 1 0 0 0-.9 1.7l4.8 3.4-2.3 2.3H4l-1 1 3 1.5L9 20l1-1v-2.4l2.3-2.3 3.4 4.8a1 1 0 0 0 1.7-.9z"/></svg></div>
+            <h3>Traveling</h3>
+            <p>Exploring different perspectives and understanding global challenges that technology can help solve through cultural exchange.</p>
+          </div>
+          <div class="ed-int__card">
+            <span class="ed-int__num">/ 03</span>
+            <div class="ed-int__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></svg></div>
+            <h3>Open Source</h3>
+            <p>Contributing to and supporting the broader developer ecosystem that makes innovative projects like Clutch Protocol possible.</p>
+          </div>
+          <div class="ed-int__card">
+            <span class="ed-int__num">/ 04</span>
+            <div class="ed-int__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg></div>
+            <h3>Tech Philosophy</h3>
+            <p>Exploring how decentralized systems can create more equitable outcomes at the intersection of technology, economics, and social impact.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="ed-contact" id="ed-contact" aria-labelledby="ed-con-t">
+      <div class="ed-wrap">
+        <p class="ed-mono ed-contact__label ed-reveal">What's Next?</p>
+        <h2 class="ed-contact__title ed-reveal" id="ed-con-t">Let's Build <em>Something</em> Together</h2>
+        <p class="ed-contact__text ed-reveal">
+          Whether you're interested in blockchain development, want to collaborate on
+          decentralized projects, or just want to say hello — my inbox is always open.
+        </p>
+        <div class="ed-contact__actions ed-reveal">
+          <a href="mailto:mehran.mazhar@gmail.com" class="ed-btn ed-btn--solid ed-btn--lg">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+            Say Hello
+          </a>
+          <a href="/assets/Mehran-Mazhar-CV.pdf" download class="ed-btn ed-btn--ghost ed-btn--lg">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download CV
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="ed-foot">
+    <div class="ed-wrap">
+      <div class="ed-foot__social">
+        <a href="https://github.com/mehranmazhar" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.57.1.78-.25.78-.55v-1.9c-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.28-1.7-1.28-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.26-1.28-5.26-5.7 0-1.26.45-2.29 1.2-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.75.81 1.2 1.84 1.2 3.1 0 4.43-2.7 5.4-5.28 5.69.42.36.79 1.06.79 2.14v3.17c0 .31.21.66.79.55A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg>
+        </a>
+        <a href="https://linkedin.com/in/mehran-mazhar" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0zM.25 8.25h4.5V24h-4.5V8.25zM8.75 8.25h4.31v2.15h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V24h-4.5v-6.98c0-1.66-.03-3.8-2.32-3.8-2.32 0-2.67 1.81-2.67 3.68V24h-4.5V8.25z"/></svg>
+        </a>
+        <a href="https://twitter.com/mehran_mazhar4" target="_blank" rel="noopener" aria-label="X (Twitter)">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2h3.3l-7.2 8.24L23.7 22h-6.6l-5.18-6.77L5.99 22H2.68l7.7-8.8L2.3 2h6.77l4.68 6.19L18.9 2zm-1.16 18h1.83L7.34 3.9H5.38L17.74 20z"/></svg>
+        </a>
+        <a href="https://stackoverflow.com/users/2676799" target="_blank" rel="noopener" aria-label="Stack Overflow">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.36 20.2v-5.38h1.79V22H3v-7.18h1.8v5.38h12.56z"/><path d="M6.77 14.32l8.78 1.84.37-1.76-8.78-1.84-.37 1.76zm1.16-4.2l8.14 3.78.76-1.63-8.14-3.8-.76 1.65zm2.26-3.99l6.9 5.74 1.14-1.36-6.9-5.75-1.14 1.37zM14.66 2l-1.44 1.07 5.35 7.2 1.44-1.07L14.66 2z"/></svg>
+        </a>
+        <a href="https://instagram.com/mazhar_mehran4" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+      </div>
+      <p class="ed-foot__credit">Designed &amp; Built by <b>Mehran Mazhar</b></p>
+      <p class="ed-foot__copy">&copy; 2024 — Present · All rights reserved</p>
+    </div>
+  </footer>
+
+  <script>
+  (function(){
+    "use strict";
+    var root = document.currentScript ? document.currentScript.closest(".ed-root") : document.querySelector(".ed-root");
+    if(!root) root = document;
+
+    // Mobile nav toggle
+    var burger = root.querySelector("#edBurger");
+    var links = root.querySelector("#edNavLinks");
+    function closeNav(){
+      if(!links) return;
+      links.classList.remove("is-open");
+      if(burger){ burger.classList.remove("is-open"); burger.setAttribute("aria-expanded","false"); }
+    }
+    if(burger && links){
+      burger.addEventListener("click", function(){
+        var open = links.classList.toggle("is-open");
+        burger.classList.toggle("is-open", open);
+        burger.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+      links.addEventListener("click", function(e){
+        if(e.target && e.target.tagName === "A") closeNav();
+      });
+      document.addEventListener("keydown", function(e){
+        if(e.key === "Escape") closeNav();
+      });
+    }
+
+    // Scroll reveal
+    var reveals = root.querySelectorAll(".ed-reveal");
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if(reduce || !("IntersectionObserver" in window)){
+      reveals.forEach(function(el){ el.classList.add("is-in"); });
+    } else {
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){
+          if(en.isIntersecting){
+            en.target.classList.add("is-in");
+            io.unobserve(en.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+      reveals.forEach(function(el, i){
+        el.style.transitionDelay = Math.min(i % 6, 5) * 55 + "ms";
+        io.observe(el);
+      });
+    }
+  })();
+  </script>
+</div>
+</body>
+</html>

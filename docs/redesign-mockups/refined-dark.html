@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mehran Mazhar — Refined dark (redesign mockup)</title>
+</head>
+<body>
+<style>
+  :root{
+    --bg:#0a0b0d;
+    --surface-1:#101215;
+    --surface-2:#15181c;
+    --surface-3:#1b1f24;
+    --line:rgba(255,255,255,.08);
+    --line-strong:rgba(255,255,255,.14);
+    --text:#e7eaee;
+    --text-dim:#a3abb5;
+    --text-mute:#6b7580;
+    --accent:#5ee0c8;
+    --accent-deep:#2fb59c;
+    --accent-glow:rgba(94,224,200,.14);
+    --radius:14px;
+    --radius-sm:9px;
+    --maxw:1120px;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono","Cascadia Code",Consolas,"Liberation Mono",monospace;
+    --ease:cubic-bezier(.22,.61,.36,1);
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  .mm-root{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--sans);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    font-size:16px;
+    overflow-x:hidden;
+    position:relative;
+  }
+  .mm-root::before{
+    content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:
+      radial-gradient(60% 45% at 78% -5%, var(--accent-glow), transparent 60%),
+      radial-gradient(50% 40% at 0% 8%, rgba(80,120,255,.06), transparent 55%);
+  }
+  .mm-root a{color:inherit;text-decoration:none}
+  .mm-root img{max-width:100%;display:block}
+  .mm-root :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+  .mm-root h1,.mm-root h2,.mm-root h3,.mm-root h4,.mm-root p,.mm-root ul{margin:0}
+  .mm-root ul{list-style:none;padding:0}
+  .mm-container{max-width:var(--maxw);margin:0 auto;padding:0 28px;position:relative;z-index:1}
+
+  /* ---------- NAV ---------- */
+  .mm-nav{position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    background:rgba(10,11,13,.72);
+    border-bottom:1px solid transparent;transition:border-color .3s,background .3s}
+  .mm-nav.is-scrolled{border-bottom-color:var(--line);background:rgba(10,11,13,.86)}
+  .mm-nav__inner{max-width:var(--maxw);margin:0 auto;padding:0 28px;height:66px;
+    display:flex;align-items:center;justify-content:space-between}
+  .mm-logo{font-family:var(--mono);font-size:1rem;font-weight:600;letter-spacing:.02em;color:var(--text);white-space:nowrap}
+  .mm-logo .b{color:var(--accent)}
+  .mm-navlinks{display:flex;align-items:center;gap:4px}
+  .mm-navlinks a{font-size:.86rem;color:var(--text-dim);padding:8px 12px;border-radius:8px;
+    transition:color .2s,background .2s;position:relative}
+  .mm-navlinks a:not(.mm-cta):hover{color:var(--text);background:var(--surface-2)}
+  .mm-navlinks .mm-num{font-family:var(--mono);font-size:.72rem;color:var(--accent);margin-right:5px;opacity:.75}
+  .mm-cta{color:var(--accent)!important;border:1px solid var(--line-strong);
+    margin-left:10px;background:rgba(94,224,200,.05);transition:background .2s,border-color .2s}
+  .mm-cta:hover{background:rgba(94,224,200,.12);border-color:var(--accent-deep)}
+  .mm-burger{display:none;background:none;border:1px solid var(--line);border-radius:9px;
+    width:42px;height:42px;cursor:pointer;padding:0;align-items:center;justify-content:center}
+  .mm-burger span{display:block;width:19px;height:2px;background:var(--text);border-radius:2px;
+    transition:transform .3s var(--ease),opacity .2s}
+  .mm-burger span+span{margin-top:5px}
+  .mm-burger.is-open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .mm-burger.is-open span:nth-child(2){opacity:0}
+  .mm-burger.is-open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+  /* ---------- BUTTONS ---------- */
+  .mm-btn{display:inline-flex;align-items:center;gap:9px;font-size:.9rem;font-weight:500;
+    padding:12px 20px;border-radius:10px;cursor:pointer;transition:transform .2s var(--ease),
+    background .2s,border-color .2s,box-shadow .3s;border:1px solid transparent;font-family:var(--sans)}
+  .mm-btn svg{width:16px;height:16px;flex:none}
+  .mm-btn--primary{background:linear-gradient(180deg,#67e6cf,var(--accent-deep));color:#04120e;font-weight:600;
+    box-shadow:0 6px 22px -8px rgba(94,224,200,.5)}
+  .mm-btn--primary:hover{transform:translateY(-2px);box-shadow:0 12px 30px -8px rgba(94,224,200,.6)}
+  .mm-btn--outline{border-color:var(--line-strong);color:var(--text);background:var(--surface-2)}
+  .mm-btn--outline:hover{border-color:var(--accent-deep);color:var(--accent);transform:translateY(-2px)}
+  .mm-btn--sm{padding:9px 15px;font-size:.83rem}
+  .mm-btn--lg{padding:15px 26px;font-size:.98rem}
+
+  /* ---------- SECTION SCAFFOLD ---------- */
+  .mm-section{padding:110px 0;position:relative}
+  .mm-eyebrow{display:flex;align-items:center;gap:16px;margin-bottom:44px}
+  .mm-eyebrow__num{font-family:var(--mono);font-size:.82rem;color:var(--accent)}
+  .mm-eyebrow__title{font-size:clamp(1.5rem,3.4vw,2.05rem);font-weight:700;letter-spacing:-.02em;white-space:nowrap}
+  .mm-eyebrow__rule{flex:1;height:1px;background:linear-gradient(90deg,var(--line-strong),transparent)}
+
+  /* ---------- HERO ---------- */
+  .mm-hero{padding:120px 0 96px;position:relative}
+  .mm-hero__grid{display:grid;grid-template-columns:1.35fr .9fr;gap:56px;align-items:center}
+  .mm-hero__greeting{font-family:var(--mono);color:var(--accent);font-size:.95rem;margin-bottom:18px;letter-spacing:.02em}
+  .mm-hero__name{font-size:clamp(2.7rem,7vw,4.6rem);line-height:1.02;font-weight:800;letter-spacing:-.035em;
+    background:linear-gradient(180deg,#fff,#b7bec6);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .mm-hero__title{font-size:clamp(1.15rem,3.2vw,1.85rem);font-weight:600;color:var(--text-dim);
+    margin-top:14px;letter-spacing:-.01em;line-height:1.25}
+  .mm-hero__title .hl{color:var(--text)}
+  .mm-hero__title .hl b{color:var(--accent);font-weight:600}
+  .mm-hero__desc{color:var(--text-dim);font-size:1.06rem;max-width:56ch;margin-top:26px}
+  .mm-hero__desc strong{color:var(--text);font-weight:600}
+  .mm-hero__actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+  .mm-hero__tech{margin-top:44px}
+  .mm-hero__tech-label{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--text-mute);display:block;margin-bottom:14px}
+  .mm-pills{display:flex;flex-wrap:wrap;gap:9px}
+  .mm-pill{font-family:var(--mono);font-size:.8rem;color:var(--text-dim);background:var(--surface-2);
+    border:1px solid var(--line);padding:7px 13px;border-radius:999px;transition:border-color .2s,color .2s}
+  .mm-pill:hover{border-color:var(--accent-deep);color:var(--accent)}
+  /* hero card */
+  .mm-hero__card{position:relative;border:1px solid var(--line);border-radius:18px;background:
+    linear-gradient(180deg,var(--surface-2),var(--surface-1));padding:0;overflow:hidden;
+    box-shadow:0 30px 70px -30px rgba(0,0,0,.8)}
+  .mm-hero__card-bar{display:flex;align-items:center;gap:7px;padding:13px 16px;border-bottom:1px solid var(--line)}
+  .mm-hero__card-bar i{width:11px;height:11px;border-radius:50%;background:var(--surface-3);border:1px solid var(--line-strong)}
+  .mm-hero__card-bar span{margin-left:auto;font-family:var(--mono);font-size:.72rem;color:var(--text-mute)}
+  .mm-code{font-family:var(--mono);font-size:.83rem;line-height:1.9;padding:20px 20px 24px;color:var(--text-dim);overflow-x:auto}
+  .mm-code .k{color:#8ab4ff}.mm-code .s{color:var(--accent)}.mm-code .c{color:var(--text-mute)}.mm-code .p{color:#e0a3ff}
+  .mm-code .fn{color:#ffd580}
+
+  /* ---------- ABOUT ---------- */
+  .mm-about__grid{display:grid;grid-template-columns:300px 1fr;gap:52px;align-items:start}
+  .mm-portrait{position:relative}
+  .mm-portrait__frame{position:relative;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line-strong);
+    aspect-ratio:4/5;background:linear-gradient(160deg,var(--surface-3),var(--surface-1))}
+  .mm-portrait__frame img{width:100%;height:100%;object-fit:cover}
+  .mm-portrait__frame::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,transparent 55%,rgba(10,11,13,.5))}
+  .mm-portrait__accent{position:absolute;inset:12px -12px -12px 12px;border:1px solid var(--accent-deep);
+    border-radius:var(--radius);z-index:-1;opacity:.5}
+  .mm-about__text p{color:var(--text-dim);margin-bottom:18px;font-size:1.04rem}
+  .mm-about__text mark{background:none;color:var(--accent);font-weight:500}
+  .mm-about__skills{margin-top:34px}
+  .mm-about__skills h3{font-size:1.05rem;margin-bottom:20px;letter-spacing:-.01em}
+  .mm-skillgroup+.mm-skillgroup{margin-top:24px}
+  .mm-skillgroup__label{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--text-mute);display:block;margin-bottom:12px}
+  .mm-skillgrid{display:flex;flex-wrap:wrap;gap:10px}
+  .mm-skill{display:inline-flex;align-items:center;gap:9px;background:var(--surface-2);border:1px solid var(--line);
+    padding:9px 14px;border-radius:10px;font-size:.88rem;color:var(--text-dim);transition:border-color .2s,transform .2s,color .2s}
+  .mm-skill:hover{border-color:var(--accent-deep);transform:translateY(-2px);color:var(--text)}
+  .mm-skill svg{width:16px;height:16px;color:var(--accent);flex:none}
+
+  /* ---------- PROJECT ---------- */
+  .mm-proj{border:1px solid var(--line);border-radius:20px;overflow:hidden;
+    background:linear-gradient(180deg,var(--surface-1),var(--bg))}
+  .mm-proj__head{padding:36px 36px 30px;border-bottom:1px solid var(--line);
+    background:radial-gradient(80% 120% at 100% 0,rgba(94,224,200,.07),transparent 60%)}
+  .mm-proj__label{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+  .mm-proj__title{font-size:clamp(1.9rem,4.5vw,2.6rem);font-weight:800;letter-spacing:-.03em;margin-top:10px}
+  .mm-proj__sub{color:var(--text-dim);font-size:1.05rem;margin-top:4px}
+  .mm-proj__quote{color:var(--text-dim);font-size:1.06rem;max-width:70ch;margin-top:18px;
+    padding-left:16px;border-left:2px solid var(--accent-deep)}
+  .mm-proj__body{padding:34px 36px}
+  .mm-proj__intro{color:var(--text-mute);font-size:.92rem;margin-bottom:20px}
+  .mm-repos{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .mm-repo{position:relative;display:flex;gap:15px;padding:20px;border:1px solid var(--line);border-radius:var(--radius);
+    background:var(--surface-2);transition:border-color .25s,transform .25s,background .25s}
+  .mm-repo:hover{border-color:var(--accent-deep);transform:translateY(-3px);background:var(--surface-3)}
+  .mm-repo__icon{width:40px;height:40px;border-radius:10px;background:var(--surface-3);border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;flex:none;color:var(--text)}
+  .mm-repo__icon svg{width:20px;height:20px}
+  .mm-repo h4{font-family:var(--mono);font-size:.98rem;color:var(--text);letter-spacing:-.01em}
+  .mm-repo p{color:var(--text-dim);font-size:.86rem;margin-top:6px;line-height:1.55}
+  .mm-repo p strong{color:var(--accent);font-weight:600}
+  .mm-repo__tech{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+  .mm-repo__tech span{font-family:var(--mono);font-size:.68rem;color:var(--text-mute);
+    background:var(--surface-1);border:1px solid var(--line);padding:3px 8px;border-radius:6px}
+  .mm-repo__arrow{position:absolute;top:16px;right:16px;color:var(--text-mute);transition:color .2s,transform .2s}
+  .mm-repo:hover .mm-repo__arrow{color:var(--accent);transform:translate(2px,-2px)}
+  .mm-repo__arrow svg{width:15px;height:15px}
+  .mm-stats-label{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--text-mute);margin:34px 0 16px}
+  .mm-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .mm-stat{border:1px solid var(--line);border-radius:var(--radius);padding:20px 18px;background:var(--surface-2);text-align:left}
+  .mm-stat__val{font-size:1.9rem;font-weight:800;letter-spacing:-.03em;
+    background:linear-gradient(180deg,var(--accent),var(--accent-deep));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .mm-stat__label{display:block;font-size:.92rem;color:var(--text);margin-top:6px;font-weight:500}
+  .mm-stat__note{display:block;font-size:.76rem;color:var(--text-mute);margin-top:3px}
+  .mm-proj__cta{margin-top:30px}
+
+  /* ---------- TIMELINE ---------- */
+  .mm-timeline{position:relative;padding-left:34px}
+  .mm-timeline::before{content:"";position:absolute;left:8px;top:6px;bottom:6px;width:1px;
+    background:linear-gradient(180deg,var(--accent-deep),var(--line) 20%,var(--line))}
+  .mm-tl-item{position:relative;padding-bottom:38px}
+  .mm-tl-item:last-child{padding-bottom:0}
+  .mm-tl-item::before{content:"";position:absolute;left:-30px;top:26px;width:11px;height:11px;border-radius:50%;
+    background:var(--bg);border:2px solid var(--accent);box-shadow:0 0 0 4px rgba(94,224,200,.1)}
+  .mm-tl-card{border:1px solid var(--line);border-radius:var(--radius);background:var(--surface-1);
+    padding:24px 26px;transition:border-color .25s,transform .25s}
+  .mm-tl-card:hover{border-color:var(--line-strong);transform:translateX(3px)}
+  .mm-tl-head{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:baseline}
+  .mm-tl-role{font-size:1.15rem;font-weight:600;letter-spacing:-.01em}
+  .mm-tl-company{color:var(--accent);font-size:.95rem;font-weight:500;display:inline-flex;align-items:center;gap:6px}
+  .mm-tl-company svg{width:13px;height:13px}
+  .mm-tl-date{font-family:var(--mono);font-size:.78rem;color:var(--text-mute);white-space:nowrap}
+  .mm-tl-quote{color:var(--text-dim);font-size:.96rem;margin:12px 0 14px}
+  .mm-tl-list li{position:relative;padding-left:20px;color:var(--text-dim);font-size:.92rem;margin-bottom:7px}
+  .mm-tl-list li::before{content:"";position:absolute;left:2px;top:9px;width:5px;height:5px;border-radius:1px;
+    background:var(--accent-deep);transform:rotate(45deg)}
+  .mm-tl-list strong{color:var(--text)}
+  .mm-tl-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:15px}
+  .mm-tl-tags span{font-family:var(--mono);font-size:.7rem;color:var(--text-mute);background:var(--surface-2);
+    border:1px solid var(--line);padding:4px 9px;border-radius:6px}
+
+  /* ---------- EDUCATION ---------- */
+  .mm-edu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .mm-edu{border:1px solid var(--line);border-radius:var(--radius);background:var(--surface-1);padding:26px;
+    transition:border-color .25s,transform .25s;position:relative;overflow:hidden}
+  .mm-edu:hover{border-color:var(--accent-deep);transform:translateY(-4px)}
+  .mm-edu__icon{width:44px;height:44px;border-radius:11px;background:var(--surface-2);border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;color:var(--accent);margin-bottom:18px}
+  .mm-edu__icon svg{width:22px;height:22px}
+  .mm-edu__date{font-family:var(--mono);font-size:.78rem;color:var(--accent)}
+  .mm-edu__degree{font-size:1.08rem;font-weight:600;margin-top:8px;letter-spacing:-.01em;line-height:1.3}
+  .mm-edu__school{color:var(--text-dim);font-size:.92rem;margin-top:6px}
+  .mm-edu__note{color:var(--text-mute);font-size:.86rem;margin-top:12px;line-height:1.55}
+
+  /* ---------- RESEARCH ---------- */
+  .mm-research{border:1px solid var(--line);border-radius:20px;background:
+    linear-gradient(180deg,var(--surface-1),var(--bg));padding:40px;
+    display:grid;grid-template-columns:64px 1fr;gap:28px}
+  .mm-research__icon{width:64px;height:64px;border-radius:16px;background:var(--surface-2);border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;color:var(--accent)}
+  .mm-research__icon svg{width:30px;height:30px}
+  .mm-research__label{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+  .mm-research__title{font-size:clamp(1.3rem,3vw,1.7rem);font-weight:700;letter-spacing:-.02em;margin-top:10px;line-height:1.25}
+  .mm-research__advisor{color:var(--text-dim);font-size:.95rem;margin-top:12px}
+  .mm-research__advisor strong{color:var(--text)}
+  .mm-research__quote{color:var(--text-dim);font-size:1.02rem;margin-top:16px;padding-left:16px;border-left:2px solid var(--accent-deep)}
+  .mm-hl-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:26px}
+  .mm-hl{display:flex;gap:13px;background:var(--surface-2);border:1px solid var(--line);border-radius:var(--radius-sm);padding:16px}
+  .mm-hl svg{width:20px;height:20px;color:var(--accent);flex:none;margin-top:2px}
+  .mm-hl strong{display:block;font-size:.95rem;color:var(--text);margin-bottom:3px}
+  .mm-hl p{color:var(--text-mute);font-size:.85rem;line-height:1.5}
+  .mm-research__note{color:var(--text-mute);font-size:.9rem;margin-top:22px;font-style:italic}
+  .mm-research__actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+
+  /* ---------- INTERESTS ---------- */
+  .mm-sub{color:var(--text-dim);font-size:1.05rem;max-width:64ch;margin:-24px 0 40px}
+  .mm-int-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .mm-int{border:1px solid var(--line);border-radius:var(--radius);background:var(--surface-1);padding:26px;
+    transition:border-color .25s,transform .25s}
+  .mm-int:hover{border-color:var(--accent-deep);transform:translateY(-4px)}
+  .mm-int__icon{width:46px;height:46px;border-radius:12px;background:var(--surface-2);border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;color:var(--accent);margin-bottom:18px}
+  .mm-int__icon svg{width:23px;height:23px}
+  .mm-int h3{font-size:1.08rem;font-weight:600;letter-spacing:-.01em}
+  .mm-int p{color:var(--text-dim);font-size:.88rem;margin-top:10px;line-height:1.6}
+
+  /* ---------- CONTACT ---------- */
+  .mm-contact{text-align:center;padding:120px 0}
+  .mm-contact__label{font-family:var(--mono);font-size:.82rem;color:var(--accent);letter-spacing:.04em}
+  .mm-contact__title{font-size:clamp(2rem,5.5vw,3.4rem);font-weight:800;letter-spacing:-.03em;margin-top:14px;
+    background:linear-gradient(180deg,#fff,#aab1b9);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .mm-contact__text{color:var(--text-dim);font-size:1.08rem;max-width:56ch;margin:20px auto 0}
+  .mm-contact__actions{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-top:36px}
+
+  /* ---------- FOOTER ---------- */
+  .mm-footer{border-top:1px solid var(--line);padding:52px 0;text-align:center}
+  .mm-social{display:flex;justify-content:center;gap:12px;margin-bottom:24px}
+  .mm-social a{width:42px;height:42px;border-radius:11px;border:1px solid var(--line);background:var(--surface-1);
+    display:flex;align-items:center;justify-content:center;color:var(--text-dim);
+    transition:color .2s,border-color .2s,transform .2s}
+  .mm-social a:hover{color:var(--accent);border-color:var(--accent-deep);transform:translateY(-3px)}
+  .mm-social svg{width:19px;height:19px}
+  .mm-footer__credit{color:var(--text-dim);font-size:.92rem}
+  .mm-footer__credit strong{color:var(--text)}
+  .mm-footer__copy{color:var(--text-mute);font-size:.82rem;margin-top:8px;font-family:var(--mono)}
+
+  /* ---------- REVEAL ---------- */
+  .mm-reveal{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+  .mm-reveal.is-in{opacity:1;transform:none}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media(max-width:960px){
+    .mm-hero__grid{grid-template-columns:1fr;gap:40px}
+    .mm-hero__card{max-width:520px}
+    .mm-about__grid{grid-template-columns:1fr;gap:36px}
+    .mm-portrait{max-width:280px}
+    .mm-repos{grid-template-columns:1fr}
+    .mm-stats{grid-template-columns:1fr 1fr}
+    .mm-edu-grid{grid-template-columns:1fr}
+    .mm-int-grid{grid-template-columns:1fr 1fr}
+    .mm-hl-grid{grid-template-columns:1fr}
+    .mm-research{grid-template-columns:1fr;padding:30px}
+    .mm-research__icon{width:54px;height:54px}
+  }
+  @media(max-width:760px){
+    .mm-burger{display:flex}
+    .mm-navlinks{position:fixed;inset:66px 0 auto 0;flex-direction:column;align-items:stretch;gap:0;
+      background:rgba(10,11,13,.97);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+      border-bottom:1px solid var(--line);padding:12px 20px 22px;
+      transform:translateY(-12px);opacity:0;pointer-events:none;transition:opacity .25s,transform .25s}
+    .mm-navlinks.is-open{transform:none;opacity:1;pointer-events:auto}
+    .mm-navlinks a{padding:13px 8px;font-size:1rem;border-bottom:1px solid var(--line)}
+    .mm-navlinks a:last-child{border-bottom:none}
+    .mm-cta{margin-left:0;margin-top:10px;text-align:center;border-radius:10px}
+    .mm-section{padding:80px 0}
+    .mm-hero{padding:70px 0 60px}
+    .mm-eyebrow__title{white-space:normal}
+  }
+  @media(max-width:440px){
+    .mm-container,.mm-nav__inner{padding-left:18px;padding-right:18px}
+    .mm-int-grid{grid-template-columns:1fr}
+    .mm-stats{grid-template-columns:1fr}
+    .mm-proj__head,.mm-proj__body{padding-left:20px;padding-right:20px}
+    .mm-tl-card{padding:20px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .mm-root *{animation:none!important;transition:none!important}
+    .mm-reveal{opacity:1;transform:none}
+  }
+</style>
+
+<div class="mm-root">
+  <!-- NAV -->
+  <nav class="mm-nav" id="mmNav" aria-label="Primary">
+    <div class="mm-nav__inner">
+      <a href="#mmHero" class="mm-logo"><span class="b">&lt;</span>MM<span class="b"> /&gt;</span></a>
+      <button class="mm-burger" id="mmBurger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mmNavLinks">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="mm-navlinks" id="mmNavLinks">
+        <li><a href="#mmAbout"><span class="mm-num">01</span>About</a></li>
+        <li><a href="#mmProjects"><span class="mm-num">02</span>Projects</a></li>
+        <li><a href="#mmExperience"><span class="mm-num">03</span>Experience</a></li>
+        <li><a href="#mmEducation"><span class="mm-num">04</span>Education</a></li>
+        <li><a href="#mmResearch"><span class="mm-num">05</span>Research</a></li>
+        <li><a href="#mmInterests"><span class="mm-num">06</span>Beyond Code</a></li>
+        <li><a href="mailto:mehran.mazhar@gmail.com" class="mm-cta">Get in Touch</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="mm-hero" id="mmHero">
+    <div class="mm-container">
+      <div class="mm-hero__grid">
+        <div>
+          <p class="mm-hero__greeting mm-reveal">Hi, I'm</p>
+          <h1 class="mm-hero__name mm-reveal">Mehran Mazhar</h1>
+          <h2 class="mm-hero__title mm-reveal"><span class="hl"><b>Senior Full-Stack .NET Developer</b></span> &amp; Blockchain Engineer</h2>
+          <p class="mm-hero__desc mm-reveal">10+ years building enterprise web platforms and reservation systems on the .NET stack. Creator of <strong>Clutch Protocol</strong> — an open-source, blockchain-based ride-sharing network written in Rust.</p>
+          <div class="mm-hero__actions mm-reveal">
+            <a href="#mmProjects" class="mm-btn mm-btn--primary">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
+              View My Work
+            </a>
+            <a href="/assets/Mehran-Mazhar-CV.pdf" download class="mm-btn mm-btn--outline">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download CV
+            </a>
+          </div>
+          <div class="mm-hero__tech mm-reveal">
+            <span class="mm-hero__tech-label">Tech Stack</span>
+            <div class="mm-pills">
+              <span class="mm-pill">C# / .NET</span>
+              <span class="mm-pill">ASP.NET Core</span>
+              <span class="mm-pill">SQL Server</span>
+              <span class="mm-pill">Rust</span>
+              <span class="mm-pill">Azure</span>
+            </div>
+          </div>
+        </div>
+        <aside class="mm-hero__card mm-reveal" aria-hidden="true">
+          <div class="mm-hero__card-bar"><i></i><i></i><i></i><span>~/mehran.rs</span></div>
+          <pre class="mm-code"><span class="k">struct</span> <span class="fn">Engineer</span> {
+  name: <span class="s">"Mehran Mazhar"</span>,
+  <span class="c">// a decade on the .NET stack</span>
+  stack: [<span class="s">"C#"</span>, <span class="s">"ASP.NET"</span>, <span class="s">"SQL"</span>],
+  chain: <span class="p">Rust</span>::<span class="fn">clutch_protocol</span>(),
+}
+
+<span class="k">impl</span> <span class="fn">Engineer</span> {
+  <span class="k">fn</span> <span class="fn">build</span>(&amp;self) -&gt; <span class="p">Value</span> {
+    <span class="s">"decentralized · open"</span>
+  }
+}</pre>
+        </aside>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ABOUT -->
+    <section class="mm-section mm-about" id="mmAbout" aria-labelledby="mmAboutH">
+      <div class="mm-container">
+        <div class="mm-eyebrow mm-reveal">
+          <span class="mm-eyebrow__num">01</span>
+          <h2 class="mm-eyebrow__title" id="mmAboutH">About Me</h2>
+          <span class="mm-eyebrow__rule"></span>
+        </div>
+        <div class="mm-about__grid">
+          <div class="mm-portrait mm-reveal">
+            <div class="mm-portrait__accent"></div>
+            <div class="mm-portrait__frame">
+              <img src="/images/profile.jpg" alt="Portrait of Mehran Mazhar" loading="lazy">
+            </div>
+          </div>
+          <div class="mm-about__text mm-reveal">
+            <p>I'm a senior full-stack developer with over a decade of experience delivering enterprise portals, B2B travel and reservation platforms, workflow-automation systems, and IoT solutions. My core stack is <mark>C#, ASP.NET Core, and SQL Server</mark>.</p>
+            <p>In recent years I've moved deeper into blockchain engineering. I'm the creator of <mark>Clutch Protocol</mark>, an open-source decentralized ride-sharing network built in Rust — a project that grew out of my master's thesis on reducing travel costs through blockchain technology.</p>
+            <div class="mm-about__skills">
+              <h3>Core Expertise</h3>
+              <div class="mm-skillgroup">
+                <span class="mm-skillgroup__label">.NET Stack</span>
+                <div class="mm-skillgrid">
+                  <span class="mm-skill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="9" x2="20" y2="9"/><line x1="4" y1="15" x2="20" y2="15"/><line x1="10" y1="3" x2="8" y2="21"/><line x1="16" y1="3" x2="14" y2="21"/></svg>C# / .NET</span>
+                  <span class="mm-skill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="6" rx="1"/><rect x="2" y="15" width="20" height="6" rx="1"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>ASP.NET Core</span>
+                  <span class="mm-skill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg>SQL Server</span>
+                  <span class="mm-skill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 6.7 6.7 10.3a3 3 0 0 0 0 4.24l1.06 1.06"/><path d="m13.71 17.3 3.59-3.6a3 3 0 0 0 0-4.24l-1.06-1.06"/><line x1="8" y1="16" x2="16" y2="8"/></svg>Web API &amp; WCF</span>
+                  <span class="mm-skill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19a4.5 4.5 0 0 0 .5-8.97 6 6 0 0 0-11.64-1.6A4 4 0 0 0 6.5 19z"/></svg>Microsoft Azure</span>
+                </div>
+              </div>
+              <div class="mm-skillgroup">
+                <span class="mm-skillgroup__label">Blockchain</span>
+                <div class="mm-skillgrid">
+                  <span class="mm-skill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>Rust</span>
+                  <span class="mm-skill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/></svg>Smart Contracts</span>
+                  <span class="mm-skill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>Cryptography</span>
+                  <span class="mm-skill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="6" height="6" rx="1"/><rect x="2" y="2" width="5" height="5" rx="1"/><rect x="17" y="2" width="5" height="5" rx="1"/><rect x="2" y="17" width="5" height="5" rx="1"/><rect x="17" y="17" width="5" height="5" rx="1"/><path d="M4.5 7v3.5A1.5 1.5 0 0 0 6 12h3M19.5 7v3.5a1.5 1.5 0 0 1-1.5 1.5h-3M4.5 17v-1.5A1.5 1.5 0 0 1 6 14h3M19.5 17v-1.5a1.5 1.5 0 0 0-1.5-1.5h-3"/></svg>libp2p &amp; P2P</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="mm-section mm-projects" id="mmProjects" aria-labelledby="mmProjH">
+      <div class="mm-container">
+        <div class="mm-eyebrow mm-reveal">
+          <span class="mm-eyebrow__num">02</span>
+          <h2 class="mm-eyebrow__title" id="mmProjH">Featured Project</h2>
+          <span class="mm-eyebrow__rule"></span>
+        </div>
+        <div class="mm-proj mm-reveal">
+          <div class="mm-proj__head">
+            <span class="mm-proj__label">Featured Project</span>
+            <h3 class="mm-proj__title">Clutch Protocol</h3>
+            <p class="mm-proj__sub">Decentralized Ride-Sharing Platform</p>
+            <p class="mm-proj__quote">An open-source, blockchain-based ride-sharing network designed to lower platform fees and return more value to drivers through transparent, decentralized infrastructure.</p>
+          </div>
+          <div class="mm-proj__body">
+            <p class="mm-proj__intro">As creator and lead developer of Clutch Protocol, I designed and built its core components:</p>
+            <div class="mm-repos">
+              <a href="https://github.com/clutch-protocol/clutch-node" target="_blank" rel="noopener" class="mm-repo">
+                <span class="mm-repo__icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.34-1.3-1.7-1.3-1.7-1.05-.72.08-.71.08-.71 1.17.08 1.78 1.2 1.78 1.2 1.04 1.78 2.73 1.26 3.4.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.4-5.27 5.69.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg></span>
+                <div>
+                  <h4>clutch-node</h4>
+                  <p>Core blockchain implementation using <strong>Rust</strong> with Aura consensus mechanism for fast, energy-efficient validation</p>
+                  <div class="mm-repo__tech"><span>Rust</span><span>Blockchain</span><span>libp2p</span></div>
+                </div>
+                <span class="mm-repo__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+              </a>
+              <a href="https://github.com/clutch-protocol/clutch-hub-api" target="_blank" rel="noopener" class="mm-repo">
+                <span class="mm-repo__icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.34-1.3-1.7-1.3-1.7-1.05-.72.08-.71.08-.71 1.17.08 1.78 1.2 1.78 1.2 1.04 1.78 2.73 1.26 3.4.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.4-5.27 5.69.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg></span>
+                <div>
+                  <h4>clutch-hub-api</h4>
+                  <p>API layer bridging applications to the blockchain with real-time <strong>WebSocket</strong> support</p>
+                  <div class="mm-repo__tech"><span>Node.js</span><span>REST API</span><span>WebSocket</span></div>
+                </div>
+                <span class="mm-repo__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+              </a>
+              <a href="https://github.com/clutch-protocol/clutch-hub-sdk-js" target="_blank" rel="noopener" class="mm-repo">
+                <span class="mm-repo__icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.34-1.3-1.7-1.3-1.7-1.05-.72.08-.71.08-.71 1.17.08 1.78 1.2 1.78 1.2 1.04 1.78 2.73 1.26 3.4.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.4-5.27 5.69.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg></span>
+                <div>
+                  <h4>clutch-hub-sdk-js</h4>
+                  <p><strong>TypeScript</strong> SDK enabling seamless integration for developers building on Clutch Protocol</p>
+                  <div class="mm-repo__tech"><span>TypeScript</span><span>SDK</span><span>npm</span></div>
+                </div>
+                <span class="mm-repo__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+              </a>
+              <a href="https://github.com/clutch-protocol/clutch-hub-demo-app" target="_blank" rel="noopener" class="mm-repo">
+                <span class="mm-repo__icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.34-1.3-1.7-1.3-1.7-1.05-.72.08-.71.08-.71 1.17.08 1.78 1.2 1.78 1.2 1.04 1.78 2.73 1.26 3.4.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.4-5.27 5.69.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg></span>
+                <div>
+                  <h4>clutch-hub-demo-app</h4>
+                  <p><strong>React</strong>-based reference implementation showcasing the platform's capabilities</p>
+                  <div class="mm-repo__tech"><span>React</span><span>Demo</span><span>UI</span></div>
+                </div>
+                <span class="mm-repo__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+              </a>
+            </div>
+            <p class="mm-stats-label">Protocol design targets</p>
+            <div class="mm-stats">
+              <div class="mm-stat"><span class="mm-stat__val">5-8%</span><span class="mm-stat__label">Platform Fee</span><span class="mm-stat__note">vs 15-25% traditional</span></div>
+              <div class="mm-stat"><span class="mm-stat__val">90%</span><span class="mm-stat__label">To Drivers</span><span class="mm-stat__note">Fee distribution</span></div>
+              <div class="mm-stat"><span class="mm-stat__val">60%</span><span class="mm-stat__label">Cost Reduction</span><span class="mm-stat__note">For end users</span></div>
+              <div class="mm-stat"><span class="mm-stat__val">DAO</span><span class="mm-stat__label">Governance</span><span class="mm-stat__note">Community-driven</span></div>
+            </div>
+            <div class="mm-proj__cta">
+              <a href="https://github.com/clutch-protocol" target="_blank" rel="noopener" class="mm-btn mm-btn--primary">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.34-1.3-1.7-1.3-1.7-1.05-.72.08-.71.08-.71 1.17.08 1.78 1.2 1.78 1.2 1.04 1.78 2.73 1.26 3.4.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.4-5.27 5.69.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg>
+                View Organization
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="mm-section mm-experience" id="mmExperience" aria-labelledby="mmExpH">
+      <div class="mm-container">
+        <div class="mm-eyebrow mm-reveal">
+          <span class="mm-eyebrow__num">03</span>
+          <h2 class="mm-eyebrow__title" id="mmExpH">Experience</h2>
+          <span class="mm-eyebrow__rule"></span>
+        </div>
+        <div class="mm-timeline">
+          <div class="mm-tl-item mm-reveal">
+            <div class="mm-tl-card">
+              <div class="mm-tl-head">
+                <div>
+                  <h3 class="mm-tl-role">Senior Full-Stack Developer (.NET)</h3>
+                  <span class="mm-tl-company">Parto CRS / Fly Today</span>
+                </div>
+                <span class="mm-tl-date">Dec 2018 — Present</span>
+              </div>
+              <p class="mm-tl-quote">Building B2B travel and airline reservation platforms serving agencies across the region.</p>
+              <ul class="mm-tl-list">
+                <li>Design and develop B2B flight and hotel reservation systems with C#, ASP.NET Core, and SQL Server</li>
+                <li>Build and maintain REST / Web API services integrating GDS and third-party supplier feeds</li>
+                <li>Develop internal tools and dashboards for booking and fare management</li>
+              </ul>
+              <div class="mm-tl-tags"><span>C#</span><span>ASP.NET Core</span><span>SQL Server</span><span>Web API</span></div>
+            </div>
+          </div>
+          <div class="mm-tl-item mm-reveal">
+            <div class="mm-tl-card">
+              <div class="mm-tl-head">
+                <div>
+                  <h3 class="mm-tl-role">.NET &amp; IoT Developer</h3>
+                  <span class="mm-tl-company">Wenda IoT Communication Technology</span>
+                </div>
+                <span class="mm-tl-date">Apr 2018 — Oct 2018</span>
+              </div>
+              <p class="mm-tl-quote">Built device management and monitoring solutions on Microsoft Azure IoT Hub.</p>
+              <ul class="mm-tl-list">
+                <li>Developed an IoT device management and monitoring portal on Microsoft Azure IoT Hub</li>
+                <li>Built a dual-channel touch switch with cloud connectivity and network cameras with face detection</li>
+                <li>Programmed embedded hardware in Python and Arduino; authored content for iot-lab.ir</li>
+              </ul>
+              <div class="mm-tl-tags"><span>C#</span><span>Azure IoT Hub</span><span>Python</span><span>Arduino</span></div>
+            </div>
+          </div>
+          <div class="mm-tl-item mm-reveal">
+            <div class="mm-tl-card">
+              <div class="mm-tl-head">
+                <div>
+                  <h3 class="mm-tl-role">Full-Stack Web Developer</h3>
+                  <span class="mm-tl-company">Sepna &amp; Tehran Municipality ICT Organization</span>
+                </div>
+                <span class="mm-tl-date">Oct 2014 — Feb 2018</span>
+              </div>
+              <p class="mm-tl-quote">Delivered enterprise portals and an ITIL-based IT service management platform.</p>
+              <ul class="mm-tl-list">
+                <li>Co-developed an ITIL-based ITSM platform for Tehran Municipality ICT, including a custom workflow engine for business-process automation</li>
+                <li>Built enterprise portals and custom modules on DotNetNuke</li>
+                <li>Developed ASP.NET (Web Forms, MVC, Core) applications and WCF / ASMX web services</li>
+                <li>Designed SQL Server databases with stored procedures, functions, and reporting</li>
+              </ul>
+              <div class="mm-tl-tags"><span>ASP.NET</span><span>DotNetNuke</span><span>WCF</span><span>SQL Server</span></div>
+            </div>
+          </div>
+          <div class="mm-tl-item mm-reveal">
+            <div class="mm-tl-card">
+              <div class="mm-tl-head">
+                <div>
+                  <h3 class="mm-tl-role">Founder &amp; Lead Blockchain Engineer</h3>
+                  <a href="https://github.com/clutch-protocol" target="_blank" rel="noopener" class="mm-tl-company">Clutch Protocol <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+                </div>
+                <span class="mm-tl-date">2024 — Present · Side Project</span>
+              </div>
+              <p class="mm-tl-quote">Building an open-source, decentralized ride-sharing network on a custom Rust blockchain.</p>
+              <ul class="mm-tl-list">
+                <li><strong>Architecture &amp; Design:</strong> Implemented a blockchain core in Rust with Aura consensus for high throughput and low latency</li>
+                <li><strong>Full-Stack Development:</strong> Built the API layer, a TypeScript SDK, and a React demo application</li>
+                <li><strong>Protocol Design:</strong> Designed a tokenomics model distributing 90% of fees to drivers, 5% to validators, and 5% to developers</li>
+                <li><strong>Security:</strong> Implemented client-side transaction signing with secp256k1 / ed25519</li>
+              </ul>
+              <div class="mm-tl-tags"><span>Rust</span><span>Node.js</span><span>TypeScript</span><span>React</span><span>libp2p</span><span>Cryptography</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="mm-section mm-education" id="mmEducation" aria-labelledby="mmEduH">
+      <div class="mm-container">
+        <div class="mm-eyebrow mm-reveal">
+          <span class="mm-eyebrow__num">04</span>
+          <h2 class="mm-eyebrow__title" id="mmEduH">Education</h2>
+          <span class="mm-eyebrow__rule"></span>
+        </div>
+        <div class="mm-edu-grid">
+          <div class="mm-edu mm-reveal">
+            <div class="mm-edu__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 2.5 3 6 3s6-2 6-3v-5"/></svg></div>
+            <span class="mm-edu__date">2023</span>
+            <h3 class="mm-edu__degree">M.Sc., Computer Software Engineering</h3>
+            <p class="mm-edu__school">Islamic Azad University</p>
+            <p class="mm-edu__note">Thesis: a blockchain-based network to reduce travel cost in ride-sharing services — the foundation of Clutch Protocol.</p>
+          </div>
+          <div class="mm-edu mm-reveal">
+            <div class="mm-edu__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 2.5 3 6 3s6-2 6-3v-5"/></svg></div>
+            <span class="mm-edu__date">2018</span>
+            <h3 class="mm-edu__degree">B.Sc., Computer Software Engineering</h3>
+            <p class="mm-edu__school">Islamic Azad University, Islamshahr Branch</p>
+          </div>
+          <div class="mm-edu mm-reveal">
+            <div class="mm-edu__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 2.5 3 6 3s6-2 6-3v-5"/></svg></div>
+            <span class="mm-edu__date">2015</span>
+            <h3 class="mm-edu__degree">A.Sc., Computer Software Engineering</h3>
+            <p class="mm-edu__school">Shahid Babaei College, Qazvin</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESEARCH -->
+    <section class="mm-section mm-research-sec" id="mmResearch" aria-labelledby="mmResH">
+      <div class="mm-container">
+        <div class="mm-eyebrow mm-reveal">
+          <span class="mm-eyebrow__num">05</span>
+          <h2 class="mm-eyebrow__title" id="mmResH">Academic Research</h2>
+          <span class="mm-eyebrow__rule"></span>
+        </div>
+        <div class="mm-research mm-reveal">
+          <div class="mm-research__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 2.5 3 6 3s6-2 6-3v-5"/><path d="M22 10v6"/></svg></div>
+          <div>
+            <span class="mm-research__label">Master's Thesis</span>
+            <h3 class="mm-research__title">A Blockchain-Based Network to Reduce the Travel Cost in Ride-Sharing Services</h3>
+            <p class="mm-research__advisor">Advisor: <strong>MohammadHossein ShafiAbadi, Ph.D.</strong></p>
+            <p class="mm-research__quote">Academic research that laid the theoretical foundation for Clutch Protocol — showing how blockchain technology can improve ride-sharing economics and reduce travel costs.</p>
+            <div class="mm-hl-grid">
+              <div class="mm-hl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg><div><strong>Economic Analysis</strong><p>Detailed comparison between centralized and decentralized ride-sharing models</p></div></div>
+              <div class="mm-hl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.3 7 12 12 20.7 7"/><line x1="12" y1="22" x2="12" y2="12"/></svg><div><strong>Technical Architecture</strong><p>Blockchain infrastructure specifically optimized for ride-sharing applications</p></div></div>
+              <div class="mm-hl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="6"/><path d="M18.09 10.37A6 6 0 1 1 10.34 18"/><path d="M7 6h1v4"/><path d="m16.71 13.88.7.71-2.82 2.82"/></svg><div><strong>Cost Reduction</strong><p>Mathematical modeling demonstrating significant travel cost reductions</p></div></div>
+              <div class="mm-hl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><div><strong>Security &amp; Trust</strong><p>Cryptographic protocols ensuring secure, trustless transactions</p></div></div>
+            </div>
+            <p class="mm-research__note">This thesis is the academic groundwork for Clutch Protocol — the research is now being put into practice as a working open-source implementation.</p>
+            <div class="mm-research__actions">
+              <a href="https://github.com/MehranMazhar/master-thesis/blob/main/MehranMazhar_Thesis.pdf" target="_blank" rel="noopener" class="mm-btn mm-btn--primary mm-btn--sm">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                Full Thesis
+              </a>
+              <a href="https://github.com/MehranMazhar/master-thesis/blob/main/MehranMazhar_Thesis_Presentation.pdf" target="_blank" rel="noopener" class="mm-btn mm-btn--outline mm-btn--sm">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="12" y1="17" x2="12" y2="21"/><line x1="8" y1="21" x2="16" y2="21"/></svg>
+                Presentation
+              </a>
+              <a href="https://github.com/MehranMazhar/master-thesis" target="_blank" rel="noopener" class="mm-btn mm-btn--outline mm-btn--sm">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.34-1.3-1.7-1.3-1.7-1.05-.72.08-.71.08-.71 1.17.08 1.78 1.2 1.78 1.2 1.04 1.78 2.73 1.26 3.4.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.4-5.27 5.69.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg>
+                Repository
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERESTS -->
+    <section class="mm-section mm-interests" id="mmInterests" aria-labelledby="mmIntH">
+      <div class="mm-container">
+        <div class="mm-eyebrow mm-reveal">
+          <span class="mm-eyebrow__num">06</span>
+          <h2 class="mm-eyebrow__title" id="mmIntH">Beyond the Code</h2>
+          <span class="mm-eyebrow__rule"></span>
+        </div>
+        <p class="mm-sub mm-reveal">While I'm passionate about blockchain technology and building decentralized systems, I believe in maintaining a balanced lifestyle.</p>
+        <div class="mm-int-grid">
+          <div class="mm-int mm-reveal">
+            <div class="mm-int__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg></div>
+            <h3>Mountaineering</h3>
+            <p>Drawing inspiration from nature's complexity and finding parallels between navigating challenging terrains and solving complex technical problems.</p>
+          </div>
+          <div class="mm-int mm-reveal">
+            <div class="mm-int__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg></div>
+            <h3>Traveling</h3>
+            <p>Exploring different perspectives and understanding global challenges that technology can help solve through cultural exchange.</p>
+          </div>
+          <div class="mm-int mm-reveal">
+            <div class="mm-int__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></svg></div>
+            <h3>Open Source</h3>
+            <p>Contributing to and supporting the broader developer ecosystem that makes innovative projects like Clutch Protocol possible.</p>
+          </div>
+          <div class="mm-int mm-reveal">
+            <div class="mm-int__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg></div>
+            <h3>Tech Philosophy</h3>
+            <p>Exploring how decentralized systems can create more equitable outcomes at the intersection of technology, economics, and social impact.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="mm-contact" id="mmContact" aria-labelledby="mmConH">
+      <div class="mm-container">
+        <div class="mm-reveal">
+          <span class="mm-contact__label">What's Next?</span>
+          <h2 class="mm-contact__title" id="mmConH">Let's Build Something Together</h2>
+          <p class="mm-contact__text">Whether you're interested in blockchain development, want to collaborate on decentralized projects, or just want to say hello — my inbox is always open.</p>
+          <div class="mm-contact__actions">
+            <a href="mailto:mehran.mazhar@gmail.com" class="mm-btn mm-btn--primary mm-btn--lg">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+              Say Hello
+            </a>
+            <a href="/assets/Mehran-Mazhar-CV.pdf" download class="mm-btn mm-btn--outline mm-btn--lg">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download CV
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="mm-footer">
+    <div class="mm-container">
+      <div class="mm-social">
+        <a href="https://github.com/mehranmazhar" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.34-1.3-1.7-1.3-1.7-1.05-.72.08-.71.08-.71 1.17.08 1.78 1.2 1.78 1.2 1.04 1.78 2.73 1.26 3.4.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.4-5.27 5.69.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg></a>
+        <a href="https://linkedin.com/in/mehran-mazhar" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg></a>
+        <a href="https://twitter.com/mehran_mazhar4" target="_blank" rel="noopener" aria-label="X (Twitter)"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.24 2h3.31l-7.23 8.26L22.9 22h-6.66l-5.22-6.82L4.99 22H1.68l7.73-8.83L1.1 2h6.83l4.72 6.24L18.24 2zm-1.16 18h1.83L7.02 3.9H5.06L17.08 20z"/></svg></a>
+        <a href="https://stackoverflow.com/users/2676799" target="_blank" rel="noopener" aria-label="Stack Overflow"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.36 20.2v-5.38h1.79V22H3.85v-7.18h1.79v5.38h11.72z"/><path d="M7.42 13.24l8.76 1.83.37-1.76-8.76-1.84-.37 1.77zm1.16-4.2 8.11 3.78.76-1.62-8.11-3.79-.76 1.63zm2.25-3.99 6.87 5.72 1.14-1.37-6.87-5.72-1.14 1.37zM15.16 2l-1.44 1.07 5.32 7.17 1.44-1.07L15.16 2zM7.23 18.44h8.93v-1.78H7.23v1.78z"/></svg></a>
+        <a href="https://instagram.com/mazhar_mehran4" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+      </div>
+      <p class="mm-footer__credit">Designed &amp; Built by <strong>Mehran Mazhar</strong></p>
+      <p class="mm-footer__copy">© 2024 — Present. All rights reserved.</p>
+    </div>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var root=document.querySelector(".mm-root");
+  if(!root) return;
+  var nav=document.getElementById("mmNav");
+  var burger=document.getElementById("mmBurger");
+  var links=document.getElementById("mmNavLinks");
+
+  // Nav scrolled state
+  function onScroll(){ if(nav){ nav.classList.toggle("is-scrolled", window.scrollY>10); } }
+  window.addEventListener("scroll", onScroll, {passive:true}); onScroll();
+
+  // Mobile menu
+  function closeMenu(){ if(links) links.classList.remove("is-open"); if(burger){burger.classList.remove("is-open"); burger.setAttribute("aria-expanded","false");} }
+  if(burger && links){
+    burger.addEventListener("click", function(){
+      var open=links.classList.toggle("is-open");
+      burger.classList.toggle("is-open", open);
+      burger.setAttribute("aria-expanded", open?"true":"false");
+    });
+    links.addEventListener("click", function(e){ if(e.target.closest("a")) closeMenu(); });
+  }
+  document.addEventListener("keydown", function(e){ if(e.key==="Escape") closeMenu(); });
+
+  // Scroll reveal
+  var items=root.querySelectorAll(".mm-reveal");
+  var reduce=window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if(reduce || !("IntersectionObserver" in window)){
+    items.forEach(function(el){ el.classList.add("is-in"); });
+  } else {
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add("is-in"); io.unobserve(en.target); }
+      });
+    },{threshold:.12, rootMargin:"0px 0px -8% 0px"});
+    items.forEach(function(el){ io.observe(el); });
+  }
+})();
+</script>
+</body>
+</html>
