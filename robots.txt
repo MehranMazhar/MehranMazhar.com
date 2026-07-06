@@ -2,8 +2,6 @@ User-agent: *
 Allow: /
 
 # Block non-public files
-Disallow: /_config.yml
-Disallow: /Gemfile
 Disallow: /.nojekyll
 
 # Sitemap location
