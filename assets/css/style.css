@@ -1488,3 +1488,12 @@ strong {
   color: var(--text-muted);
   line-height: 1.6;
 }
+
+.project-featured__stats-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
