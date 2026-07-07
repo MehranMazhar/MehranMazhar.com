@@ -28,14 +28,6 @@
   <!-- Favicon -->
   <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
   <!-- Styles -->
   <link rel="stylesheet" href="assets/css/style.css">
 
@@ -57,565 +49,503 @@
     "alumniOf": "Islamic Azad University",
     "knowsAbout": ["C#", ".NET", "ASP.NET Core", "SQL Server", "Microsoft Azure", "Rust", "Blockchain", "Smart Contracts", "Cryptography"]
   }
-  </script>
-</head>
+  </script></head>
 <body>
+<div class="mm-root">
+  <a href="#mm-main" style="position:absolute;left:-9999px;top:auto;background:var(--accent);color:#fff;padding:10px 16px;border-radius:8px;z-index:100;" onfocus="this.style.left='16px';this.style.top='12px';" onblur="this.style.left='-9999px';">Skip to content</a>
 
-  <!-- ============ NAVIGATION ============ -->
-  <nav class="nav" id="nav">
-    <div class="nav__container">
-      <a href="#hero" class="nav__logo">
-        <span class="nav__logo-bracket">&lt;</span>MM<span class="nav__logo-bracket"> /&gt;</span>
-      </a>
-      <button class="nav__toggle" id="navToggle" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
+  <!-- NAV -->
+  <nav class="mm-nav" id="mm-nav" aria-label="Primary">
+    <div class="mm-nav__inner">
+      <a href="#mm-hero" class="mm-logo" aria-label="Mehran Mazhar — home"><b>&lt;</b>MM<b>&nbsp;/&gt;</b></a>
+      <button class="mm-hamburger" id="mm-burger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mm-links">
         <span></span>
       </button>
-      <ul class="nav__links" id="navLinks">
-        <li><a href="#about" class="nav__link">About</a></li>
-        <li><a href="#projects" class="nav__link">Projects</a></li>
-        <li><a href="#experience" class="nav__link">Experience</a></li>
-        <li><a href="#education" class="nav__link">Education</a></li>
-        <li><a href="#research" class="nav__link">Research</a></li>
-        <li><a href="#interests" class="nav__link">Beyond Code</a></li>
-        <li><a href="mailto:mehran.mazhar@gmail.com" class="nav__link nav__link--cta">Get in Touch</a></li>
+      <ul class="mm-navlinks" id="mm-links">
+        <li><a href="#mm-about">About</a></li>
+        <li><a href="#mm-projects">Projects</a></li>
+        <li><a href="#mm-experience">Experience</a></li>
+        <li><a href="#mm-education">Education</a></li>
+        <li><a href="#mm-research">Research</a></li>
+        <li><a href="#mm-interests">Beyond Code</a></li>
+        <li><a href="mailto:mehran.mazhar@gmail.com" class="mm-nav-cta">Get in Touch</a></li>
       </ul>
     </div>
   </nav>
 
-  <!-- ============ HERO SECTION ============ -->
-  <section class="hero" id="hero">
-    <div class="hero__bg-grid"></div>
-    <div class="hero__glow hero__glow--1"></div>
-    <div class="hero__glow hero__glow--2"></div>
-    <div class="container">
-      <div class="hero__content">
-        <p class="hero__greeting reveal">Hi, I'm</p>
-        <h1 class="hero__name reveal">Mehran Mazhar</h1>
-        <h2 class="hero__title reveal">
-          <span class="hero__title-gradient">Senior Full-Stack .NET Developer</span> &amp; Blockchain Engineer
-        </h2>
-        <p class="hero__description reveal">
-          10+ years building enterprise web platforms, B2B travel &amp; reservation systems, and IoT
-          solutions on the .NET stack. Creator of <strong>Clutch Protocol</strong> — an open-source,
-          blockchain-based ride-sharing network written in Rust.
-        </p>
-        <div class="hero__actions reveal">
-          <a href="#projects" class="btn btn--primary">
-            <i class="fas fa-rocket"></i> View My Work
-          </a>
-          <a href="assets/Mehran-Mazhar-CV.pdf" class="btn btn--outline" download>
-            <i class="fas fa-file-arrow-down"></i> Download CV
-          </a>
-        </div>
-        <div class="hero__tech reveal">
-          <span class="hero__tech-label">Tech Stack</span>
-          <div class="hero__tech-icons">
-            <span class="tech-pill">C# / .NET</span>
-            <span class="tech-pill">ASP.NET Core</span>
-            <span class="tech-pill">SQL Server</span>
-            <span class="tech-pill">Rust</span>
-            <span class="tech-pill">Azure</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="hero__scroll">
-      <a href="#about" class="hero__scroll-link">
-        <span>Scroll Down</span>
-        <i class="fas fa-chevron-down"></i>
-      </a>
-    </div>
-  </section>
-
-  <!-- ============ ABOUT SECTION ============ -->
-  <section class="section about" id="about">
-    <div class="container">
-      <h2 class="section__title reveal">
-        <span class="section__number">01.</span> About Me
-      </h2>
-      <div class="about__grid">
-        <div class="about__image-wrapper reveal">
-          <div class="about__image-border"></div>
-          <img src="images/profile.jpg" alt="Mehran Mazhar" class="about__image" loading="lazy">
-        </div>
-        <div class="about__text reveal">
-          <p>
-            I'm a senior full-stack developer with over a decade of experience delivering enterprise
-            portals, B2B travel and reservation platforms, workflow-automation systems, and IoT
-            solutions. My core stack is <mark>C#, ASP.NET Core, and SQL Server</mark>.
-          </p>
-          <p>
-            In recent years I've moved deeper into blockchain engineering. I'm the creator of
-            <mark>Clutch Protocol</mark>, an open-source decentralized ride-sharing network built in
-            Rust — a project that grew out of my master's thesis on reducing travel costs through
-            blockchain technology.
-          </p>
-          <div class="about__skills">
-            <h3>Core Expertise</h3>
-            <div class="about__skill-group">
-              <span class="about__skill-group-label">.NET Stack</span>
-              <div class="about__skill-grid">
-                <div class="skill-card"><i class="fas fa-hashtag"></i><span>C# / .NET</span></div>
-                <div class="skill-card"><i class="fas fa-server"></i><span>ASP.NET Core</span></div>
-                <div class="skill-card"><i class="fas fa-database"></i><span>SQL Server</span></div>
-                <div class="skill-card"><i class="fas fa-plug"></i><span>Web API &amp; WCF</span></div>
-                <div class="skill-card"><i class="fas fa-cloud"></i><span>Microsoft Azure</span></div>
-              </div>
-            </div>
-            <div class="about__skill-group">
-              <span class="about__skill-group-label">Blockchain</span>
-              <div class="about__skill-grid">
-                <div class="skill-card"><i class="fas fa-cog"></i><span>Rust</span></div>
-                <div class="skill-card"><i class="fas fa-file-contract"></i><span>Smart Contracts</span></div>
-                <div class="skill-card"><i class="fas fa-shield-halved"></i><span>Cryptography</span></div>
-                <div class="skill-card"><i class="fas fa-network-wired"></i><span>libp2p &amp; P2P</span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ PROJECTS SECTION ============ -->
-  <section class="section projects" id="projects">
-    <div class="container">
-      <h2 class="section__title reveal">
-        <span class="section__number">02.</span> Featured Project
-      </h2>
-
-      <div class="project-featured reveal">
-        <div class="project-featured__header">
-          <span class="project-featured__label">Featured Project</span>
-          <h3 class="project-featured__title">Clutch Protocol</h3>
-          <p class="project-featured__subtitle">Decentralized Ride-Sharing Platform</p>
-        </div>
-
-        <div class="project-featured__card">
-          <p class="project-featured__quote">
-            An open-source, blockchain-based ride-sharing network designed to lower platform fees and
-            return more value to drivers through transparent, decentralized infrastructure.
-          </p>
-
-          <div class="project-featured__description">
-            <p>
-              As creator and lead developer of Clutch Protocol, I designed and built its core
-              components:
+  <main id="mm-main">
+    <!-- HERO -->
+    <section class="mm-hero" id="mm-hero" aria-labelledby="mm-hero-name">
+      <div class="mm-hero__grid" aria-hidden="true"></div>
+      <div class="mm-container">
+        <div class="mm-hero__inner">
+          <div class="mm-reveal">
+            <span class="mm-availbadge"><span class="mm-dot"></span> Open to senior .NET &amp; blockchain roles</span>
+            <p class="mm-hero__greet">Hi, I'm</p>
+            <h1 class="mm-hero__name" id="mm-hero-name">Mehran Mazhar</h1>
+            <p class="mm-hero__title"><b>Senior Full-Stack .NET Developer</b> &amp; Blockchain Engineer</p>
+            <p class="mm-hero__desc">
+              10+ years building enterprise web platforms, B2B travel &amp; reservation systems, and IoT
+              solutions on the .NET stack. Creator of <strong>Clutch Protocol</strong> — an open-source,
+              blockchain-based ride-sharing network written in Rust.
             </p>
+            <div class="mm-hero__actions">
+              <a href="#mm-projects" class="mm-btn mm-btn--primary">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                View My Work
+              </a>
+              <a href="assets/Mehran-Mazhar-CV.pdf" download class="mm-btn mm-btn--outline">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+                Download CV
+              </a>
+            </div>
+            <div class="mm-hero__stack">
+              <span class="mm-stack-label">Tech Stack</span>
+              <div class="mm-pills">
+                <span class="mm-pill">C# / .NET</span>
+                <span class="mm-pill">ASP.NET Core</span>
+                <span class="mm-pill">SQL Server</span>
+                <span class="mm-pill">Rust</span>
+                <span class="mm-pill">Azure</span>
+              </div>
+            </div>
           </div>
 
-          <div class="project-featured__repos">
-            <a href="https://github.com/clutch-protocol/clutch-node" target="_blank" rel="noopener" class="repo-card">
-              <div class="repo-card__icon"><i class="fab fa-github"></i></div>
-              <div class="repo-card__content">
-                <h4>clutch-node</h4>
-                <p>Core blockchain implementation using <strong>Rust</strong> with Aura consensus mechanism for fast, energy-efficient validation</p>
-                <div class="repo-card__tech">
-                  <span>Rust</span><span>Blockchain</span><span>libp2p</span>
+          <aside class="mm-hero__card mm-reveal" aria-hidden="true">
+            <div class="mm-hero__card-top">
+              <span class="mm-tdot r"></span><span class="mm-tdot y"></span><span class="mm-tdot g"></span>
+              <span class="mm-hero__card-file">profile.rs</span>
+            </div>
+            <div class="mm-code">
+<span class="ln"><span class="kw">struct</span> <span class="fn">Engineer</span> {</span>
+<span class="ln">  name: <span class="st">"Mehran Mazhar"</span>,</span>
+<span class="ln">  years: <span class="st">10</span>,</span>
+<span class="ln">  stack: [<span class="st">".NET"</span>, <span class="st">"Rust"</span>],</span>
+<span class="ln">  <span class="cm">// building the open web</span></span>
+<span class="ln">  focus: <span class="st">"decentralized"</span>,</span>
+<span class="ln">}</span>
+            </div>
+            <div class="mm-hero__mini">
+              <div class="mm-mini"><b>10+</b><span>Years shipping</span></div>
+              <div class="mm-mini"><b>4</b><span>Open-source repos</span></div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="mm-section mm-section--alt" id="mm-about" aria-labelledby="mm-about-h">
+      <div class="mm-container">
+        <div class="mm-head mm-reveal">
+          <span class="mm-eyebrow">01 — About</span>
+          <h2 class="mm-h2" id="mm-about-h">A decade on the .NET stack, now building on-chain.</h2>
+        </div>
+        <div class="mm-about">
+          <div class="mm-reveal">
+            <div class="mm-portrait">
+              <img src="images/profile.jpg" alt="Portrait of Mehran Mazhar" loading="lazy">
+              <div class="mm-portrait__ph" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+                images/profile.jpg
+              </div>
+              <div class="mm-about__badge">Mehran Mazhar<span>Senior Engineer</span></div>
+            </div>
+          </div>
+          <div class="mm-reveal">
+            <div class="mm-prose">
+              <p>
+                I'm a senior full-stack developer with over a decade of experience delivering enterprise
+                portals, B2B travel and reservation platforms, workflow-automation systems, and IoT
+                solutions. My core stack is <mark>C#, ASP.NET Core, and SQL Server</mark>.
+              </p>
+              <p>
+                In recent years I've moved deeper into blockchain engineering. I'm the creator of
+                <mark>Clutch Protocol</mark>, an open-source decentralized ride-sharing network built in
+                Rust — a project that grew out of my master's thesis on reducing travel costs through
+                blockchain technology.
+              </p>
+            </div>
+
+            <div class="mm-expertise">
+              <h3>Core Expertise</h3>
+              <div class="mm-skillgroups">
+                <div class="mm-skillgroup">
+                  <span class="mm-skillgroup__label"><i></i> .NET Stack</span>
+                  <div class="mm-skilllist">
+                    <div class="mm-skill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 9h16M4 15h16M10 3 8 21M16 3l-2 18"/></svg> C# / .NET</div>
+                    <div class="mm-skill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="7" rx="1.5"/><rect x="3" y="13" width="18" height="7" rx="1.5"/><path d="M7 7.5h.01M7 16.5h.01"/></svg> ASP.NET Core</div>
+                    <div class="mm-skill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg> SQL Server</div>
+                    <div class="mm-skill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a10 10 0 0 0 0-20"/><path d="M12 2a5 5 0 0 0 0 10 5 5 0 0 1 0 10"/></svg> Web API &amp; WCF</div>
+                    <div class="mm-skill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19a4.5 4.5 0 0 0 .5-9 6 6 0 0 0-11.6-1.4A4 4 0 0 0 6 19z"/></svg> Microsoft Azure</div>
+                  </div>
+                </div>
+                <div class="mm-skillgroup">
+                  <span class="mm-skillgroup__label"><i></i> Blockchain</span>
+                  <div class="mm-skilllist">
+                    <div class="mm-skill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg> Rust</div>
+                    <div class="mm-skill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"/><path d="M9 13l2 2 4-4"/></svg> Smart Contracts</div>
+                    <div class="mm-skill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Cryptography</div>
+                    <div class="mm-skill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M12 7v4M12 11 6 17M12 11l6 6"/></svg> libp2p &amp; P2P</div>
+                  </div>
                 </div>
               </div>
-              <i class="fas fa-arrow-up-right-from-square repo-card__arrow"></i>
-            </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-            <a href="https://github.com/clutch-protocol/clutch-hub-api" target="_blank" rel="noopener" class="repo-card">
-              <div class="repo-card__icon"><i class="fab fa-github"></i></div>
-              <div class="repo-card__content">
-                <h4>clutch-hub-api</h4>
-                <p>API layer bridging applications to the blockchain with real-time <strong>WebSocket</strong> support</p>
-                <div class="repo-card__tech">
-                  <span>Node.js</span><span>REST API</span><span>WebSocket</span>
+    <!-- PROJECTS -->
+    <section class="mm-section" id="mm-projects" aria-labelledby="mm-proj-h">
+      <div class="mm-container">
+        <div class="mm-head mm-reveal">
+          <span class="mm-eyebrow">02 — Featured Project</span>
+          <h2 class="mm-h2" id="mm-proj-h">Clutch Protocol</h2>
+          <p>A decentralized ride-sharing platform that lowers platform fees and returns more value to drivers.</p>
+        </div>
+
+        <div class="mm-proj mm-reveal">
+          <div class="mm-proj__top">
+            <div>
+              <span class="mm-proj__tag">Open Source · Rust</span>
+              <h3 class="mm-proj__title">Clutch Protocol</h3>
+              <p class="mm-proj__sub">Decentralized Ride-Sharing Platform</p>
+            </div>
+            <a href="https://github.com/clutch-protocol" target="_blank" rel="noopener" class="mm-btn mm-btn--outline mm-btn--sm">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.6.5.5 5.6.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 5 18.3 5.3 18.3 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.6 18.4.5 12 .5z"/></svg>
+              Organization
+            </a>
+          </div>
+
+          <div class="mm-proj__body">
+            <p class="mm-proj__quote">
+              An open-source, blockchain-based ride-sharing network designed to lower platform fees and
+              return more value to drivers through transparent, decentralized infrastructure.
+            </p>
+
+            <p class="mm-proj__lead">As creator and lead developer, I designed and built its core components:</p>
+
+            <div class="mm-repos">
+              <a href="https://github.com/clutch-protocol/clutch-node" target="_blank" rel="noopener" class="mm-repo">
+                <span class="mm-repo__ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.6.5.5 5.6.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 5 18.3 5.3 18.3 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.6 18.4.5 12 .5z"/></svg></span>
+                <div>
+                  <h4>clutch-node <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></h4>
+                  <p>Core blockchain implementation in <strong>Rust</strong> with an Aura consensus mechanism for fast, energy-efficient validation.</p>
+                  <div class="mm-repo__tech"><span>Rust</span><span>Blockchain</span><span>libp2p</span></div>
                 </div>
-              </div>
-              <i class="fas fa-arrow-up-right-from-square repo-card__arrow"></i>
-            </a>
-
-            <a href="https://github.com/clutch-protocol/clutch-hub-sdk-js" target="_blank" rel="noopener" class="repo-card">
-              <div class="repo-card__icon"><i class="fab fa-github"></i></div>
-              <div class="repo-card__content">
-                <h4>clutch-hub-sdk-js</h4>
-                <p><strong>TypeScript</strong> SDK enabling seamless integration for developers building on Clutch Protocol</p>
-                <div class="repo-card__tech">
-                  <span>TypeScript</span><span>SDK</span><span>npm</span>
+              </a>
+              <a href="https://github.com/clutch-protocol/clutch-hub-api" target="_blank" rel="noopener" class="mm-repo">
+                <span class="mm-repo__ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.6.5.5 5.6.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 5 18.3 5.3 18.3 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.6 18.4.5 12 .5z"/></svg></span>
+                <div>
+                  <h4>clutch-hub-api <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></h4>
+                  <p>API layer bridging applications to the blockchain with real-time <strong>WebSocket</strong> support.</p>
+                  <div class="mm-repo__tech"><span>Node.js</span><span>REST API</span><span>WebSocket</span></div>
                 </div>
-              </div>
-              <i class="fas fa-arrow-up-right-from-square repo-card__arrow"></i>
-            </a>
-
-            <a href="https://github.com/clutch-protocol/clutch-hub-demo-app" target="_blank" rel="noopener" class="repo-card">
-              <div class="repo-card__icon"><i class="fab fa-github"></i></div>
-              <div class="repo-card__content">
-                <h4>clutch-hub-demo-app</h4>
-                <p><strong>React</strong>-based reference implementation showcasing the platform's capabilities</p>
-                <div class="repo-card__tech">
-                  <span>React</span><span>Demo</span><span>UI</span>
+              </a>
+              <a href="https://github.com/clutch-protocol/clutch-hub-sdk-js" target="_blank" rel="noopener" class="mm-repo">
+                <span class="mm-repo__ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.6.5.5 5.6.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 5 18.3 5.3 18.3 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.6 18.4.5 12 .5z"/></svg></span>
+                <div>
+                  <h4>clutch-hub-sdk-js <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></h4>
+                  <p><strong>TypeScript</strong> SDK enabling seamless integration for developers building on Clutch Protocol.</p>
+                  <div class="mm-repo__tech"><span>TypeScript</span><span>SDK</span><span>npm</span></div>
                 </div>
-              </div>
-              <i class="fas fa-arrow-up-right-from-square repo-card__arrow"></i>
-            </a>
-          </div>
+              </a>
+              <a href="https://github.com/clutch-protocol/clutch-hub-demo-app" target="_blank" rel="noopener" class="mm-repo">
+                <span class="mm-repo__ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.6.5.5 5.6.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 5 18.3 5.3 18.3 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.6 18.4.5 12 .5z"/></svg></span>
+                <div>
+                  <h4>clutch-hub-demo-app <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></h4>
+                  <p><strong>React</strong>-based reference implementation showcasing the platform's capabilities.</p>
+                  <div class="mm-repo__tech"><span>React</span><span>Demo</span><span>UI</span></div>
+                </div>
+              </a>
+            </div>
 
-          <p class="project-featured__stats-label">Protocol design targets</p>
-          <div class="project-featured__stats">
-            <div class="stat">
-              <span class="stat__value">5-8%</span>
-              <span class="stat__label">Platform Fee</span>
-              <span class="stat__note">vs 15-25% traditional</span>
+            <p class="mm-stats-label">Protocol design targets</p>
+            <div class="mm-stats">
+              <div class="mm-stat"><b>5-8%</b><span>Platform Fee</span><em>vs 15-25% traditional</em></div>
+              <div class="mm-stat"><b>90%</b><span>To Drivers</span><em>Fee distribution</em></div>
+              <div class="mm-stat"><b>60%</b><span>Cost Reduction</span><em>For end users</em></div>
+              <div class="mm-stat"><b>DAO</b><span>Governance</span><em>Community-driven</em></div>
             </div>
-            <div class="stat">
-              <span class="stat__value">90%</span>
-              <span class="stat__label">To Drivers</span>
-              <span class="stat__note">Fee distribution</span>
-            </div>
-            <div class="stat">
-              <span class="stat__value">60%</span>
-              <span class="stat__label">Cost Reduction</span>
-              <span class="stat__note">For end users</span>
-            </div>
-            <div class="stat">
-              <span class="stat__value">DAO</span>
-              <span class="stat__label">Governance</span>
-              <span class="stat__note">Community-driven</span>
-            </div>
-          </div>
 
-          <div class="project-featured__cta">
-            <a href="https://github.com/clutch-protocol" target="_blank" rel="noopener" class="btn btn--primary">
-              <i class="fab fa-github"></i> View Organization
-            </a>
+            <div class="mm-proj__cta">
+              <a href="https://github.com/clutch-protocol" target="_blank" rel="noopener" class="mm-btn mm-btn--primary">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.6.5.5 5.6.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 5 18.3 5.3 18.3 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.6 18.4.5 12 .5z"/></svg>
+                View Organization
+              </a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============ EXPERIENCE SECTION ============ -->
-  <section class="section experience" id="experience">
-    <div class="container">
-      <h2 class="section__title reveal">
-        <span class="section__number">03.</span> Experience
-      </h2>
+    <!-- EXPERIENCE -->
+    <section class="mm-section mm-section--alt" id="mm-experience" aria-labelledby="mm-exp-h">
+      <div class="mm-container">
+        <div class="mm-head mm-reveal">
+          <span class="mm-eyebrow">03 — Experience</span>
+          <h2 class="mm-h2" id="mm-exp-h">Where I've shipped software.</h2>
+        </div>
 
-      <div class="timeline">
-        <!-- 1. Parto CRS / Fly Today -->
-        <div class="timeline__item reveal">
-          <div class="timeline__dot"></div>
-          <div class="timeline__content">
-            <div class="timeline__header">
-              <div>
-                <h3 class="timeline__role">Senior Full-Stack Developer (.NET)</h3>
-                <span class="timeline__company">Parto CRS / Fly Today</span>
+        <div class="mm-timeline">
+          <div class="mm-tl mm-reveal">
+            <div class="mm-tl__card">
+              <div class="mm-tl__head">
+                <div>
+                  <h3 class="mm-tl__role">Senior Full-Stack Developer (.NET)</h3>
+                  <span class="mm-tl__co">Parto CRS / Fly Today</span>
+                </div>
+                <span class="mm-tl__date">Dec 2018 — Present</span>
               </div>
-              <span class="timeline__date">Dec 2018 — Present</span>
+              <p class="mm-tl__quote">Building B2B travel and airline reservation platforms serving agencies across the region.</p>
+              <ul class="mm-tl__list">
+                <li>Design and develop B2B flight and hotel reservation systems with C#, ASP.NET Core, and SQL Server.</li>
+                <li>Build and maintain REST / Web API services integrating GDS and third-party supplier feeds.</li>
+                <li>Develop internal tools and dashboards for booking and fare management.</li>
+              </ul>
+              <div class="mm-tl__tags"><span>C#</span><span>ASP.NET Core</span><span>SQL Server</span><span>Web API</span></div>
             </div>
-            <p class="timeline__quote">
-              Building B2B travel and airline reservation platforms serving agencies across the region.
+          </div>
+
+          <div class="mm-tl mm-reveal">
+            <div class="mm-tl__card">
+              <div class="mm-tl__head">
+                <div>
+                  <h3 class="mm-tl__role">.NET &amp; IoT Developer</h3>
+                  <span class="mm-tl__co">Wenda IoT Communication Technology</span>
+                </div>
+                <span class="mm-tl__date">Apr 2018 — Oct 2018</span>
+              </div>
+              <p class="mm-tl__quote">Built device management and monitoring solutions on Microsoft Azure IoT Hub.</p>
+              <ul class="mm-tl__list">
+                <li>Developed an IoT device management and monitoring portal on Microsoft Azure IoT Hub.</li>
+                <li>Built a dual-channel touch switch with cloud connectivity and network cameras with face detection.</li>
+                <li>Programmed embedded hardware in Python and Arduino; authored content for iot-lab.ir.</li>
+              </ul>
+              <div class="mm-tl__tags"><span>C#</span><span>Azure IoT Hub</span><span>Python</span><span>Arduino</span></div>
+            </div>
+          </div>
+
+          <div class="mm-tl mm-reveal">
+            <div class="mm-tl__card">
+              <div class="mm-tl__head">
+                <div>
+                  <h3 class="mm-tl__role">Full-Stack Web Developer</h3>
+                  <span class="mm-tl__co">Sepna &amp; Tehran Municipality ICT Organization</span>
+                </div>
+                <span class="mm-tl__date">Oct 2014 — Feb 2018</span>
+              </div>
+              <p class="mm-tl__quote">Delivered enterprise portals and an ITIL-based IT service management platform.</p>
+              <ul class="mm-tl__list">
+                <li>Co-developed an ITIL-based ITSM platform for Tehran Municipality ICT, including a custom workflow engine for business-process automation.</li>
+                <li>Built enterprise portals and custom modules on DotNetNuke.</li>
+                <li>Developed ASP.NET (Web Forms, MVC, Core) applications and WCF / ASMX web services.</li>
+                <li>Designed SQL Server databases with stored procedures, functions, and reporting.</li>
+              </ul>
+              <div class="mm-tl__tags"><span>ASP.NET</span><span>DotNetNuke</span><span>WCF</span><span>SQL Server</span></div>
+            </div>
+          </div>
+
+          <div class="mm-tl mm-reveal">
+            <div class="mm-tl__card">
+              <div class="mm-tl__head">
+                <div>
+                  <h3 class="mm-tl__role">Founder &amp; Lead Blockchain Engineer</h3>
+                  <a href="https://github.com/clutch-protocol" target="_blank" rel="noopener" class="mm-tl__co">
+                    Clutch Protocol
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
+                  </a>
+                </div>
+                <span class="mm-tl__date">2024 — Present · Side Project</span>
+              </div>
+              <p class="mm-tl__quote">Building an open-source, decentralized ride-sharing network on a custom Rust blockchain.</p>
+              <ul class="mm-tl__list">
+                <li><strong>Architecture &amp; Design:</strong> Implemented a blockchain core in Rust with Aura consensus for high throughput and low latency.</li>
+                <li><strong>Full-Stack Development:</strong> Built the API layer, a TypeScript SDK, and a React demo application.</li>
+                <li><strong>Protocol Design:</strong> Designed a tokenomics model distributing 90% of fees to drivers, 5% to validators, and 5% to developers.</li>
+                <li><strong>Security:</strong> Implemented client-side transaction signing with secp256k1 / ed25519.</li>
+              </ul>
+              <div class="mm-tl__tags"><span>Rust</span><span>Node.js</span><span>TypeScript</span><span>React</span><span>libp2p</span><span>Cryptography</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="mm-section" id="mm-education" aria-labelledby="mm-edu-h">
+      <div class="mm-container">
+        <div class="mm-head mm-reveal">
+          <span class="mm-eyebrow">04 — Education</span>
+          <h2 class="mm-h2" id="mm-edu-h">Academic foundation.</h2>
+        </div>
+        <div class="mm-edu">
+          <div class="mm-educard mm-reveal">
+            <div class="mm-educard__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 2.7 2.5 6 2.5s6-1.5 6-2.5v-5"/><path d="M22 10v6"/></svg></div>
+            <span class="mm-educard__date">2023</span>
+            <h3>M.Sc., Computer Software Engineering</h3>
+            <p class="mm-educard__school">Islamic Azad University</p>
+            <p class="mm-educard__note">Thesis: a blockchain-based network to reduce travel cost in ride-sharing services — the foundation of Clutch Protocol.</p>
+          </div>
+          <div class="mm-educard mm-reveal">
+            <div class="mm-educard__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 2.7 2.5 6 2.5s6-1.5 6-2.5v-5"/><path d="M22 10v6"/></svg></div>
+            <span class="mm-educard__date">2018</span>
+            <h3>B.Sc., Computer Software Engineering</h3>
+            <p class="mm-educard__school">Islamic Azad University, Islamshahr Branch</p>
+          </div>
+          <div class="mm-educard mm-reveal">
+            <div class="mm-educard__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 2.7 2.5 6 2.5s6-1.5 6-2.5v-5"/><path d="M22 10v6"/></svg></div>
+            <span class="mm-educard__date">2015</span>
+            <h3>A.Sc., Computer Software Engineering</h3>
+            <p class="mm-educard__school">Shahid Babaei College, Qazvin</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESEARCH -->
+    <section class="mm-section mm-section--alt" id="mm-research" aria-labelledby="mm-res-h">
+      <div class="mm-container">
+        <div class="mm-head mm-reveal">
+          <span class="mm-eyebrow">05 — Academic Research</span>
+          <h2 class="mm-h2" id="mm-res-h">The research behind the protocol.</h2>
+        </div>
+
+        <div class="mm-research mm-reveal">
+          <div class="mm-research__rail" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 2.7 2.5 6 2.5s6-1.5 6-2.5v-5"/><path d="M22 10v6"/></svg>
+          </div>
+          <div class="mm-research__body">
+            <span class="mm-research__label">Master's Thesis</span>
+            <h3 class="mm-research__title">A Blockchain-Based Network to Reduce the Travel Cost in Ride-Sharing Services</h3>
+            <p class="mm-research__advisor">Advisor: <strong>MohammadHossein ShafiAbadi, Ph.D.</strong></p>
+            <p class="mm-research__quote">
+              Academic research that laid the theoretical foundation for Clutch Protocol — showing how
+              blockchain technology can improve ride-sharing economics and reduce travel costs.
             </p>
-            <ul class="timeline__list">
-              <li>Design and develop B2B flight and hotel reservation systems with C#, ASP.NET Core, and SQL Server <!-- VERIFY --></li>
-              <li>Build and maintain REST / Web API services integrating GDS and third-party supplier feeds <!-- VERIFY --></li>
-              <li>Develop internal tools and dashboards for booking and fare management <!-- VERIFY --></li>
-            </ul>
-            <div class="timeline__tags">
-              <span>C#</span><span>ASP.NET Core</span><span>SQL Server</span>
-              <span>Web API</span>
-            </div>
-          </div>
-        </div>
 
-        <!-- 2. Wenda IoT -->
-        <div class="timeline__item reveal">
-          <div class="timeline__dot"></div>
-          <div class="timeline__content">
-            <div class="timeline__header">
-              <div>
-                <h3 class="timeline__role">.NET &amp; IoT Developer</h3>
-                <span class="timeline__company">Wenda IoT Communication Technology</span>
+            <div class="mm-hl">
+              <div class="mm-hl__item">
+                <span class="mm-hl__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 14 3-4 3 3 5-6"/></svg></span>
+                <div><strong>Economic Analysis</strong><p>Detailed comparison between centralized and decentralized ride-sharing models.</p></div>
               </div>
-              <span class="timeline__date">Apr 2018 — Oct 2018</span>
+              <div class="mm-hl__item">
+                <span class="mm-hl__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 3 7l9 5 9-5-9-5z"/><path d="m3 12 9 5 9-5"/><path d="m3 17 9 5 9-5"/></svg></span>
+                <div><strong>Technical Architecture</strong><p>Blockchain infrastructure specifically optimized for ride-sharing applications.</p></div>
+              </div>
+              <div class="mm-hl__item">
+                <span class="mm-hl__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6"/><path d="M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></span>
+                <div><strong>Cost Reduction</strong><p>Mathematical modeling demonstrating significant travel cost reductions.</p></div>
+              </div>
+              <div class="mm-hl__item">
+                <span class="mm-hl__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span>
+                <div><strong>Security &amp; Trust</strong><p>Cryptographic protocols ensuring secure, trustless transactions.</p></div>
+              </div>
             </div>
-            <p class="timeline__quote">
-              Built device management and monitoring solutions on Microsoft Azure IoT Hub.
+
+            <p class="mm-research__note">
+              This thesis is the academic groundwork for Clutch Protocol — the research is now being put
+              into practice as a working open-source implementation.
             </p>
-            <ul class="timeline__list">
-              <li>Developed an IoT device management and monitoring portal on Microsoft Azure IoT Hub</li>
-              <li>Built a dual-channel touch switch with cloud connectivity and network cameras with face detection</li>
-              <li>Programmed embedded hardware in Python and Arduino; authored content for iot-lab.ir</li>
-            </ul>
-            <div class="timeline__tags">
-              <span>C#</span><span>Azure IoT Hub</span><span>Python</span><span>Arduino</span>
+
+            <div class="mm-research__actions">
+              <a href="https://github.com/MehranMazhar/master-thesis/blob/main/MehranMazhar_Thesis.pdf" target="_blank" rel="noopener" class="mm-btn mm-btn--primary mm-btn--sm">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"/></svg>
+                Full Thesis
+              </a>
+              <a href="https://github.com/MehranMazhar/master-thesis/blob/main/MehranMazhar_Thesis_Presentation.pdf" target="_blank" rel="noopener" class="mm-btn mm-btn--outline mm-btn--sm">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                Presentation
+              </a>
+              <a href="https://github.com/MehranMazhar/master-thesis" target="_blank" rel="noopener" class="mm-btn mm-btn--outline mm-btn--sm">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.6.5.5 5.6.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 5 18.3 5.3 18.3 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.6 18.4.5 12 .5z"/></svg>
+                Repository
+              </a>
             </div>
           </div>
         </div>
+      </div>
+    </section>
 
-        <!-- 3. Sepna + Tehran Municipality ICT (concurrent) -->
-        <div class="timeline__item reveal">
-          <div class="timeline__dot"></div>
-          <div class="timeline__content">
-            <div class="timeline__header">
-              <div>
-                <h3 class="timeline__role">Full-Stack Web Developer</h3>
-                <span class="timeline__company">Sepna &amp; Tehran Municipality ICT Organization</span>
-              </div>
-              <span class="timeline__date">Oct 2014 — Feb 2018</span>
-            </div>
-            <p class="timeline__quote">
-              Delivered enterprise portals and an ITIL-based IT service management platform.
+    <!-- BEYOND CODE -->
+    <section class="mm-section" id="mm-interests" aria-labelledby="mm-int-h">
+      <div class="mm-container">
+        <div class="mm-head mm-reveal">
+          <span class="mm-eyebrow">06 — Beyond the Code</span>
+          <h2 class="mm-h2" id="mm-int-h">Life outside the editor.</h2>
+          <p>While I'm passionate about blockchain technology and building decentralized systems, I believe in maintaining a balanced lifestyle.</p>
+        </div>
+        <div class="mm-interests">
+          <div class="mm-icard mm-reveal">
+            <div class="mm-icard__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 20 6-10 4 6 3-4 5 8z"/><circle cx="17" cy="6" r="2.5"/></svg></div>
+            <h3>Mountaineering</h3>
+            <p>Drawing inspiration from nature's complexity and finding parallels between navigating challenging terrains and solving complex technical problems.</p>
+          </div>
+          <div class="mm-icard mm-reveal">
+            <div class="mm-icard__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5a2.1 2.1 0 0 0-3-3L13 8 4.8 6.2a1 1 0 0 0-.9.3l-.9.9 5 3-2 2-2.5-.5-.9.9 3 2 2 3 .9-.9L11 17l3 5 .9-.9a1 1 0 0 0 .3-.9z"/></svg></div>
+            <h3>Traveling</h3>
+            <p>Exploring different perspectives and understanding global challenges that technology can help solve through cultural exchange.</p>
+          </div>
+          <div class="mm-icard mm-reveal">
+            <div class="mm-icard__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="6" r="3"/><path d="M6 9v6M15 6H9a2 2 0 0 0-2 2v2"/></svg></div>
+            <h3>Open Source</h3>
+            <p>Contributing to and supporting the broader developer ecosystem that makes innovative projects like Clutch Protocol possible.</p>
+          </div>
+          <div class="mm-icard mm-reveal">
+            <div class="mm-icard__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1V17h6v-.2c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2z"/></svg></div>
+            <h3>Tech Philosophy</h3>
+            <p>Exploring how decentralized systems can create more equitable outcomes at the intersection of technology, economics, and social impact.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="mm-section mm-contact" id="mm-contact" aria-labelledby="mm-contact-h">
+      <div class="mm-container">
+        <div class="mm-contact__box mm-reveal">
+          <div class="mm-contact__inner">
+            <span class="mm-contact__label">What's Next?</span>
+            <h2 class="mm-contact__title" id="mm-contact-h">Let's Build Something Together</h2>
+            <p class="mm-contact__text">
+              Whether you're interested in blockchain development, want to collaborate on decentralized
+              projects, or just want to say hello — my inbox is always open.
             </p>
-            <ul class="timeline__list">
-              <li>Co-developed an ITIL-based ITSM platform for Tehran Municipality ICT, including a custom workflow engine for business-process automation</li>
-              <li>Built enterprise portals and custom modules on DotNetNuke</li>
-              <li>Developed ASP.NET (Web Forms, MVC, Core) applications and WCF / ASMX web services</li>
-              <li>Designed SQL Server databases with stored procedures, functions, and reporting</li>
-            </ul>
-            <div class="timeline__tags">
-              <span>ASP.NET</span><span>DotNetNuke</span>
-              <span>WCF</span><span>SQL Server</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- 4. Clutch Protocol (side project) -->
-        <div class="timeline__item reveal">
-          <div class="timeline__dot"></div>
-          <div class="timeline__content">
-            <div class="timeline__header">
-              <div>
-                <h3 class="timeline__role">Founder &amp; Lead Blockchain Engineer</h3>
-                <a href="https://github.com/clutch-protocol" target="_blank" rel="noopener" class="timeline__company">
-                  Clutch Protocol <i class="fas fa-arrow-up-right-from-square"></i>
-                </a>
-              </div>
-              <span class="timeline__date">2024 — Present · Side Project</span>
-            </div>
-            <p class="timeline__quote">
-              Building an open-source, decentralized ride-sharing network on a custom Rust blockchain.
-            </p>
-            <ul class="timeline__list">
-              <li><strong>Architecture &amp; Design:</strong> Implemented a blockchain core in Rust with Aura consensus for high throughput and low latency</li>
-              <li><strong>Full-Stack Development:</strong> Built the API layer, a TypeScript SDK, and a React demo application</li>
-              <li><strong>Protocol Design:</strong> Designed a tokenomics model distributing 90% of fees to drivers, 5% to validators, and 5% to developers</li>
-              <li><strong>Security:</strong> Implemented client-side transaction signing with secp256k1 / ed25519</li>
-            </ul>
-            <div class="timeline__tags">
-              <span>Rust</span><span>Node.js</span><span>TypeScript</span>
-              <span>React</span><span>libp2p</span><span>Cryptography</span>
+            <div class="mm-contact__actions">
+              <a href="mailto:mehran.mazhar@gmail.com" class="mm-btn mm-btn--primary mm-btn--lg">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 6 10 7 10-7"/></svg>
+                Say Hello
+              </a>
+              <a href="assets/Mehran-Mazhar-CV.pdf" download class="mm-btn mm-btn--outline mm-btn--lg">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+                Download CV
+              </a>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- ============ EDUCATION SECTION ============ -->
-  <section class="section education" id="education">
-    <div class="container">
-      <h2 class="section__title reveal">
-        <span class="section__number">04.</span> Education
-      </h2>
-      <div class="education__grid">
-        <div class="edu-card reveal">
-          <div class="edu-card__icon"><i class="fas fa-graduation-cap"></i></div>
-          <div class="edu-card__body">
-            <span class="edu-card__date">2023</span>
-            <h3 class="edu-card__degree">M.Sc., Computer Software Engineering</h3>
-            <p class="edu-card__school">Islamic Azad University</p>
-            <p class="edu-card__note">Thesis: a blockchain-based network to reduce travel cost in ride-sharing services — the foundation of Clutch Protocol.</p>
-          </div>
+  <!-- FOOTER -->
+  <footer class="mm-footer">
+    <div class="mm-container">
+      <div class="mm-footer__inner">
+        <div class="mm-social">
+          <a href="https://github.com/mehranmazhar" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.6.5.5 5.6.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 5 18.3 5.3 18.3 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.6 18.4.5 12 .5z"/></svg></a>
+          <a href="https://linkedin.com/in/mehran-mazhar" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33 0-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.55V9h3.57zM22.22 0H1.77C.8 0 0 .78 0 1.75v20.5C0 23.2.8 24 1.77 24h20.45c.98 0 1.78-.8 1.78-1.75V1.75C24 .78 23.2 0 22.22 0z"/></svg></a>
+          <a href="https://twitter.com/mehran_mazhar4" target="_blank" rel="noopener" aria-label="X (Twitter)"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.22-6.82-5.97 6.82H1.66l7.73-8.84L1.24 2.25H8.1l4.71 6.23zm-1.16 17.52h1.83L7.01 4.13H5.05z"/></svg></a>
+          <a href="https://stackoverflow.com/users/2676799" target="_blank" rel="noopener" aria-label="Stack Overflow"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.36 20.2v-5.38h1.79V22H3v-7.18h1.8v5.38zM6.77 14.32l.37-1.76 8.79 1.85-.37 1.76zm1.16-4.21.76-1.61 8.14 3.78-.76 1.62zm2.26-3.99 1.15-1.38 6.9 5.76-1.15 1.37zM14.64 2l5.4 7.28-1.44 1.07-5.4-7.28zM6.59 18.44v-1.8h8.98v1.8z"/></svg></a>
+          <a href="https://instagram.com/mazhar_mehran4" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.2" fill="currentColor" stroke="none"/></svg></a>
         </div>
-        <div class="edu-card reveal">
-          <div class="edu-card__icon"><i class="fas fa-graduation-cap"></i></div>
-          <div class="edu-card__body">
-            <span class="edu-card__date">2018</span>
-            <h3 class="edu-card__degree">B.Sc., Computer Software Engineering</h3>
-            <p class="edu-card__school">Islamic Azad University, Islamshahr Branch</p>
-          </div>
-        </div>
-        <div class="edu-card reveal">
-          <div class="edu-card__icon"><i class="fas fa-graduation-cap"></i></div>
-          <div class="edu-card__body">
-            <span class="edu-card__date">2015</span>
-            <h3 class="edu-card__degree">A.Sc., Computer Software Engineering</h3>
-            <p class="edu-card__school">Shahid Babaei College, Qazvin</p>
-          </div>
-        </div>
+        <p class="mm-footer__credit">Designed &amp; Built by <strong>Mehran Mazhar</strong></p>
+        <p class="mm-footer__copy">© 2024 — Present. All rights reserved.</p>
       </div>
-    </div>
-  </section>
-
-  <!-- ============ RESEARCH SECTION ============ -->
-  <section class="section research" id="research">
-    <div class="container">
-      <h2 class="section__title reveal">
-        <span class="section__number">05.</span> Academic Research
-      </h2>
-
-      <div class="research__card reveal">
-        <div class="research__icon">
-          <i class="fas fa-graduation-cap"></i>
-        </div>
-        <div class="research__content">
-          <span class="research__label">Master's Thesis</span>
-          <h3 class="research__title">
-            A Blockchain-Based Network to Reduce the Travel Cost in Ride-Sharing Services
-          </h3>
-          <p class="research__advisor">
-            Advisor: <strong>MohammadHossein ShafiAbadi, Ph.D.</strong>
-          </p>
-          <p class="research__quote">
-            Academic research that laid the theoretical foundation for Clutch Protocol — showing
-            how blockchain technology can improve ride-sharing economics and reduce travel costs.
-          </p>
-
-          <div class="research__highlights">
-            <div class="research__highlight">
-              <i class="fas fa-chart-line"></i>
-              <div>
-                <strong>Economic Analysis</strong>
-                <p>Detailed comparison between centralized and decentralized ride-sharing models</p>
-              </div>
-            </div>
-            <div class="research__highlight">
-              <i class="fas fa-cubes"></i>
-              <div>
-                <strong>Technical Architecture</strong>
-                <p>Blockchain infrastructure specifically optimized for ride-sharing applications</p>
-              </div>
-            </div>
-            <div class="research__highlight">
-              <i class="fas fa-coins"></i>
-              <div>
-                <strong>Cost Reduction</strong>
-                <p>Mathematical modeling demonstrating significant travel cost reductions</p>
-              </div>
-            </div>
-            <div class="research__highlight">
-              <i class="fas fa-lock"></i>
-              <div>
-                <strong>Security & Trust</strong>
-                <p>Cryptographic protocols ensuring secure, trustless transactions</p>
-              </div>
-            </div>
-          </div>
-
-          <p class="research__note">
-            This thesis is the academic groundwork for Clutch Protocol — the research is now being
-            put into practice as a working open-source implementation.
-          </p>
-
-          <div class="research__actions">
-            <a href="https://github.com/MehranMazhar/master-thesis/blob/main/MehranMazhar_Thesis.pdf" target="_blank" rel="noopener" class="btn btn--primary btn--sm">
-              <i class="fas fa-file-pdf"></i> Full Thesis
-            </a>
-            <a href="https://github.com/MehranMazhar/master-thesis/blob/main/MehranMazhar_Thesis_Presentation.pdf" target="_blank" rel="noopener" class="btn btn--outline btn--sm">
-              <i class="fas fa-desktop"></i> Presentation
-            </a>
-            <a href="https://github.com/MehranMazhar/master-thesis" target="_blank" rel="noopener" class="btn btn--outline btn--sm">
-              <i class="fab fa-github"></i> Repository
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ BEYOND THE CODE ============ -->
-  <section class="section interests" id="interests">
-    <div class="container">
-      <h2 class="section__title reveal">
-        <span class="section__number">06.</span> Beyond the Code
-      </h2>
-      <p class="section__subtitle reveal">
-        While I'm passionate about blockchain technology and building decentralized systems,
-        I believe in maintaining a balanced lifestyle.
-      </p>
-
-      <div class="interests__grid">
-        <div class="interest-card reveal">
-          <div class="interest-card__icon">
-            <i class="fas fa-mountain-sun"></i>
-          </div>
-          <h3>Mountaineering</h3>
-          <p>Drawing inspiration from nature's complexity and finding parallels between navigating challenging terrains and solving complex technical problems.</p>
-        </div>
-        <div class="interest-card reveal">
-          <div class="interest-card__icon">
-            <i class="fas fa-plane-departure"></i>
-          </div>
-          <h3>Traveling</h3>
-          <p>Exploring different perspectives and understanding global challenges that technology can help solve through cultural exchange.</p>
-        </div>
-        <div class="interest-card reveal">
-          <div class="interest-card__icon">
-            <i class="fas fa-code-branch"></i>
-          </div>
-          <h3>Open Source</h3>
-          <p>Contributing to and supporting the broader developer ecosystem that makes innovative projects like Clutch Protocol possible.</p>
-        </div>
-        <div class="interest-card reveal">
-          <div class="interest-card__icon">
-            <i class="fas fa-lightbulb"></i>
-          </div>
-          <h3>Tech Philosophy</h3>
-          <p>Exploring how decentralized systems can create more equitable outcomes at the intersection of technology, economics, and social impact.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ CONTACT / CTA SECTION ============ -->
-  <section class="section contact" id="contact">
-    <div class="container">
-      <div class="contact__content reveal">
-        <span class="contact__label">What's Next?</span>
-        <h2 class="contact__title">Let's Build Something Together</h2>
-        <p class="contact__text">
-          Whether you're interested in blockchain development, want to collaborate on
-          decentralized projects, or just want to say hello — my inbox is always open.
-        </p>
-        <div class="contact__actions">
-          <a href="mailto:mehran.mazhar@gmail.com" class="btn btn--primary btn--lg">
-            <i class="fas fa-envelope"></i> Say Hello
-          </a>
-          <a href="assets/Mehran-Mazhar-CV.pdf" class="btn btn--outline btn--lg" download>
-            <i class="fas fa-file-arrow-down"></i> Download CV
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ FOOTER ============ -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__social">
-        <a href="https://github.com/mehranmazhar" target="_blank" rel="noopener" aria-label="GitHub" class="footer__social-link">
-          <i class="fab fa-github"></i>
-        </a>
-        <a href="https://linkedin.com/in/mehran-mazhar" target="_blank" rel="noopener" aria-label="LinkedIn" class="footer__social-link">
-          <i class="fab fa-linkedin-in"></i>
-        </a>
-        <a href="https://twitter.com/mehran_mazhar4" target="_blank" rel="noopener" aria-label="Twitter" class="footer__social-link">
-          <i class="fab fa-x-twitter"></i>
-        </a>
-        <a href="https://stackoverflow.com/users/2676799" target="_blank" rel="noopener" aria-label="Stack Overflow" class="footer__social-link">
-          <i class="fab fa-stack-overflow"></i>
-        </a>
-        <a href="https://instagram.com/mazhar_mehran4" target="_blank" rel="noopener" aria-label="Instagram" class="footer__social-link">
-          <i class="fab fa-instagram"></i>
-        </a>
-      </div>
-      <p class="footer__credit">
-        Designed & Built by <strong>Mehran Mazhar</strong>
-      </p>
-      <p class="footer__copyright">
-        &copy; 2024 — Present. All rights reserved.
-      </p>
     </div>
   </footer>
+</div>
 
-  <!-- Scripts -->
   <script src="assets/js/main.js"></script>
 </body>
 </html>
