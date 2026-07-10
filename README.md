@@ -3,7 +3,7 @@
 Personal website and portfolio of Mehran Mazhar - Blockchain Engineer and creator of Clutch Protocol.
 
 ## About
-This Jekyll-based website showcases my work in blockchain development, particularly the revolutionary [Clutch Protocol](https://github.com/clutch-protocol) - a decentralized ride-sharing platform built with Rust that aims to reduce industry fees by 60%.
+This Jekyll-based website showcases my work in blockchain development, particularly the revolutionary [Clutch Protocol](https://github.com/clutchprotocol) - a decentralized ride-sharing platform built with Rust that aims to reduce industry fees by 60%.
 
 ## Features
 - Professional portfolio highlighting blockchain expertise
