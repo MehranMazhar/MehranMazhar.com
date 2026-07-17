@@ -190,17 +190,6 @@
   }
   @media (max-width: 900px){ .mm-hero__inner { grid-template-columns: 1fr; gap: 44px; } }
 
-  .mm-availbadge {
-    display: inline-flex; align-items: center; gap: 9px;
-    background: var(--surface); border: 1px solid var(--line);
-    border-radius: 999px; padding: 7px 15px 7px 12px;
-    font-size: 13px; font-weight: 500; color: var(--ink-soft);
-    box-shadow: var(--shadow-sm); margin-bottom: 28px;
-  }
-  .mm-dot {
-    width: 8px; height: 8px; border-radius: 50%; background: var(--accent);
-    box-shadow: 0 0 0 3px var(--accent-soft);
-  }
   .mm-hero__greet {
     font-family: var(--mono); color: var(--accent); font-size: 15px;
     font-weight: 500; margin-bottom: 14px; letter-spacing: .3px;
