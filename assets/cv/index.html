@@ -7,19 +7,19 @@
 <style>
   :root { --ink:#1a1a2e; --muted:#555; --accent:#4f46e5; --line:#e2e2ec; }
   * { margin:0; padding:0; box-sizing:border-box; }
-  @page { size: A4; margin: 14mm 14mm; }
+  @page { size: A4; margin: 11mm 13mm; }
   html,body { background:#fff; color:var(--ink);
     font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    font-size: 10.5pt; line-height: 1.4; }
+    font-size: 10.5pt; line-height: 1.32; }
   .wrap { max-width: 800px; margin: 0 auto; padding: 0; }
-  header { border-bottom: 2px solid var(--accent); padding-bottom: 10px; margin-bottom: 12px; }
+  header { border-bottom: 2px solid var(--accent); padding-bottom: 9px; margin-bottom: 10px; }
   h1 { font-size: 22pt; letter-spacing: 0.5px; }
   .title { color: var(--accent); font-weight: 600; font-size: 11.5pt; margin-top: 2px; }
   .contact { margin-top: 8px; font-size: 9pt; color: var(--muted); display: flex; flex-wrap: wrap; gap: 4px 14px; }
   .contact a { color: var(--muted); text-decoration: none; }
-  section { margin-top: 12px; }
+  section { margin-top: 9px; }
   h2 { font-size: 10.5pt; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent);
-    border-bottom: 1px solid var(--line); padding-bottom: 4px; margin-bottom: 8px; }
+    border-bottom: 1px solid var(--line); padding-bottom: 3px; margin-bottom: 6px; }
   .job { margin-bottom: 8px; }
   .job__head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
   .job__role { font-weight: 700; font-size: 10.5pt; }
@@ -61,6 +61,22 @@
   </section>
 
   <section>
+    <h2>Open-Source Project</h2>
+    <div class="job">
+      <div class="job__head">
+        <span><span class="job__role">Founder &amp; Lead Blockchain Engineer</span> — <span class="job__org">Clutch Protocol</span></span>
+        <span class="job__date">2024 — Present</span>
+      </div>
+      <div class="muted" style="margin:2px 0;">Decentralized ride-sharing network · <a href="https://github.com/clutchprotocol" style="color:var(--accent);text-decoration:none;">github.com/clutchprotocol</a></div>
+      <ul>
+        <li>Implemented a blockchain core in Rust with Aura consensus for high throughput and low latency.</li>
+        <li>Built the API layer, a TypeScript SDK, and a React demo application.</li>
+        <li>Designed a tokenomics model distributing 90% of fees to drivers; implemented client-side signing with secp256k1 / ed25519.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
     <h2>Experience</h2>
 
     <div class="job">
@@ -97,18 +113,6 @@
         <li>Built enterprise portals and custom modules on DotNetNuke.</li>
         <li>Developed ASP.NET (Web Forms, MVC, Core) applications and WCF / ASMX web services.</li>
         <li>Designed SQL Server databases with stored procedures, functions, and reporting.</li>
-      </ul>
-    </div>
-
-    <div class="job">
-      <div class="job__head">
-        <span><span class="job__role">Founder &amp; Lead Blockchain Engineer</span> — <span class="job__org">Clutch Protocol (open-source side project)</span></span>
-        <span class="job__date">2024 — Present</span>
-      </div>
-      <ul>
-        <li>Implemented a blockchain core in Rust with Aura consensus for high throughput and low latency.</li>
-        <li>Built the API layer, a TypeScript SDK, and a React demo application.</li>
-        <li>Implemented client-side transaction signing with secp256k1 / ed25519.</li>
       </ul>
     </div>
   </section>
