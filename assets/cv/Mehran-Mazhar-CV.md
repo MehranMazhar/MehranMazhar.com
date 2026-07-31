@@ -2,7 +2,7 @@
 
 **Senior Full-Stack .NET Developer & Blockchain Engineer**
 
-Tehran, Iran · [mehran.mazhar@gmail.com](mailto:mehran.mazhar@gmail.com) · [mehranmazhar.com](https://mehranmazhar.com) · [github.com/MehranMazhar](https://github.com/MehranMazhar) · [linkedin.com/in/mehran-mazhar](https://linkedin.com/in/mehran-mazhar)
+[mehran.mazhar@gmail.com](mailto:mehran.mazhar@gmail.com) · [mehranmazhar.com](https://mehranmazhar.com) · [github.com/MehranMazhar](https://github.com/MehranMazhar) · [linkedin.com/in/mehran-mazhar](https://linkedin.com/in/mehran-mazhar)
 
 ## Summary
 
