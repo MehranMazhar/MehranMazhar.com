@@ -4,6 +4,9 @@ Allow: /
 # Block non-public files
 Disallow: /.nojekyll
 
+# Archived design mockups and planning docs — historical, superseded positioning
+Disallow: /docs/
+
 # Sitemap location
 Sitemap: https://mehranmazhar.com/sitemap.xml
 

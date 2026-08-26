@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mehran Mazhar — Senior .NET Developer & Blockchain Engineer</title>
-  <meta name="description" content="Senior full-stack .NET developer (C#, ASP.NET Core, SQL Server) with 10+ years, and blockchain engineer — creator of Clutch Protocol, built in Rust.">
-  <meta name="keywords" content="Mehran Mazhar, Full Stack Developer, .NET Developer, C#, ASP.NET Core, SQL Server, Blockchain Engineer, Rust, Clutch Protocol, Azure">
+  <title>Mehran Mazhar — .NET Backend Engineer</title>
+  <meta name="description" content=".NET backend engineer, 10+ years. Owns the money path of a production travel platform — refunds, wallets, withdrawals, payment-gateway integration.">
+  <meta name="keywords" content="Mehran Mazhar, .NET Backend Engineer, C#, .NET 10, ASP.NET Core, REST API, SQL Server, Redis, RabbitMQ, Entity Framework Core, Hangfire, payments, refunds, remote">
   <meta name="author" content="Mehran Mazhar">
 
   <!-- Canonical -->
   <link rel="canonical" href="https://mehranmazhar.com/">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Mehran Mazhar — Senior .NET Developer & Blockchain Engineer">
-  <meta property="og:description" content="10+ years on the .NET stack and creator of Clutch Protocol, an open-source blockchain ride-sharing network built in Rust.">
+  <meta property="og:title" content="Mehran Mazhar — .NET Backend Engineer">
+  <meta property="og:description" content="Owns the money path of a production travel platform — refunds, wallets, withdrawals, payment-gateway integration. 10+ years on .NET.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://mehranmazhar.com/">
   <meta property="og:image" content="https://mehranmazhar.com/images/profile.jpg">
@@ -21,8 +21,8 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="@mehran_mazhar4">
-  <meta name="twitter:title" content="Mehran Mazhar — Senior .NET Developer & Blockchain Engineer">
-  <meta name="twitter:description" content="10+ years on the .NET stack and creator of Clutch Protocol, an open-source blockchain ride-sharing network built in Rust.">
+  <meta name="twitter:title" content="Mehran Mazhar — .NET Backend Engineer">
+  <meta name="twitter:description" content="Owns the money path of a production travel platform — refunds, wallets, withdrawals, payment-gateway integration. 10+ years on .NET.">
   <meta name="twitter:image" content="https://mehranmazhar.com/images/profile.jpg">
 
   <!-- Favicon -->
@@ -39,7 +39,7 @@
     "name": "Mehran Mazhar",
     "url": "https://mehranmazhar.com/",
     "image": "https://mehranmazhar.com/images/profile.jpg",
-    "jobTitle": "Senior Full-Stack .NET Developer & Blockchain Engineer",
+    "jobTitle": ".NET Backend Engineer",
     "sameAs": [
       "https://github.com/MehranMazhar",
       "https://linkedin.com/in/mehran-mazhar",
@@ -47,7 +47,7 @@
       "https://stackoverflow.com/users/2676799"
     ],
     "alumniOf": "Islamic Azad University",
-    "knowsAbout": ["C#", ".NET", "ASP.NET Core", "SQL Server", "MongoDB", "Redis", "RabbitMQ", "Microsoft Azure", "Rust", "Blockchain", "Smart Contracts", "Cryptography"]
+    "knowsAbout": ["C#", ".NET", "ASP.NET Core", "REST APIs", "Entity Framework Core", "SQL Server", "Redis", "MongoDB", "RabbitMQ", "MassTransit", "Hangfire", "MediatR", "SignalR", "Distributed locking", "Payment gateway integration"]
   }
   </script></head>
 <body>
@@ -63,7 +63,7 @@
       </button>
       <ul class="mm-navlinks" id="mm-links">
         <li><a href="#mm-about">About</a></li>
-        <li><a href="#mm-projects">Projects</a></li>
+        <li><a href="#mm-projects">Work</a></li>
         <li><a href="#mm-experience">Experience</a></li>
         <li><a href="#mm-education">Education</a></li>
         <li><a href="#mm-research">Research</a></li>
@@ -82,11 +82,12 @@
           <div class="mm-reveal">
             <p class="mm-hero__greet">Hi, I'm</p>
             <h1 class="mm-hero__name" id="mm-hero-name">Mehran Mazhar</h1>
-            <p class="mm-hero__title"><b>Senior Full-Stack .NET Developer</b> &amp; Blockchain Engineer</p>
+            <p class="mm-hero__title"><b>.NET Backend Engineer</b> — payments, refunds &amp; money-path systems</p>
             <p class="mm-hero__desc">
-              10+ years building enterprise web platforms, B2B travel &amp; reservation systems, and IoT
-              solutions on the .NET stack. Creator of <strong>Clutch Protocol</strong> — an open-source,
-              blockchain-based ride-sharing network written in Rust.
+              10+ years on .NET, the last 7+ on one production travel platform — owning
+              <strong>money-path verticals end to end</strong>: refunds, wallets, withdrawals,
+              payment-gateway integration. The part I care about is the failure branch: what happens
+              when a payment retries, a bank goes quiet, or two requests hit the same credit.
             </p>
             <div class="mm-hero__actions">
               <a href="#mm-projects" class="mm-btn mm-btn--primary">
@@ -101,11 +102,11 @@
             <div class="mm-hero__stack">
               <span class="mm-stack-label">Tech Stack</span>
               <div class="mm-pills">
-                <span class="mm-pill">C# / .NET</span>
-                <span class="mm-pill">ASP.NET Core</span>
+                <span class="mm-pill">C# / .NET 10</span>
+                <span class="mm-pill">REST APIs</span>
                 <span class="mm-pill">SQL Server</span>
-                <span class="mm-pill">Rust</span>
-                <span class="mm-pill">Azure</span>
+                <span class="mm-pill">Redis</span>
+                <span class="mm-pill">RabbitMQ</span>
               </div>
             </div>
           </div>
@@ -113,20 +114,20 @@
           <aside class="mm-hero__card mm-reveal" aria-hidden="true">
             <div class="mm-hero__card-top">
               <span class="mm-tdot r"></span><span class="mm-tdot y"></span><span class="mm-tdot g"></span>
-              <span class="mm-hero__card-file">profile.rs</span>
+              <span class="mm-hero__card-file">Engineer.cs</span>
             </div>
             <div class="mm-code">
-<span class="ln"><span class="kw">struct</span> <span class="fn">Engineer</span> {</span>
-<span class="ln">  name: <span class="st">"Mehran Mazhar"</span>,</span>
-<span class="ln">  years: <span class="st">10</span>,</span>
-<span class="ln">  stack: [<span class="st">".NET"</span>, <span class="st">"Rust"</span>],</span>
-<span class="ln">  <span class="cm">// building the open web</span></span>
-<span class="ln">  focus: <span class="st">"decentralized"</span>,</span>
+<span class="ln"><span class="kw">public sealed record</span> <span class="fn">Engineer</span></span>
+<span class="ln">{</span>
+<span class="ln">  <span class="kw">string</span> Name =&gt; <span class="st">"Mehran Mazhar"</span>;</span>
+<span class="ln">  <span class="kw">int</span> Years =&gt; <span class="st">10</span>;</span>
+<span class="ln">  <span class="cm">// refunds, wallets, gateways</span></span>
+<span class="ln">  <span class="kw">string</span> Owns =&gt; <span class="st">"the money path"</span>;</span>
 <span class="ln">}</span>
             </div>
             <div class="mm-hero__mini">
               <div class="mm-mini"><b>10+</b><span>Years shipping</span></div>
-              <div class="mm-mini"><b>9</b><span>Open-source repos</span></div>
+              <div class="mm-mini"><b>7+</b><span>Years, one platform</span></div>
             </div>
           </aside>
         </div>
@@ -138,27 +139,32 @@
       <div class="mm-container">
         <div class="mm-head mm-reveal">
           <span class="mm-eyebrow">01 — About</span>
-          <h2 class="mm-h2" id="mm-about-h">A decade on the .NET stack, now building on-chain.</h2>
+          <h2 class="mm-h2" id="mm-about-h">A decade on .NET. Seven years on one money path.</h2>
         </div>
         <div class="mm-about">
           <div class="mm-reveal">
             <div class="mm-portrait">
               <img src="images/profile.jpg" alt="Portrait of Mehran Mazhar" width="800" height="800" loading="lazy">
-              <div class="mm-about__badge">Mehran Mazhar<span>Senior Engineer</span></div>
+              <div class="mm-about__badge">Mehran Mazhar<span>.NET Backend</span></div>
             </div>
           </div>
           <div class="mm-reveal">
             <div class="mm-prose">
               <p>
-                I'm a senior full-stack developer with over a decade of experience delivering enterprise
-                portals, B2B travel and reservation platforms, workflow-automation systems, and IoT
-                solutions. My core stack is <mark>C#, ASP.NET Core, and SQL Server</mark>.
+                Seven-plus years on one production travel platform — Fly Today (B2C) and Parto CRS
+                (B2B) — most of them owning its <mark>money path</mark>: refunds end to end across
+                B2B and B2C, wallet deposits, withdrawal processing, and payment-gateway integration.
               </p>
               <p>
-                In recent years I've moved deeper into blockchain engineering. I'm the creator of
-                <mark>Clutch Protocol</mark>, an open-source decentralized ride-sharing network built in
-                Rust — a project that grew out of my master's thesis on reducing travel costs through
-                blockchain technology.
+                I also ship product verticals from zero and run them for years — virtual interlining,
+                an airfare limit-order engine, flexible search, gift cards, price alerts. Long-lived
+                systems, not prototypes: <mark>most of what I have built, I still run</mark>. Design
+                goes into written specs before code.
+              </p>
+              <p>
+                This is payments engineering inside a travel product — not regulated financial
+                services. The interesting problems are concurrency and failure: idempotency,
+                credit-keyed locks, re-inquiry instead of assumed failure, bounded retry.
               </p>
             </div>
 
@@ -166,30 +172,39 @@
               <h3>Core Expertise</h3>
               <div class="mm-skillgroups">
                 <div class="mm-skillgroup">
-                  <span class="mm-skillgroup__label"><i></i> .NET Stack</span>
+                  <span class="mm-skillgroup__label"><i></i> Core .NET</span>
                   <div class="mm-skilllist">
-                    <div class="mm-skill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 9h16M4 15h16M10 3 8 21M16 3l-2 18"/></svg> C# / .NET</div>
-                    <div class="mm-skill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="7" rx="1.5"/><rect x="3" y="13" width="18" height="7" rx="1.5"/><path d="M7 7.5h.01M7 16.5h.01"/></svg> ASP.NET Core</div>
-                    <div class="mm-skill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a10 10 0 0 0 0-20"/><path d="M12 2a5 5 0 0 0 0 10 5 5 0 0 1 0 10"/></svg> REST APIs</div>
-                    <div class="mm-skill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19a4.5 4.5 0 0 0 .5-9 6 6 0 0 0-11.6-1.4A4 4 0 0 0 6 19z"/></svg> Microsoft Azure</div>
+                    <div class="mm-skill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 9h16M4 15h16M10 3 8 21M16 3l-2 18"/></svg> C# / .NET 10</div>
+                    <div class="mm-skill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a10 10 0 0 0 0-20"/><path d="M12 2a5 5 0 0 0 0 10 5 5 0 0 1 0 10"/></svg> REST / Web API</div>
+                    <div class="mm-skill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="7" rx="1.5"/><rect x="3" y="13" width="18" height="7" rx="1.5"/><path d="M7 7.5h.01M7 16.5h.01"/></svg> Entity Framework Core</div>
+                    <div class="mm-skill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg> SignalR &amp; Serilog</div>
                   </div>
                 </div>
                 <div class="mm-skillgroup">
-                  <span class="mm-skillgroup__label"><i></i> Data &amp; Messaging</span>
+                  <span class="mm-skillgroup__label"><i></i> Data</span>
                   <div class="mm-skilllist">
                     <div class="mm-skill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg> SQL Server</div>
+                    <div class="mm-skill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7z"/></svg> Redis &amp; RediSearch</div>
                     <div class="mm-skill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg> MongoDB</div>
-                    <div class="mm-skill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7z"/></svg> Redis</div>
-                    <div class="mm-skill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> RabbitMQ</div>
+                    <div class="mm-skill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 3 0 1 0 18 0 9 3 0 1 0-18 0"/><path d="M3 12v5c0 1.7 4 3 9 3s9-1.3 9-3v-5"/></svg> Caching strategy</div>
                   </div>
                 </div>
                 <div class="mm-skillgroup">
-                  <span class="mm-skillgroup__label"><i></i> Blockchain</span>
+                  <span class="mm-skillgroup__label"><i></i> Messaging &amp; Jobs</span>
                   <div class="mm-skilllist">
-                    <div class="mm-skill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg> Rust</div>
-                    <div class="mm-skill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"/><path d="M9 13l2 2 4-4"/></svg> Smart Contracts</div>
-                    <div class="mm-skill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Cryptography</div>
-                    <div class="mm-skill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M12 7v4M12 11 6 17M12 11l6 6"/></svg> libp2p &amp; P2P</div>
+                    <div class="mm-skill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> RabbitMQ</div>
+                    <div class="mm-skill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h10M4 12h16M4 17h7"/><circle cx="18" cy="7" r="2"/><circle cx="14" cy="17" r="2"/></svg> MassTransit</div>
+                    <div class="mm-skill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg> Hangfire</div>
+                    <div class="mm-skill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h6v6H4zM14 14h6v6h-6z"/><path d="M10 7h4a3 3 0 0 1 3 3v4"/></svg> MediatR</div>
+                  </div>
+                </div>
+                <div class="mm-skillgroup">
+                  <span class="mm-skillgroup__label"><i></i> Money Path &amp; Reliability</span>
+                  <div class="mm-skilllist">
+                    <div class="mm-skill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg> Gateway integration</div>
+                    <div class="mm-skill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg> Refund automation</div>
+                    <div class="mm-skill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> Distributed locking</div>
+                    <div class="mm-skill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h10a4 4 0 0 1 0 8H8"/><path d="m11 11-3 3 3 3"/><circle cx="19" cy="18" r="2"/></svg> Webhook surfaces</div>
                   </div>
                 </div>
               </div>
@@ -199,115 +214,140 @@
       </div>
     </section>
 
-    <!-- PROJECTS -->
+    <!-- SELECTED WORK -->
     <section class="mm-section" id="mm-projects" aria-labelledby="mm-proj-h">
       <div class="mm-container">
         <div class="mm-head mm-reveal">
-          <span class="mm-eyebrow">02 — Featured Project</span>
-          <h2 class="mm-h2" id="mm-proj-h">Clutch Protocol</h2>
-          <p>A decentralized ride-sharing platform that lowers platform fees and returns more value to drivers.</p>
+          <span class="mm-eyebrow">02 — Selected Work</span>
+          <h2 class="mm-h2" id="mm-proj-h">The money path, and the verticals around it.</h2>
+          <p>All on one production platform — Fly Today (B2C) and Parto CRS (B2B), Dec 2018 to present. The repositories are private, so the public pages prove a feature exists; the engineering detail is interview material.</p>
         </div>
 
         <div class="mm-proj mm-reveal">
-          <div class="mm-proj__top">
-            <div>
-              <span class="mm-proj__tag">Open Source · Rust</span>
-              <h3 class="mm-proj__title">Clutch Protocol</h3>
-              <p class="mm-proj__sub">Decentralized Ride-Sharing Platform</p>
-            </div>
-            <a href="https://github.com/clutchprotocol" target="_blank" rel="noopener" class="mm-btn mm-btn--outline mm-btn--sm">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.6.5.5 5.6.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 5 18.3 5.3 18.3 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.6 18.4.5 12 .5z"/></svg>
-              Organization
-            </a>
-          </div>
-
           <div class="mm-proj__body">
             <p class="mm-proj__quote">
-              An open-source, blockchain-based ride-sharing network designed to lower platform fees and
-              return more value to drivers through transparent, decentralized infrastructure.
+              Payments engineering inside a travel product. The work I care most about is the failure
+              branch: refund execution re-inquires with the bank rather than assuming failure,
+              persists gateway state immediately so a duplicate cannot slip through, and locks on the
+              credit rather than the queue.
             </p>
 
-            <p class="mm-proj__lead">As creator and lead developer, I built the protocol and its full ecosystem — from the blockchain core to the SDK, explorer, and docs:</p>
+            <p class="mm-stats-label">Measured in production</p>
+            <div class="mm-stats">
+              <div class="mm-stat"><b>~3,400</b><span>Tickets / month</span><em>Virtual interlining, built from zero</em></div>
+              <div class="mm-stat"><b>~1.33M</b><span>Card transactions</span><em>2025, via the four gateways I integrated</em></div>
+              <div class="mm-stat"><b>85%</b><span>Faster refunds</span><em>7 days to 1, B2B and B2C</em></div>
+              <div class="mm-stat"><b>7+ yrs</b><span>One platform</span><em>Money path owned end to end</em></div>
+            </div>
+
+            <p class="mm-proj__lead">Money path — owned end to end:</p>
 
             <div class="mm-repos">
-              <a href="https://github.com/clutchprotocol/clutch-node" target="_blank" rel="noopener" class="mm-repo">
-                <span class="mm-repo__ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.6.5.5 5.6.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 5 18.3 5.3 18.3 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.6 18.4.5 12 .5z"/></svg></span>
+              <div class="mm-repo">
+                <span class="mm-repo__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg></span>
                 <div>
-                  <h4>clutch-node <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></h4>
-                  <p>Core blockchain implementation in <strong>Rust</strong> with an Aura consensus mechanism for fast, energy-efficient validation.</p>
-                  <div class="mm-repo__tech"><span>Rust</span><span>Blockchain</span><span>libp2p</span></div>
+                  <h4>Refunds, end to end</h4>
+                  <p>B2B and B2C, air and hotel — request, finance approval, execution against the bank, and the failure paths underneath. Turnaround went from <strong>about a week</strong>, manual across three teams, to <strong>about a day</strong>. Idempotency, credit-keyed Redis locks, re-inquiry instead of assumed failure, bounded retry.</p>
+                  <div class="mm-repo__tech"><span>.NET</span><span>Redis</span><span>Hangfire</span><span>SQL Server</span></div>
                 </div>
-              </a>
-              <a href="https://github.com/clutchprotocol/clutch-hub-api" target="_blank" rel="noopener" class="mm-repo">
-                <span class="mm-repo__ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.6.5.5 5.6.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 5 18.3 5.3 18.3 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.6 18.4.5 12 .5z"/></svg></span>
+              </div>
+              <div class="mm-repo">
+                <span class="mm-repo__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></span>
                 <div>
-                  <h4>clutch-hub-api <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></h4>
-                  <p>GraphQL API gateway, written in <strong>Rust</strong>, bridging client apps to the blockchain.</p>
-                  <div class="mm-repo__tech"><span>Rust</span><span>GraphQL</span><span>API</span></div>
+                  <h4>Payment gateways</h4>
+                  <p>Four bank payment providers integrated into an <strong>existing provider-agnostic gateway abstraction</strong> — redirect and callback flows on Hangfire. Those four carry 98% of card volume: about <strong>1.33M successful transactions in 2025</strong>.</p>
+                  <div class="mm-repo__tech"><span>.NET</span><span>Hangfire</span><span>Callbacks</span></div>
                 </div>
-              </a>
-              <a href="https://github.com/clutchprotocol/clutch-hub-sdk-js" target="_blank" rel="noopener" class="mm-repo">
-                <span class="mm-repo__ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.6.5.5 5.6.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 5 18.3 5.3 18.3 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.6 18.4.5 12 .5z"/></svg></span>
+              </div>
+              <div class="mm-repo">
+                <span class="mm-repo__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12V7a2 2 0 0 0-2-2H5a2 2 0 0 0 0 4h16v6H5a2 2 0 0 0 0 4h14a2 2 0 0 0 2-2z"/><circle cx="16.5" cy="12" r="1.2"/></svg></span>
                 <div>
-                  <h4>clutch-hub-sdk-js <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></h4>
-                  <p><strong>TypeScript</strong> SDK enabling seamless integration for developers building on Clutch Protocol.</p>
-                  <div class="mm-repo__tech"><span>TypeScript</span><span>SDK</span><span>npm</span></div>
+                  <h4>Wallets &amp; withdrawals</h4>
+                  <p>Wallet deposits built from zero — money-in, effectively sole author. Withdrawal processing went from roughly two days manual to seconds, with concurrent requests <strong>serialized by a per-account Redis lock</strong>. Bank settlement downstream is not mine.</p>
+                  <div class="mm-repo__tech"><span>.NET</span><span>Redis</span><span>Concurrency</span></div>
                 </div>
-              </a>
-              <a href="https://github.com/clutchprotocol/clutch-hub-demo-app" target="_blank" rel="noopener" class="mm-repo">
-                <span class="mm-repo__ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.6.5.5 5.6.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 5 18.3 5.3 18.3 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.6 18.4.5 12 .5z"/></svg></span>
+              </div>
+              <div class="mm-repo">
+                <span class="mm-repo__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h10a4 4 0 0 1 0 8H8"/><path d="m11 11-3 3 3 3"/><circle cx="19" cy="18" r="2"/></svg></span>
                 <div>
-                  <h4>clutch-hub-demo-app <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></h4>
-                  <p>Minimal UI app to demo and manually test <strong>clutch-hub-sdk-js</strong>.</p>
-                  <div class="mm-repo__tech"><span>JavaScript</span><span>Demo</span><span>UI</span></div>
+                  <h4>B2B webhook surface</h4>
+                  <p>The outbound event surface agency clients integrate against — subscription API, roughly <strong>729,000 events delivered in 90 days</strong>, replacing client polling.</p>
+                  <div class="mm-repo__tech"><span>.NET</span><span>RabbitMQ</span><span>REST</span></div>
                 </div>
-              </a>
-              <a href="https://github.com/clutchprotocol/clutch-explorer" target="_blank" rel="noopener" class="mm-repo">
-                <span class="mm-repo__ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.6.5.5 5.6.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 5 18.3 5.3 18.3 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.6 18.4.5 12 .5z"/></svg></span>
-                <div>
-                  <h4>clutch-explorer <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></h4>
-                  <p>Block explorer and indexer, written in <strong>Rust</strong>, for browsing on-chain Clutch activity.</p>
-                  <div class="mm-repo__tech"><span>Rust</span><span>Explorer</span><span>Indexer</span></div>
-                </div>
-              </a>
-              <a href="https://github.com/clutchprotocol/clutch-deploy" target="_blank" rel="noopener" class="mm-repo">
-                <span class="mm-repo__ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.6.5.5 5.6.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 5 18.3 5.3 18.3 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.6 18.4.5 12 .5z"/></svg></span>
-                <div>
-                  <h4>clutch-deploy <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></h4>
-                  <p>Docker-based deployment for running Clutch nodes and services locally or on a testnet.</p>
-                  <div class="mm-repo__tech"><span>Docker</span><span>DevOps</span></div>
-                </div>
-              </a>
-              <a href="https://github.com/clutchprotocol/clutch-docs" target="_blank" rel="noopener" class="mm-repo">
-                <span class="mm-repo__ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.6.5.5 5.6.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 5 18.3 5.3 18.3 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.6 18.4.5 12 .5z"/></svg></span>
-                <div>
-                  <h4>clutch-docs <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></h4>
-                  <p>Documentation site covering the protocol, node setup, and the Hub API.</p>
-                  <div class="mm-repo__tech"><span>Docs</span><span>TypeScript</span></div>
-                </div>
-              </a>
-              <a href="https://github.com/clutchprotocol/clutchprotocol.github.io" target="_blank" rel="noopener" class="mm-repo">
-                <span class="mm-repo__ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.6.5.5 5.6.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 5 18.3 5.3 18.3 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.6 18.4.5 12 .5z"/></svg></span>
-                <div>
-                  <h4>clutchprotocol.github.io <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></h4>
-                  <p>Public project website for Clutch Protocol.</p>
-                  <div class="mm-repo__tech"><span>Website</span><span>HTML</span></div>
-                </div>
-              </a>
+              </div>
             </div>
 
-            <p class="mm-stats-label">Protocol design targets</p>
-            <div class="mm-stats">
-              <div class="mm-stat"><b>5-8%</b><span>Platform Fee</span><em>vs 15-25% traditional</em></div>
-              <div class="mm-stat"><b>90%</b><span>To Drivers</span><em>Fee distribution</em></div>
-              <div class="mm-stat"><b>60%</b><span>Cost Reduction</span><em>For end users</em></div>
-              <div class="mm-stat"><b>DAO</b><span>Governance</span><em>Community-driven</em></div>
+            <p class="mm-proj__lead">Product verticals — built from zero, still running:</p>
+
+            <div class="mm-repos">
+              <div class="mm-repo">
+                <span class="mm-repo__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5a2.1 2.1 0 0 0-3-3L13 8 4.8 6.2a1 1 0 0 0-.9.3l-.9.9 5 3-2 2-2.5-.5-.9.9 3 2 2 3 .9-.9L11 17l3 5 .9-.9a1 1 0 0 0 .3-.9z"/></svg></span>
+                <div>
+                  <h4>Virtual interlining</h4>
+                  <p>Two airlines combined into one bookable itinerary under a single payment — search through booking. <strong>All five design specs behind the accepted ADRs are mine</strong>. About 3,400 tickets a month.</p>
+                  <div class="mm-repo__tech"><span>.NET</span><span>Redis</span><span>RabbitMQ</span><span>ADRs</span></div>
+                </div>
+              </div>
+              <a href="https://www.flytoday.ir/blog/flytoday-autoreserve/" target="_blank" rel="noopener" class="mm-repo">
+                <span class="mm-repo__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></span>
+                <div>
+                  <h4>Auto-reserve <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></h4>
+                  <p>An airfare limit order, built from zero — it <strong>buys and issues while the customer is offline</strong>, recovering otherwise-lost bookings. Operations tune eligibility without a deploy. Links to the company feature page.</p>
+                  <div class="mm-repo__tech"><span>.NET</span><span>Hangfire</span><span>Rules engine</span></div>
+                </div>
+              </a>
+              <a href="https://www.flytoday.ir/anywhere-anytime/flight/thr" target="_blank" rel="noopener" class="mm-repo">
+                <span class="mm-repo__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-4.3-4.3"/></svg></span>
+                <div>
+                  <h4>Flexible search <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></h4>
+                  <p>Origin, destination and dates all optional — built from zero, live in production. Priced results stored and indexed to serve both interactive search and generated SEO landing pages.</p>
+                  <div class="mm-repo__tech"><span>.NET</span><span>RediSearch</span><span>SEO</span></div>
+                </div>
+              </a>
+              <div class="mm-repo">
+                <span class="mm-repo__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M3 12h18M12 8v13"/><path d="M12 8s-1-4-4-4a2.5 2.5 0 0 0 0 5M12 8s1-4 4-4a2.5 2.5 0 0 1 0 5"/></svg></span>
+                <div>
+                  <h4>Gift cards</h4>
+                  <p><strong>37,495 issued</strong> — shipped from zero inside the cross-product promotions rule engine, of which I am the top sustaining author (roughly 46,000 redemptions a year).</p>
+                  <div class="mm-repo__tech"><span>.NET</span><span>Redis</span><span>Rules engine</span></div>
+                </div>
+              </div>
+              <div class="mm-repo">
+                <span class="mm-repo__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M10.3 21a2 2 0 0 0 3.4 0"/></svg></span>
+                <div>
+                  <h4>Flight price alerts</h4>
+                  <p>Built from zero in 2019 and owned since — scheduled evaluation notifying by SMS and email, with SQL and LINQ tuning keeping subscription checks off the hot search path. About <strong>280 notifications a day</strong>.</p>
+                  <div class="mm-repo__tech"><span>.NET</span><span>Hangfire</span><span>LINQ / SQL</span></div>
+                </div>
+              </div>
+              <div class="mm-repo">
+                <span class="mm-repo__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V9l6-4 6 4v12"/><path d="M15 21V13h6v8"/><path d="M7 12h2M7 16h2"/></svg></span>
+                <div>
+                  <h4>Travel insurance &amp; supplier hub</h4>
+                  <p>Rebuilt the travel-insurance line end to end in 2020 and owned it for five years — plan search, parallel multi-passenger issuance, refund integration with the money path. Separately, consolidated hotel-supplier onboarding onto a single hub connection: <strong>31 suppliers, 24 through the hub</strong> — originated it, later handed over.</p>
+                  <div class="mm-repo__tech"><span>.NET</span><span>GraphQL</span><span>TravelgateX</span></div>
+                </div>
+              </div>
             </div>
 
-            <div class="mm-proj__cta">
-              <a href="https://github.com/clutchprotocol" target="_blank" rel="noopener" class="mm-btn mm-btn--primary">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.6.5.5 5.6.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 5 18.3 5.3 18.3 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.6 18.4.5 12 .5z"/></svg>
-                View Organization
+            <p class="mm-stats-label">Side project — open source, not production</p>
+
+            <div class="mm-repos">
+              <a href="https://github.com/clutchprotocol" target="_blank" rel="noopener" class="mm-repo">
+                <span class="mm-repo__ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.6.5.5 5.6.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 5 18.3 5.3 18.3 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.6 18.4.5 12 .5z"/></svg></span>
+                <div>
+                  <h4>Clutch Protocol <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></h4>
+                  <p>A solo open-source ride-sharing protocol grown out of my M.Sc. thesis — a blockchain core in Rust with Aura consensus, a GraphQL hub API, a TypeScript SDK, a block explorer and a demo app. <strong>Side project: no team, no users, not production.</strong> The code speaks for itself.</p>
+                  <div class="mm-repo__tech"><span>Rust</span><span>libp2p</span><span>GraphQL</span><span>TypeScript</span><span>Docker</span></div>
+                </div>
+              </a>
+              <a href="https://github.com/MehranMazhar/master-thesis" target="_blank" rel="noopener" class="mm-repo">
+                <span class="mm-repo__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"/></svg></span>
+                <div>
+                  <h4>master-thesis <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></h4>
+                  <p>The M.Sc. thesis it grew from — full PDF and defence presentation, public. Academic research, 2023.</p>
+                  <div class="mm-repo__tech"><span>Research</span><span>PDF</span></div>
+                </div>
               </a>
             </div>
           </div>
@@ -320,7 +360,7 @@
       <div class="mm-container">
         <div class="mm-head mm-reveal">
           <span class="mm-eyebrow">03 — Experience</span>
-          <h2 class="mm-h2" id="mm-exp-h">Where I've shipped software.</h2>
+          <h2 class="mm-h2" id="mm-exp-h">Where I have shipped software.</h2>
         </div>
 
         <div class="mm-timeline">
@@ -328,18 +368,21 @@
             <div class="mm-tl__card">
               <div class="mm-tl__head">
                 <div>
-                  <h3 class="mm-tl__role">Senior Full-Stack .NET Developer</h3>
+                  <h3 class="mm-tl__role">.NET Backend Engineer</h3>
                   <span class="mm-tl__co">Fly Today / Parto CRS</span>
                 </div>
                 <span class="mm-tl__date">Dec 2018 — Present</span>
               </div>
-              <p class="mm-tl__quote">Building B2B travel and airline reservation platforms serving agencies across the region.</p>
+              <p class="mm-tl__quote">B2C online travel agency and B2B travel platform. Owning the money path, and shipping product verticals from zero.</p>
               <ul class="mm-tl__list">
-                <li>Design and develop B2B flight and hotel reservation systems with C#, ASP.NET Core, and SQL Server.</li>
-                <li>Build and maintain REST / Web API services integrating GDS and third-party supplier feeds.</li>
-                <li>Develop internal tools and dashboards for booking and fare management.</li>
+                <li>~3,400 tickets a month through virtual interlining built from zero — search through booking, all five design specs authored.</li>
+                <li>Launched auto-reserve from zero — an airfare limit order that buys and issues while the customer is offline, recovering otherwise-lost bookings.</li>
+                <li>Cut refund turnaround by 85% (7 days to 1), automating the B2B/B2C flow that three teams ran by hand and keeping the finance-approval control — credit-keyed Redis locking on execution.</li>
+                <li>Integrated four bank payment providers into an existing provider-agnostic gateway abstraction — redirect and callback flows on Hangfire; those four carry 98% of card volume, about 1.33M successful transactions in 2025.</li>
+                <li>37,495 gift cards issued — shipped from zero inside the promotions rule engine, its top sustaining author.</li>
+                <li>Owns the B2B webhook surface agency clients integrate against — subscription API, ~729,000 events delivered in 90 days, replacing client polling.</li>
               </ul>
-              <div class="mm-tl__tags"><span>C#</span><span>ASP.NET Core</span><span>SQL Server</span><span>Web API</span></div>
+              <div class="mm-tl__tags"><span>C# / .NET 10</span><span>REST APIs</span><span>SQL Server</span><span>Redis</span><span>RabbitMQ</span><span>Hangfire</span></div>
             </div>
           </div>
 
@@ -352,7 +395,7 @@
                 </div>
                 <span class="mm-tl__date">Apr 2018 — Oct 2018</span>
               </div>
-              <p class="mm-tl__quote">Built device management and monitoring solutions on Microsoft Azure IoT Hub.</p>
+              <p class="mm-tl__quote">Azure IoT Hub and Python embedded integrations.</p>
               <ul class="mm-tl__list">
                 <li>Developed an IoT device management and monitoring portal on Microsoft Azure IoT Hub.</li>
                 <li>Built a dual-channel touch switch with cloud connectivity and network cameras with face detection.</li>
@@ -367,11 +410,11 @@
               <div class="mm-tl__head">
                 <div>
                   <h3 class="mm-tl__role">Full-Stack Web Developer</h3>
-                  <span class="mm-tl__co">Sepna &amp; Tehran Municipality ICT Organization</span>
+                  <span class="mm-tl__co">Sepna &amp; Tehran Municipality ICT</span>
                 </div>
                 <span class="mm-tl__date">Dec 2014 — Feb 2018</span>
               </div>
-              <p class="mm-tl__quote">Delivered enterprise portals and an ITIL-based IT service management platform.</p>
+              <p class="mm-tl__quote">Co-developed an ITIL-based ITSM workflow engine.</p>
               <ul class="mm-tl__list">
                 <li>Co-developed an ITIL-based ITSM platform for Tehran Municipality ICT, including a custom workflow engine for business-process automation.</li>
                 <li>Built enterprise portals and custom modules on DotNetNuke.</li>
@@ -379,29 +422,6 @@
                 <li>Designed SQL Server databases with stored procedures, functions, and reporting.</li>
               </ul>
               <div class="mm-tl__tags"><span>ASP.NET</span><span>DotNetNuke</span><span>WCF</span><span>SQL Server</span></div>
-            </div>
-          </div>
-
-          <div class="mm-tl mm-reveal">
-            <div class="mm-tl__card">
-              <div class="mm-tl__head">
-                <div>
-                  <h3 class="mm-tl__role">Founder &amp; Lead Blockchain Engineer</h3>
-                  <a href="https://github.com/clutchprotocol" target="_blank" rel="noopener" class="mm-tl__co">
-                    Clutch Protocol
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
-                  </a>
-                </div>
-                <span class="mm-tl__date">2024 — Present · Side Project</span>
-              </div>
-              <p class="mm-tl__quote">Building an open-source, decentralized ride-sharing network on a custom Rust blockchain.</p>
-              <ul class="mm-tl__list">
-                <li><strong>Architecture &amp; Design:</strong> Implemented a blockchain core in Rust with Aura consensus for high throughput and low latency.</li>
-                <li><strong>Full-Stack Development:</strong> Built the API layer, a TypeScript SDK, and a React demo application.</li>
-                <li><strong>Protocol Design:</strong> Designed a tokenomics model distributing 90% of fees to drivers, 5% to validators, and 5% to developers.</li>
-                <li><strong>Security:</strong> Implemented client-side transaction signing with secp256k1 / ed25519.</li>
-              </ul>
-              <div class="mm-tl__tags"><span>Rust</span><span>Node.js</span><span>TypeScript</span><span>React</span><span>libp2p</span><span>Cryptography</span></div>
             </div>
           </div>
         </div>
@@ -421,7 +441,7 @@
             <span class="mm-educard__date">2023</span>
             <h3>M.Sc., Computer Software Engineering</h3>
             <p class="mm-educard__school">Islamic Azad University</p>
-            <p class="mm-educard__note">Thesis: a blockchain-based network to reduce travel cost in ride-sharing services — the foundation of Clutch Protocol.</p>
+            <p class="mm-educard__note">Thesis: a blockchain-based network to reduce travel cost in ride-sharing services. Clutch Protocol grew out of it as a side project.</p>
           </div>
           <div class="mm-educard mm-reveal">
             <div class="mm-educard__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 2.7 2.5 6 2.5s6-1.5 6-2.5v-5"/><path d="M22 10v6"/></svg></div>
@@ -444,7 +464,7 @@
       <div class="mm-container">
         <div class="mm-head mm-reveal">
           <span class="mm-eyebrow">05 — Academic Research</span>
-          <h2 class="mm-h2" id="mm-res-h">The research behind the protocol.</h2>
+          <h2 class="mm-h2" id="mm-res-h">The thesis, in the open.</h2>
         </div>
 
         <div class="mm-research mm-reveal">
@@ -452,36 +472,37 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 2.7 2.5 6 2.5s6-1.5 6-2.5v-5"/><path d="M22 10v6"/></svg>
           </div>
           <div class="mm-research__body">
-            <span class="mm-research__label">Master's Thesis</span>
+            <span class="mm-research__label">Master's Thesis · 2023</span>
             <h3 class="mm-research__title">A Blockchain-Based Network to Reduce the Travel Cost in Ride-Sharing Services</h3>
             <p class="mm-research__advisor">Advisor: <strong>MohammadHossein ShafiAbadi, Ph.D.</strong></p>
             <p class="mm-research__quote">
-              Academic research that laid the theoretical foundation for Clutch Protocol — showing how
-              blockchain technology can improve ride-sharing economics and reduce travel costs.
+              Academic work on whether a decentralized settlement layer can cut the platform fee in
+              ride-sharing, and what it would cost to run one. Clutch Protocol is the solo
+              open-source implementation that grew out of it — a side project, not a product.
             </p>
 
             <div class="mm-hl">
               <div class="mm-hl__item">
                 <span class="mm-hl__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 14 3-4 3 3 5-6"/></svg></span>
-                <div><strong>Economic Analysis</strong><p>Detailed comparison between centralized and decentralized ride-sharing models.</p></div>
+                <div><strong>Economic Analysis</strong><p>Comparison of centralized and decentralized ride-sharing fee models.</p></div>
               </div>
               <div class="mm-hl__item">
                 <span class="mm-hl__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 3 7l9 5 9-5-9-5z"/><path d="m3 12 9 5 9-5"/><path d="m3 17 9 5 9-5"/></svg></span>
-                <div><strong>Technical Architecture</strong><p>Blockchain infrastructure specifically optimized for ride-sharing applications.</p></div>
+                <div><strong>Technical Architecture</strong><p>A chain design shaped around the ride lifecycle rather than general computation.</p></div>
               </div>
               <div class="mm-hl__item">
                 <span class="mm-hl__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6"/><path d="M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></span>
-                <div><strong>Cost Reduction</strong><p>Mathematical modeling demonstrating significant travel cost reductions.</p></div>
+                <div><strong>Cost Modelling</strong><p>Where the fee actually goes, and what a lower one would require.</p></div>
               </div>
               <div class="mm-hl__item">
                 <span class="mm-hl__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span>
-                <div><strong>Security &amp; Trust</strong><p>Cryptographic protocols ensuring secure, trustless transactions.</p></div>
+                <div><strong>Security &amp; Trust</strong><p>Client-side signing with secp256k1 / ed25519; no custodial key handling.</p></div>
               </div>
             </div>
 
             <p class="mm-research__note">
-              This thesis is the academic groundwork for Clutch Protocol — the research is now being put
-              into practice as a working open-source implementation.
+              Thesis, defence presentation and the implementation are all public. Worth reading if
+              you want to see how I write a design down before writing the code.
             </p>
 
             <div class="mm-research__actions">
@@ -493,9 +514,9 @@
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
                 Presentation
               </a>
-              <a href="https://github.com/MehranMazhar/master-thesis" target="_blank" rel="noopener" class="mm-btn mm-btn--outline mm-btn--sm">
+              <a href="https://github.com/clutchprotocol" target="_blank" rel="noopener" class="mm-btn mm-btn--outline mm-btn--sm">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.6.5.5 5.6.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 5 18.3 5.3 18.3 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.6 18.4.5 12 .5z"/></svg>
-                Repository
+                Implementation
               </a>
             </div>
           </div>
@@ -509,28 +530,28 @@
         <div class="mm-head mm-reveal">
           <span class="mm-eyebrow">06 — Beyond the Code</span>
           <h2 class="mm-h2" id="mm-int-h">Life outside the editor.</h2>
-          <p>While I'm passionate about blockchain technology and building decentralized systems, I believe in maintaining a balanced lifestyle.</p>
+          <p>Production ownership is a long game. Getting away from the screen is how I stay good at it.</p>
         </div>
         <div class="mm-interests">
           <div class="mm-icard mm-reveal">
             <div class="mm-icard__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 20 6-10 4 6 3-4 5 8z"/><circle cx="17" cy="6" r="2.5"/></svg></div>
             <h3>Mountaineering</h3>
-            <p>Drawing inspiration from nature's complexity and finding parallels between navigating challenging terrains and solving complex technical problems.</p>
+            <p>Long routes, bad weather, no shortcuts. The planning discipline transfers directly to systems that have to survive their own failure modes.</p>
           </div>
           <div class="mm-icard mm-reveal">
             <div class="mm-icard__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5a2.1 2.1 0 0 0-3-3L13 8 4.8 6.2a1 1 0 0 0-.9.3l-.9.9 5 3-2 2-2.5-.5-.9.9 3 2 2 3 .9-.9L11 17l3 5 .9-.9a1 1 0 0 0 .3-.9z"/></svg></div>
             <h3>Traveling</h3>
-            <p>Exploring different perspectives and understanding global challenges that technology can help solve through cultural exchange.</p>
+            <p>Seven years building travel software makes you a difficult passenger and a much better product engineer.</p>
           </div>
           <div class="mm-icard mm-reveal">
             <div class="mm-icard__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="6" r="3"/><path d="M6 9v6M15 6H9a2 2 0 0 0-2 2v2"/></svg></div>
             <h3>Open Source</h3>
-            <p>Contributing to and supporting the broader developer ecosystem that makes innovative projects like Clutch Protocol possible.</p>
+            <p>Where I get to build the thing properly, on my own schedule — and where the code is public enough to argue about.</p>
           </div>
           <div class="mm-icard mm-reveal">
             <div class="mm-icard__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1V17h6v-.2c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2z"/></svg></div>
-            <h3>Tech Philosophy</h3>
-            <p>Exploring how decentralized systems can create more equitable outcomes at the intersection of technology, economics, and social impact.</p>
+            <h3>Writing Things Down</h3>
+            <p>Specs before code, ADRs before merges. Most of the arguments worth having are cheaper to have on paper.</p>
           </div>
         </div>
       </div>
@@ -542,10 +563,11 @@
         <div class="mm-contact__box mm-reveal">
           <div class="mm-contact__inner">
             <span class="mm-contact__label">What's Next?</span>
-            <h2 class="mm-contact__title" id="mm-contact-h">Let's Build Something Together</h2>
+            <h2 class="mm-contact__title" id="mm-contact-h">Let's talk backend.</h2>
             <p class="mm-contact__text">
-              Whether you're interested in blockchain development, want to collaborate on decentralized
-              projects, or just want to say hello — my inbox is always open.
+              Open to fully remote .NET backend roles — payments, transaction-sensitive systems,
+              platform work. Engagement through an Employer of Record. If you have a money path that
+              needs to stop losing arguments with concurrency, my inbox is open.
             </p>
             <div class="mm-contact__actions">
               <a href="mailto:mehran.mazhar@gmail.com" class="mm-btn mm-btn--primary mm-btn--lg">

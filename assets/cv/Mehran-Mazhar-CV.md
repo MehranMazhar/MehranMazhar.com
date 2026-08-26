@@ -1,63 +1,50 @@
 # Mehran Mazhar
 
-**Senior Full-Stack .NET Developer & Blockchain Engineer**
+**.NET Backend Engineer — Payments, Refunds & Money-Path Systems**
 
-[mehran.mazhar@gmail.com](mailto:mehran.mazhar@gmail.com) · [mehranmazhar.com](https://mehranmazhar.com) · [github.com/MehranMazhar](https://github.com/MehranMazhar) · [linkedin.com/in/mehran-mazhar](https://linkedin.com/in/mehran-mazhar)
+[mehran.mazhar@gmail.com](mailto:mehran.mazhar@gmail.com) · [linkedin.com/in/mehran-mazhar](https://linkedin.com/in/mehran-mazhar) · [mehranmazhar.com](https://mehranmazhar.com) · [github.com/MehranMazhar](https://github.com/MehranMazhar)
+
+Remote · Open to EOR contracting
 
 ## Summary
 
-Senior full-stack developer with 10+ years delivering enterprise portals, B2B travel and reservation platforms, workflow-automation systems, and IoT solutions on the .NET stack (C#, ASP.NET Core, SQL Server). Creator of Clutch Protocol, an open-source blockchain-based ride-sharing network written in Rust, developed from master's thesis research.
+.NET backend engineer with 10+ years of experience, the last 7+ on one production travel platform (Fly Today B2C + Parto CRS B2B), owning money-path verticals end to end — refunds, wallets, withdrawals, payment-gateway integration. Ships product verticals from zero and runs them in production for years — virtual interlining, an airfare limit-order engine, gift cards.
 
-## Open-Source Project
+## Skills
 
-### Founder & Lead Blockchain Engineer — Clutch Protocol
-*2024 — Present*
+**Core** — C# / .NET (.NET 10) · REST / Web API development on .NET · SignalR · Entity Framework Core · LINQ & SQL query optimisation · Serilog structured logging
 
-Decentralized ride-sharing network · [github.com/clutchprotocol](https://github.com/clutchprotocol)
+**Data** — SQL Server · Redis (incl. RediSearch) · MongoDB · caching strategy (read-side caches, cache-aside, invalidation)
 
-- Implemented a blockchain core in Rust with Aura consensus for high throughput and low latency.
-- Built the API layer, a TypeScript SDK, and a React demo application.
-- Designed a tokenomics model distributing 90% of fees to drivers; implemented client-side signing with secp256k1 / ed25519.
+**Messaging & background processing** — RabbitMQ · MassTransit · Hangfire (jobs, scheduling, bounded retry) · MediatR · message-driven pipelines
+
+**Money path & reliability** — payment gateway integration (redirect/callback flows) · refund & settlement workflow automation · distributed locking & concurrency control with Redis · webhook / outbound event surfaces · supplier API integration (REST + hub aggregators)
 
 ## Experience
 
-### Senior Full-Stack .NET Developer — Fly Today / Parto CRS
-*Dec 2018 — Present*
+### .NET Backend Engineer — Fly Today / Parto CRS
+*Dec 2018 — Present* · B2C online travel agency + B2B travel platform
 
-- Design and develop B2B flight and hotel reservation systems with C#, ASP.NET Core, and SQL Server.
-- Build and maintain REST / Web API services integrating GDS and third-party supplier feeds.
-- Develop internal tools and dashboards for booking and fare management.
+- ~3,400 tickets a month through virtual interlining built from zero — search through booking, all five design specs authored.
+- Launched auto-reserve from zero — an airfare limit order that buys and issues while the customer is offline, recovering otherwise-lost bookings.
+- Cut refund turnaround by 85% (7 days to 1), automating the B2B/B2C flow that three teams ran by hand and keeping the finance-approval control — credit-keyed Redis locking on execution.
+- 37,495 gift cards issued — shipped from zero inside the promotions rule engine, its top sustaining author.
 
 ### .NET & IoT Developer — Wenda IoT Communication Technology
 *Apr 2018 — Oct 2018*
 
-- Developed an IoT device management and monitoring portal on Microsoft Azure IoT Hub.
-- Built a dual-channel touch switch with cloud connectivity and network cameras with face detection.
-- Programmed embedded hardware in Python and Arduino; authored content for iot-lab.ir.
+Azure IoT Hub and Python embedded integrations.
 
-### Full-Stack Web Developer — Sepna & Tehran Municipality ICT Organization
+### Full-Stack Web Developer — Sepna & Tehran Municipality ICT
 *Dec 2014 — Feb 2018*
 
-- Co-developed an ITIL-based ITSM platform for Tehran Municipality ICT, including a custom workflow engine for business-process automation.
-- Built enterprise portals and custom modules on DotNetNuke.
-- Developed ASP.NET (Web Forms, MVC, Core) applications and WCF / ASMX web services.
-- Designed SQL Server databases with stored procedures, functions, and reporting.
+Co-developed an ITIL-based ITSM workflow engine.
 
-## Skills
-
-**.NET Stack:** C#, ASP.NET Core, ASP.NET MVC / Web Forms, REST APIs, Microsoft Azure
-
-**Data & Messaging:** SQL Server, MongoDB, Redis, RabbitMQ
-
-**Blockchain:** Rust, Smart Contracts, Cryptography (secp256k1 / ed25519), libp2p, P2P networking
-
-**Other:** DotNetNuke, Docker, Git, Python, Arduino, ITIL / ITSM
-
-## Education
+## Education & Public Work
 
 **M.Sc., Computer Software Engineering** — Islamic Azad University, 2023
-Thesis: a blockchain-based network to reduce travel cost in ride-sharing services.
 
-**B.Sc., Computer Software Engineering** — Islamic Azad University, Islamshahr Branch, 2018
+**B.Sc., Computer Software Engineering** — Islamic Azad University, 2018
 
-**A.Sc., Computer Software Engineering** — Shahid Babaei College, Qazvin, 2015
+**Clutch Protocol** — [github.com/clutchprotocol](https://github.com/clutchprotocol)
+Solo open-source project grown from the M.Sc. thesis. Side project, not production.
