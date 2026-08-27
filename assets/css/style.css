@@ -519,8 +519,10 @@
   /* 10px above the title groups it with its eyebrow; 20px below separates it from the body copy.
      Equal gaps made the three read as one undifferentiated block. */
   .mm-contact__title { font-size: clamp(28px, 4.5vw, 42px); font-weight: 800; letter-spacing: -.03em; color: var(--ink); margin-top: 10px; line-height: 1.1; }
-  /* 620px, not 500px: the box's content width is 638px, and 500px broke the paragraph into four
-     lines ending in a 56px orphan. Inert at mobile, where content width is 269px. */
+  /* 620px, not 500px: the box's content width is 638px, so a 500px cap sat 138px narrower than the
+     heading and broke the paragraph into four lines (rag 487/493/449/343, shortest 69% of measure).
+     620px sets three lines, shortest 91%. Not 600px either — that still takes four lines and ends
+     in a 41px orphan. Inert at mobile, where content width is 269px. */
   .mm-contact__text { margin: 20px auto 0; max-width: 620px; color: var(--ink-soft); font-size: 16.5px; line-height: 1.65; }
   .mm-contact__actions { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
 
