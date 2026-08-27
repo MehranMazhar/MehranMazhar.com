@@ -308,10 +308,6 @@
   .mm-skill svg { width: 17px; height: 17px; color: var(--accent); flex: none; }
 
   /* ============ Featured project ============ */
-  .mm-proj {
-    background: var(--surface); border: 1px solid var(--line);
-    border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-lg);
-  }
   .mm-proj__top {
     padding: 34px 36px; border-bottom: 1px solid var(--line-soft);
     display: flex; flex-wrap: wrap; align-items: flex-end; gap: 20px; justify-content: space-between;
@@ -326,8 +322,6 @@
   }
   .mm-proj__title { font-size: clamp(26px, 4vw, 34px); font-weight: 800; letter-spacing: -.025em; color: var(--ink); }
   .mm-proj__sub { margin-top: 6px; color: var(--ink-mute); font-size: var(--fs-md); }
-  .mm-proj__body { padding: 34px 36px; }
-  @media (max-width: 620px){ .mm-proj__body { padding: 26px 22px; } }
   .mm-proj__quote {
     font-family: var(--serif); font-size: clamp(18px, 2.4vw, 21px); font-style: italic;
     line-height: 1.6; color: var(--ink); border-left: 3px solid var(--accent);
@@ -361,6 +355,49 @@
   .mm-repo__tech span {
     font-family: var(--mono); font-size: var(--fs-xs); color: var(--ink-mute);
     border: 1px solid var(--line); border-radius: 5px; padding: 3px 7px; background: var(--surface);
+  }
+
+  /* ---- Selected Work tiers ----
+     Three weights, not twelve identical cards. Major = money path (stop the reader).
+     Compact = product verticals (dense, secondary). Aside = the open-source side project. */
+
+  .mm-repo--major {
+    padding: 24px;
+    border-left: 3px solid var(--accent);
+    box-shadow: var(--shadow-sm);
+  }
+  .mm-repo--major h4 {
+    font-family: var(--sans);
+    font-size: var(--fs-lg);
+    font-weight: 700;
+    letter-spacing: -.01em;
+  }
+  .mm-repo--major .mm-repo__ic { width: 44px; height: 44px; border-radius: 11px; }
+  .mm-repo--major .mm-repo__ic svg { width: 22px; height: 22px; }
+
+  .mm-repos--compact { grid-template-columns: repeat(3, 1fr); }
+  @media (max-width: 900px){ .mm-repos--compact { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px){ .mm-repos--compact { grid-template-columns: 1fr; } }
+
+  .mm-repo--compact {
+    padding: 16px;
+    box-shadow: none;
+    background: var(--surface);
+  }
+  .mm-repo--compact h4 { font-size: var(--fs-base); }
+  /* Tags become inline text rather than chips: the chip border repeated six times across a
+     dense grid was most of the visual noise in this tier. */
+  .mm-repo--compact .mm-repo__tech { gap: 0; }
+  .mm-repo--compact .mm-repo__tech span {
+    border: 0; background: none; padding: 0; color: var(--ink-mute);
+  }
+  .mm-repo--compact .mm-repo__tech span + span::before {
+    content: " · "; color: var(--line);
+  }
+
+  .mm-repo--aside {
+    background: var(--surface-2);
+    box-shadow: none;
   }
 
   .mm-stats-label {

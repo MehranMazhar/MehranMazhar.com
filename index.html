@@ -223,134 +223,130 @@
           <p>All on one production platform — Fly Today (B2C) and Parto CRS (B2B), Dec 2018 to present. The repositories are private, so the public pages prove a feature exists; the engineering detail is interview material.</p>
         </div>
 
-        <div class="mm-proj mm-reveal">
-          <div class="mm-proj__body">
-            <p class="mm-proj__quote">
-              Payments engineering inside a travel product. The work I care most about is the failure
-              branch: refund execution re-inquires with the bank rather than assuming failure,
-              persists gateway state immediately so a duplicate cannot slip through, and locks on the
-              credit rather than the queue.
-            </p>
+        <p class="mm-proj__quote">
+          Payments engineering inside a travel product. The work I care most about is the failure
+          branch: refund execution re-inquires with the bank rather than assuming failure,
+          persists gateway state immediately so a duplicate cannot slip through, and locks on the
+          credit rather than the queue.
+        </p>
 
-            <p class="mm-stats-label">Measured in production</p>
-            <div class="mm-stats">
-              <div class="mm-stat"><b>~3,400</b><span>Tickets / month</span><em>Virtual interlining, built from zero</em></div>
-              <div class="mm-stat"><b>~1.33M</b><span>Card transactions</span><em>2025, via the four gateways I integrated</em></div>
-              <div class="mm-stat"><b>85%</b><span>Faster refunds</span><em>7 days to 1, B2B and B2C</em></div>
-              <div class="mm-stat"><b>7+ yrs</b><span>One platform</span><em>Money path owned end to end</em></div>
-            </div>
+        <p class="mm-stats-label">Measured in production</p>
+        <div class="mm-stats">
+          <div class="mm-stat"><b>~3,400</b><span>Tickets / month</span><em>Virtual interlining, built from zero</em></div>
+          <div class="mm-stat"><b>~1.33M</b><span>Card transactions</span><em>2025, via the four gateways I integrated</em></div>
+          <div class="mm-stat"><b>85%</b><span>Faster refunds</span><em>7 days to 1, B2B and B2C</em></div>
+          <div class="mm-stat"><b>7+ yrs</b><span>One platform</span><em>Money path owned end to end</em></div>
+        </div>
 
-            <p class="mm-proj__lead">Money path — owned end to end:</p>
+        <p class="mm-proj__lead">Money path — owned end to end:</p>
 
-            <div class="mm-repos">
-              <div class="mm-repo">
-                <span class="mm-repo__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg></span>
-                <div>
-                  <h4>Refunds, end to end</h4>
-                  <p>B2B and B2C, air and hotel — request, finance approval, execution against the bank, and the failure paths underneath. Turnaround went from <strong>about a week</strong>, manual across three teams, to <strong>about a day</strong>. Idempotency, credit-keyed Redis locks, re-inquiry instead of assumed failure, bounded retry.</p>
-                  <div class="mm-repo__tech"><span>.NET</span><span>Redis</span><span>Hangfire</span><span>SQL Server</span></div>
-                </div>
-              </div>
-              <div class="mm-repo">
-                <span class="mm-repo__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></span>
-                <div>
-                  <h4>Payment gateways</h4>
-                  <p>Four bank payment providers integrated into an <strong>existing provider-agnostic gateway abstraction</strong> — redirect and callback flows on Hangfire. Those four carry 98% of card volume: about <strong>1.33M successful transactions in 2025</strong>.</p>
-                  <div class="mm-repo__tech"><span>.NET</span><span>Hangfire</span><span>Callbacks</span></div>
-                </div>
-              </div>
-              <div class="mm-repo">
-                <span class="mm-repo__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12V7a2 2 0 0 0-2-2H5a2 2 0 0 0 0 4h16v6H5a2 2 0 0 0 0 4h14a2 2 0 0 0 2-2z"/><circle cx="16.5" cy="12" r="1.2"/></svg></span>
-                <div>
-                  <h4>Wallets &amp; withdrawals</h4>
-                  <p>Wallet deposits built from zero — money-in, effectively sole author. Withdrawal processing went from roughly two days manual to seconds, with concurrent requests <strong>serialized by a per-account Redis lock</strong>. Bank settlement downstream is not mine.</p>
-                  <div class="mm-repo__tech"><span>.NET</span><span>Redis</span><span>Concurrency</span></div>
-                </div>
-              </div>
-              <div class="mm-repo">
-                <span class="mm-repo__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h10a4 4 0 0 1 0 8H8"/><path d="m11 11-3 3 3 3"/><circle cx="19" cy="18" r="2"/></svg></span>
-                <div>
-                  <h4>B2B webhook surface</h4>
-                  <p>The outbound event surface agency clients integrate against — subscription API, roughly <strong>729,000 events delivered in 90 days</strong>, replacing client polling.</p>
-                  <div class="mm-repo__tech"><span>.NET</span><span>RabbitMQ</span><span>REST</span></div>
-                </div>
-              </div>
-            </div>
-
-            <p class="mm-proj__lead">Product verticals — built from zero, still running:</p>
-
-            <div class="mm-repos">
-              <div class="mm-repo">
-                <span class="mm-repo__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5a2.1 2.1 0 0 0-3-3L13 8 4.8 6.2a1 1 0 0 0-.9.3l-.9.9 5 3-2 2-2.5-.5-.9.9 3 2 2 3 .9-.9L11 17l3 5 .9-.9a1 1 0 0 0 .3-.9z"/></svg></span>
-                <div>
-                  <h4>Virtual interlining</h4>
-                  <p>Two airlines combined into one bookable itinerary under a single payment — search through booking. <strong>All five design specs behind the accepted ADRs are mine</strong>. About 3,400 tickets a month.</p>
-                  <div class="mm-repo__tech"><span>.NET</span><span>Redis</span><span>RabbitMQ</span><span>ADRs</span></div>
-                </div>
-              </div>
-              <a href="https://www.flytoday.ir/blog/flytoday-autoreserve/" target="_blank" rel="noopener" class="mm-repo">
-                <span class="mm-repo__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></span>
-                <div>
-                  <h4>Auto-reserve <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></h4>
-                  <p>An airfare limit order, built from zero — it <strong>buys and issues while the customer is offline</strong>, recovering otherwise-lost bookings. Operations tune eligibility without a deploy. Links to the company feature page.</p>
-                  <div class="mm-repo__tech"><span>.NET</span><span>Hangfire</span><span>Rules engine</span></div>
-                </div>
-              </a>
-              <a href="https://www.flytoday.ir/anywhere-anytime/flight/thr" target="_blank" rel="noopener" class="mm-repo">
-                <span class="mm-repo__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-4.3-4.3"/></svg></span>
-                <div>
-                  <h4>Flexible search <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></h4>
-                  <p>Origin, destination and dates all optional — built from zero, live in production. Priced results stored and indexed to serve both interactive search and generated SEO landing pages.</p>
-                  <div class="mm-repo__tech"><span>.NET</span><span>RediSearch</span><span>SEO</span></div>
-                </div>
-              </a>
-              <div class="mm-repo">
-                <span class="mm-repo__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M3 12h18M12 8v13"/><path d="M12 8s-1-4-4-4a2.5 2.5 0 0 0 0 5M12 8s1-4 4-4a2.5 2.5 0 0 1 0 5"/></svg></span>
-                <div>
-                  <h4>Gift cards</h4>
-                  <p><strong>37,495 issued</strong> — shipped from zero inside the cross-product promotions rule engine, of which I am the top sustaining author (roughly 46,000 redemptions a year).</p>
-                  <div class="mm-repo__tech"><span>.NET</span><span>Redis</span><span>Rules engine</span></div>
-                </div>
-              </div>
-              <div class="mm-repo">
-                <span class="mm-repo__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M10.3 21a2 2 0 0 0 3.4 0"/></svg></span>
-                <div>
-                  <h4>Flight price alerts</h4>
-                  <p>Built from zero in 2019 and owned since — scheduled evaluation notifying by SMS and email, with SQL and LINQ tuning keeping subscription checks off the hot search path. About <strong>280 notifications a day</strong>.</p>
-                  <div class="mm-repo__tech"><span>.NET</span><span>Hangfire</span><span>LINQ / SQL</span></div>
-                </div>
-              </div>
-              <div class="mm-repo">
-                <span class="mm-repo__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V9l6-4 6 4v12"/><path d="M15 21V13h6v8"/><path d="M7 12h2M7 16h2"/></svg></span>
-                <div>
-                  <h4>Travel insurance &amp; supplier hub</h4>
-                  <p>Rebuilt the travel-insurance line end to end in 2020 and owned it for five years — plan search, parallel multi-passenger issuance, refund integration with the money path. Separately, consolidated hotel-supplier onboarding onto a single hub connection: <strong>31 suppliers, 24 through the hub</strong> — originated it, later handed over.</p>
-                  <div class="mm-repo__tech"><span>.NET</span><span>GraphQL</span><span>TravelgateX</span></div>
-                </div>
-              </div>
-            </div>
-
-            <p class="mm-stats-label">Side project — open source, not production</p>
-
-            <div class="mm-repos">
-              <a href="https://github.com/clutchprotocol" target="_blank" rel="noopener" class="mm-repo">
-                <span class="mm-repo__ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.6.5.5 5.6.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 5 18.3 5.3 18.3 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.6 18.4.5 12 .5z"/></svg></span>
-                <div>
-                  <h4>Clutch Protocol <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></h4>
-                  <p>A solo open-source ride-sharing protocol grown out of my M.Sc. thesis — a blockchain core in Rust with Aura consensus, a GraphQL hub API, a TypeScript SDK, a block explorer and a demo app. <strong>Side project: no team, no users, not production.</strong> The code speaks for itself.</p>
-                  <div class="mm-repo__tech"><span>Rust</span><span>libp2p</span><span>GraphQL</span><span>TypeScript</span><span>Docker</span></div>
-                </div>
-              </a>
-              <a href="https://github.com/MehranMazhar/master-thesis" target="_blank" rel="noopener" class="mm-repo">
-                <span class="mm-repo__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"/></svg></span>
-                <div>
-                  <h4>master-thesis <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></h4>
-                  <p>The M.Sc. thesis it grew from — full PDF and defence presentation, public. Academic research, 2023.</p>
-                  <div class="mm-repo__tech"><span>Research</span><span>PDF</span></div>
-                </div>
-              </a>
+        <div class="mm-repos mm-reveal">
+          <div class="mm-repo mm-repo--major">
+            <span class="mm-repo__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg></span>
+            <div>
+              <h4>Refunds, end to end</h4>
+              <p>B2B and B2C, air and hotel — request, finance approval, execution against the bank, and the failure paths underneath. Turnaround went from <strong>about a week</strong>, manual across three teams, to <strong>about a day</strong>. Idempotency, credit-keyed Redis locks, re-inquiry instead of assumed failure, bounded retry.</p>
+              <div class="mm-repo__tech"><span>.NET</span><span>Redis</span><span>Hangfire</span><span>SQL Server</span></div>
             </div>
           </div>
+          <div class="mm-repo mm-repo--major">
+            <span class="mm-repo__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></span>
+            <div>
+              <h4>Payment gateways</h4>
+              <p>Four bank payment providers integrated into an <strong>existing provider-agnostic gateway abstraction</strong> — redirect and callback flows on Hangfire. Those four carry 98% of card volume: about <strong>1.33M successful transactions in 2025</strong>.</p>
+              <div class="mm-repo__tech"><span>.NET</span><span>Hangfire</span><span>Callbacks</span></div>
+            </div>
+          </div>
+          <div class="mm-repo mm-repo--major">
+            <span class="mm-repo__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12V7a2 2 0 0 0-2-2H5a2 2 0 0 0 0 4h16v6H5a2 2 0 0 0 0 4h14a2 2 0 0 0 2-2z"/><circle cx="16.5" cy="12" r="1.2"/></svg></span>
+            <div>
+              <h4>Wallets &amp; withdrawals</h4>
+              <p>Wallet deposits built from zero — money-in, effectively sole author. Withdrawal processing went from roughly two days manual to seconds, with concurrent requests <strong>serialized by a per-account Redis lock</strong>. Bank settlement downstream is not mine.</p>
+              <div class="mm-repo__tech"><span>.NET</span><span>Redis</span><span>Concurrency</span></div>
+            </div>
+          </div>
+          <div class="mm-repo mm-repo--major">
+            <span class="mm-repo__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h10a4 4 0 0 1 0 8H8"/><path d="m11 11-3 3 3 3"/><circle cx="19" cy="18" r="2"/></svg></span>
+            <div>
+              <h4>B2B webhook surface</h4>
+              <p>The outbound event surface agency clients integrate against — subscription API, roughly <strong>729,000 events delivered in 90 days</strong>, replacing client polling.</p>
+              <div class="mm-repo__tech"><span>.NET</span><span>RabbitMQ</span><span>REST</span></div>
+            </div>
+          </div>
+        </div>
+
+        <p class="mm-proj__lead">Product verticals — built from zero, still running:</p>
+
+        <div class="mm-repos mm-repos--compact mm-reveal">
+          <div class="mm-repo mm-repo--compact">
+            <span class="mm-repo__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5a2.1 2.1 0 0 0-3-3L13 8 4.8 6.2a1 1 0 0 0-.9.3l-.9.9 5 3-2 2-2.5-.5-.9.9 3 2 2 3 .9-.9L11 17l3 5 .9-.9a1 1 0 0 0 .3-.9z"/></svg></span>
+            <div>
+              <h4>Virtual interlining</h4>
+              <p>Two airlines combined into one bookable itinerary under a single payment — search through booking. <strong>All five design specs behind the accepted ADRs are mine</strong>. About 3,400 tickets a month.</p>
+              <div class="mm-repo__tech"><span>.NET</span><span>Redis</span><span>RabbitMQ</span><span>ADRs</span></div>
+            </div>
+          </div>
+          <a href="https://www.flytoday.ir/blog/flytoday-autoreserve/" target="_blank" rel="noopener" class="mm-repo mm-repo--compact">
+            <span class="mm-repo__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></span>
+            <div>
+              <h4>Auto-reserve <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></h4>
+              <p>An airfare limit order, built from zero — it <strong>buys and issues while the customer is offline</strong>, recovering otherwise-lost bookings. Operations tune eligibility without a deploy. Links to the company feature page.</p>
+              <div class="mm-repo__tech"><span>.NET</span><span>Hangfire</span><span>Rules engine</span></div>
+            </div>
+          </a>
+          <a href="https://www.flytoday.ir/anywhere-anytime/flight/thr" target="_blank" rel="noopener" class="mm-repo mm-repo--compact">
+            <span class="mm-repo__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-4.3-4.3"/></svg></span>
+            <div>
+              <h4>Flexible search <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></h4>
+              <p>Origin, destination and dates all optional — built from zero, live in production. Priced results stored and indexed to serve both interactive search and generated SEO landing pages.</p>
+              <div class="mm-repo__tech"><span>.NET</span><span>RediSearch</span><span>SEO</span></div>
+            </div>
+          </a>
+          <div class="mm-repo mm-repo--compact">
+            <span class="mm-repo__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M3 12h18M12 8v13"/><path d="M12 8s-1-4-4-4a2.5 2.5 0 0 0 0 5M12 8s1-4 4-4a2.5 2.5 0 0 1 0 5"/></svg></span>
+            <div>
+              <h4>Gift cards</h4>
+              <p><strong>37,495 issued</strong> — shipped from zero inside the cross-product promotions rule engine, of which I am the top sustaining author (roughly 46,000 redemptions a year).</p>
+              <div class="mm-repo__tech"><span>.NET</span><span>Redis</span><span>Rules engine</span></div>
+            </div>
+          </div>
+          <div class="mm-repo mm-repo--compact">
+            <span class="mm-repo__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M10.3 21a2 2 0 0 0 3.4 0"/></svg></span>
+            <div>
+              <h4>Flight price alerts</h4>
+              <p>Built from zero in 2019 and owned since — scheduled evaluation notifying by SMS and email, with SQL and LINQ tuning keeping subscription checks off the hot search path. About <strong>280 notifications a day</strong>.</p>
+              <div class="mm-repo__tech"><span>.NET</span><span>Hangfire</span><span>LINQ / SQL</span></div>
+            </div>
+          </div>
+          <div class="mm-repo mm-repo--compact">
+            <span class="mm-repo__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V9l6-4 6 4v12"/><path d="M15 21V13h6v8"/><path d="M7 12h2M7 16h2"/></svg></span>
+            <div>
+              <h4>Travel insurance &amp; supplier hub</h4>
+              <p>Rebuilt the travel-insurance line end to end in 2020 and owned it for five years — plan search, parallel multi-passenger issuance, refund integration with the money path. Separately, consolidated hotel-supplier onboarding onto a single hub connection: <strong>31 suppliers, 24 through the hub</strong> — originated it, later handed over.</p>
+              <div class="mm-repo__tech"><span>.NET</span><span>GraphQL</span><span>TravelgateX</span></div>
+            </div>
+          </div>
+        </div>
+
+        <p class="mm-stats-label">Side project — open source, not production</p>
+
+        <div class="mm-repos mm-reveal">
+          <a href="https://github.com/clutchprotocol" target="_blank" rel="noopener" class="mm-repo mm-repo--aside">
+            <span class="mm-repo__ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.6.5.5 5.6.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 5 18.3 5.3 18.3 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.6 18.4.5 12 .5z"/></svg></span>
+            <div>
+              <h4>Clutch Protocol <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></h4>
+              <p>A solo open-source ride-sharing protocol grown out of my M.Sc. thesis — a blockchain core in Rust with Aura consensus, a GraphQL hub API, a TypeScript SDK, a block explorer and a demo app. <strong>Side project: no team, no users, not production.</strong> The code speaks for itself.</p>
+              <div class="mm-repo__tech"><span>Rust</span><span>libp2p</span><span>GraphQL</span><span>TypeScript</span><span>Docker</span></div>
+            </div>
+          </a>
+          <a href="https://github.com/MehranMazhar/master-thesis" target="_blank" rel="noopener" class="mm-repo mm-repo--aside">
+            <span class="mm-repo__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"/></svg></span>
+            <div>
+              <h4>master-thesis <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></h4>
+              <p>The M.Sc. thesis it grew from — full PDF and defence presentation, public. Academic research, 2023.</p>
+              <div class="mm-repo__tech"><span>Research</span><span>PDF</span></div>
+            </div>
+          </a>
         </div>
       </div>
     </section>
