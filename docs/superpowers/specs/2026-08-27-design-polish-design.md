@@ -25,9 +25,41 @@ found by reading `index.html` and `assets/css/style.css`:
    16, 16.5, 17px) sit close enough together that the steps read as accidental rather than chosen.
 5. **Flat section rhythm.** All eight sections use 104px padding and the same left-aligned
    eyebrow + `h2` + optional paragraph head, on alternating background tints. The pattern is
-   predictable by the third section.
+   predictable by the third section. *Partly caused by fault 7 — see below.*
 6. **False hover affordance.** `.mm-repo:hover` lifts the card and animates an arrow. Seven of the
    thirteen repo cards are `div`s, not links — they invite a click that does nothing.
+7. **A specificity collision silently deletes 14 authored spacing rules.** The reset at
+   `style.css:34` is written as an element-qualified selector:
+
+   ```css
+   .mm-root h1,.mm-root h2,.mm-root h3,.mm-root h4,.mm-root p { margin: 0; }
+   ```
+
+   `.mm-root h2` scores (0,1,1) — one class *plus* one element. A component selector like
+   `.mm-contact__title` scores (0,1,0), so the reset wins and the authored margin never applies.
+   Measured in the browser, fourteen spacing declarations are dead:
+
+   | Selector | Dead declaration |
+   | --- | --- |
+   | `.mm-hero__greet` | `margin-bottom: 14px` |
+   | `.mm-hero__title` | `margin-top: 18px` |
+   | `.mm-hero__desc` | `margin-top: 22px` |
+   | `.mm-proj__quote` | `margin-bottom: 30px` |
+   | `.mm-proj__lead` | `margin-bottom: 20px` |
+   | `.mm-stats-label` | `margin: 34px 0 16px` |
+   | `.mm-tl__quote` | `margin-top: 14px` |
+   | `.mm-educard__note` | `margin-top: 2px` |
+   | `.mm-research__title` | `margin-top: 12px` |
+   | `.mm-research__advisor` | `margin-top: 12px` |
+   | `.mm-research__quote` | `margin-top: 18px` |
+   | `.mm-research__note` | `margin-top: 24px` |
+   | `.mm-contact__title` | `margin-top: 14px` |
+   | `.mm-contact__text` | `margin: 18px auto 0` |
+
+   This is the root cause of the visible symptom in the contact box, where the eyebrow, heading and
+   paragraph are glued together with a measured gap of 4px and 0px. It also means fault 5 above is
+   not entirely a design choice: some of the intended vertical rhythm was authored and never
+   rendered.
 
 ## Goals
 
@@ -37,6 +69,7 @@ found by reading `index.html` and `assets/css/style.css`:
 4. Replace the thirteen ad-hoc body sizes with a five-step ramp.
 5. Break the section-head monotony without changing the visual identity.
 6. Stop non-clickable cards from lifting and gaining a shadow on hover.
+7. Make the fourteen dead spacing rules apply, and fix the contact box's composition.
 
 ## Non-goals
 
@@ -49,6 +82,27 @@ found by reading `index.html` and `assets/css/style.css`:
   and deliberately kept.
 
 ## Design
+
+### 0. Fix the reset first
+
+Nothing else in this pass can be tuned on top of a broken cascade, so this lands first. One line:
+
+```css
+/* :where() keeps this reset at zero specificity, so a single-class component rule such as
+   .mm-contact__title can still set its own margin. Do not rewrite it as `.mm-root h1, …` —
+   that form outranks every component selector and silently deletes their spacing. */
+.mm-root :where(h1,h2,h3,h4,p) { margin: 0; }
+```
+
+`:where()` contributes nothing to specificity, so the reset drops to (0,1,0) — the `.mm-root`
+class alone. It then ties with single-class component selectors, and since every component rule
+appears later in the file, source order resolves in their favour. Verified live in the browser:
+all fourteen margins apply, and the contact stack goes from 4px/0px gaps to 18px/18px.
+
+The consequence is deliberate but wide: fourteen dormant margins activate at once, changing
+vertical spacing in the hero, Selected Work, timeline, education, research and contact sections.
+This restores what the stylesheet already intended rather than inventing new spacing, but it is the
+single highest-risk change in this pass and needs the manual pass listed under Verification.
 
 ### 1. Foundations — tokens in `assets/css/style.css`
 
@@ -136,11 +190,34 @@ as a button.
 0 auto`, `text-align: center`, and the `.mm-eyebrow::before` rule suppressed). The other six
 sections stay left-aligned. This breaks the repeat cheaply without touching the identity.
 
+### 4. Contact box composition
+
+With the reset fixed, two faults remain in the closing panel, both measured at a 1280px viewport:
+
+**The paragraph is capped far below its container.** `.mm-contact__text` sets `max-width: 500px`
+inside a box whose content width is 638px. The paragraph renders 138px narrower than the heading
+above it and breaks into four lines whose last line is a 56px orphan — measured rag
+614 / 591 / 566 / 56. Raising the cap to **620px** gives three lines with a rag of 614 / 591 / 566,
+shortest line at 91% of measure, no orphan. At mobile the cap is inert (content width is 269px),
+so nothing regresses.
+
+**The stack has no hierarchy.** Once margins apply, label→title and title→text are both 18px, so
+the three elements read as one undifferentiated block. Tightening the title's `margin-top` to 10px
+and raising the paragraph's to 20px makes the heading group with its eyebrow and separate from its
+body copy.
+
+`text-wrap` was tested and rejected. At 620px, `normal`, `pretty` and `balance` produce byte-identical
+line breaks, and the heading is a single line at both 1280px (242px of 638px) and 375px
+(242px of 269px), so `balance` has nothing to balance. Two declarations measurement removed.
+
+The title's `font-weight: 800` stays. It is the closing display element and pairs with
+`.mm-hero__name`; `.mm-h2`'s 700 is for in-page section heads.
+
 ## Files touched
 
 | Path | Change |
 | --- | --- |
-| `assets/css/style.css` | Token changes, five type tokens, three `.mm-repo` modifiers, shadow removals, hover-scoping, `.mm-head--center` |
+| `assets/css/style.css` | `:where()` reset fix, token changes, five type tokens, three `.mm-repo` modifiers, shadow removals, hover-scoping, `.mm-head--center`, contact paragraph width and stack gaps |
 | `index.html` | Selected Work restructured into three tiers; `.mm-proj` wrapper removed; two section heads get `--center` |
 | `docs/check-contrast.py` | New — the verification script below |
 
@@ -156,11 +233,19 @@ python docs/check-contrast.py
 ```
 
 Everything else here is visual and has no automated check — the site has no build step and no test
-harness, and adding one for a CSS pass is not worth its weight. Two manual checks close the loop:
+harness, and adding one for a CSS pass is not worth its weight. Manual checks close the loop:
 
 1. Load the page at desktop, 900px, 700px and 375px widths; confirm the three Selected Work tiers
    read as three levels and no grid collapses badly.
 2. Confirm the seven non-link repo cards no longer respond to hover.
+3. **After the reset fix, walk all six affected sections** — hero, Selected Work, timeline,
+   education, research, contact. Fourteen margins activate simultaneously; anywhere the revived
+   value now reads as too loose, tune that component's own value rather than reverting the reset.
+
+The dead-margin audit itself was run as a one-off script against `document.styleSheets` in the
+browser, comparing each authored margin to its computed value. It is not kept: once the reset is
+`:where()`-based the collision cannot recur for these selectors, and the CSS comment at the reset
+is the cheaper guard against someone rewriting it back into the element-qualified form.
 
 Note: the browser pane in the authoring environment was not compositing frames, so screenshots
 were unavailable during this work. Visual sign-off is the user's.
