@@ -568,11 +568,13 @@
   /* 10px above the title groups it with its eyebrow; 20px below separates it from the body copy.
      Equal gaps made the three read as one undifferentiated block. */
   .mm-contact__title { font-size: clamp(28px, 4.5vw, 42px); font-weight: 800; letter-spacing: -.03em; color: var(--ink); margin-top: 10px; line-height: 1.1; }
-  /* 620px, not 500px: the box's content width is 638px, so a 500px cap sat 138px narrower than the
-     heading and broke the paragraph into four lines (rag 487/493/449/343, shortest 69% of measure).
-     620px sets three lines, shortest 91%. Not 600px either — that still takes four lines and ends
-     in a 41px orphan. Inert at mobile, where content width is 269px. */
-  .mm-contact__text { margin: 20px auto 0; max-width: 620px; color: var(--ink-soft); font-size: var(--fs-md); line-height: 1.65; }
+  /* No max-width: the paragraph fills the box's 638px content width, which at --fs-md (17px) is
+     about 75 characters per line — inside a comfortable measure. It used to be capped at 500px,
+     which sat 138px narrower than the heading and rag-ed to four lines. A 620px cap fixed that at
+     the old 16.5px size but broke again at 17px (four lines, 42px orphan), so the cap is gone
+     rather than retuned: a cap equal to the container is not a constraint. Auto side margins would
+     be inert without a constrained width, hence plain margin-top. */
+  .mm-contact__text { margin-top: 20px; color: var(--ink-soft); font-size: var(--fs-md); line-height: 1.65; }
   .mm-contact__actions { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
 
   /* ============ Footer ============ */
