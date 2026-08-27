@@ -369,7 +369,7 @@ Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>"
 ### Task 4: Collapse 13 body font sizes into a five-step ramp
 
 **Files:**
-- Modify: `assets/css/style.css` — add tokens near line 22, then edit the 40 `font-size` declarations listed below
+- Modify: `assets/css/style.css` — add tokens near line 22, then edit the 51 `font-size` declarations listed below
 
 **Interfaces:**
 - Consumes: nothing.
@@ -535,7 +535,7 @@ git commit -m "refactor(css): collapse 13 body font sizes onto a five-step ramp
 
 The stylesheet used 11, 11.5, 12, 12.5, 13, 13.5, 14, 14.5, 15, 15.5,
 16, 16.5 and 17px for body text — steps close enough to read as
-accidental. Forty declarations now resolve to --fs-xs/sm/base/md/lg.
+accidental. Fifty-one declarations now resolve to --fs-xs/sm/base/md/lg.
 
 15.5px maps to --fs-base rather than --fs-md so .mm-btn--lg and
 .mm-proj__lead are not inflated; every shift is 1px or less. Display
