@@ -31,7 +31,11 @@
   .mm-root *, .mm-root *::before, .mm-root *::after { box-sizing: border-box; }
   .mm-root img { max-width: 100%; display: block; }
   .mm-root a { color: inherit; text-decoration: none; }
-  .mm-root h1,.mm-root h2,.mm-root h3,.mm-root h4,.mm-root p { margin: 0; }
+  /* :where() keeps this reset at zero specificity, so a single-class component rule such as
+     .mm-contact__title can still set its own margin. Do NOT rewrite this as
+     `.mm-root h1, .mm-root h2, …` — that form scores (0,1,1), outranks every single-class
+     component selector, and silently deletes their spacing. Fourteen rules were dead this way. */
+  .mm-root :where(h1,h2,h3,h4,p) { margin: 0; }
 
   .mm-root :focus-visible {
     outline: 2px solid var(--accent);
