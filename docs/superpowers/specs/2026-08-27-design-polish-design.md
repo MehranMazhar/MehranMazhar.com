@@ -172,9 +172,19 @@ Responsive collapse: `--major` 2→1 column at 700px; `--compact` 3→2 at 900px
 
 ### 3. Rhythm and card variety
 
-**Elevation gets meaning.** `--shadow-sm` is removed from education cards, interest cards,
-compact repo cards and timeline cards. Shadows remain on exactly three things: the hero card, the
-contact box, and major repo cards. Secondary cards are defined by their border alone.
+**Elevation gets meaning.** `--shadow-sm` is removed from the repeated secondary cards — education
+cards, interest cards and timeline cards — and the compact and aside repo tiers are defined without
+one from the start. Those cards are then defined by their border alone.
+
+Elevation stays where it marks a genuinely distinct surface: the four large panels
+(`.mm-hero__card`, `.mm-portrait`, `.mm-research`, `.mm-contact__box`, all `--shadow-lg`), the
+floating `.mm-about__badge` over the portrait (`--shadow-md`), the mobile nav dropdown overlay
+(`--shadow-lg`), and the four `--major` money-path cards (`--shadow-sm`). Small controls —
+buttons, pills, skills, the nav bar — keep their `--shadow-sm` too.
+
+The point is not to minimise the number of shadowed elements; it is that a shadow should mean
+"this is a distinct surface" rather than "this is a card". Before this change every repeated card
+carried one, so the signal was worthless.
 
 **Hover follows clickability.** The lift, border-colour change and arrow animation move from
 `.mm-repo:hover` to `a.mm-repo:hover`. The eight `div` cards keep a static appearance. The same

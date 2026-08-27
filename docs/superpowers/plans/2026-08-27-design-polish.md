@@ -815,9 +815,13 @@ Reload and run:
 })()
 ```
 
-Expected: `timelineClean`, `eduClean` and `icardClean` all `true`. `shadowedClasses` should contain
-`mm-hero__card`, `mm-contact__box`, `mm-repo` (the four `--major`), plus the buttons, pills, skills
-and nav — those keep their small shadows by design.
+Expected: `timelineClean`, `eduClean` and `icardClean` all `true`.
+
+`shadowedClasses` should still contain, all by design and none of them in this task's scope:
+`mm-hero__card`, `mm-portrait`, `mm-research`, `mm-contact__box` (the four large panels),
+`mm-about__badge` (floating over the portrait), `mm-navlinks` (mobile dropdown overlay),
+`mm-repo` (the four `--major` cards only), plus `mm-btn`, `mm-pill`, `mm-skill` and the nav bar.
+The three names checked explicitly above are the only ones that must have become clean.
 
 - [ ] **Step 5: Confirm the CSS no longer has non-link card hovers**
 
