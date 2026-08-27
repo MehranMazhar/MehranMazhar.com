@@ -6,13 +6,13 @@
 
 ## Problem
 
-The site's content is strong but its visual design does not rank it. Six specific faults,
+The site's content is strong but its visual design does not rank it. Seven specific faults,
 found by reading `index.html` and `assets/css/style.css`:
 
-1. **Selected Work is thirteen near-identical cards.** Money path (4), product verticals (6) and
+1. **Selected Work is twelve near-identical cards.** Money path (4), product verticals (6) and
    the open-source side project (2) all render as the same `.mm-repo`: 38px icon box, monospace
    title, paragraph, tech tags. Only a small monospace label separates the groups, and all
-   thirteen sit inside one giant white `.mm-proj` card, so the section reads as an
+   twelve sit inside one giant white `.mm-proj` card, so the section reads as an
    undifferentiated blob.
 2. **Card sameness site-wide.** Repo, timeline, education, interests and stat cards share the same
    1px `--line` border, `--shadow-sm`, 14px radius and hover lift. Nothing is visually heavier
@@ -26,8 +26,8 @@ found by reading `index.html` and `assets/css/style.css`:
 5. **Flat section rhythm.** All eight sections use 104px padding and the same left-aligned
    eyebrow + `h2` + optional paragraph head, on alternating background tints. The pattern is
    predictable by the third section. *Partly caused by fault 7 — see below.*
-6. **False hover affordance.** `.mm-repo:hover` lifts the card and animates an arrow. Seven of the
-   thirteen repo cards are `div`s, not links — they invite a click that does nothing.
+6. **False hover affordance.** `.mm-repo:hover` lifts the card and animates an arrow. Eight of the
+   twelve repo cards are `div`s, not links — they invite a click that does nothing.
 7. **A specificity collision silently deletes 14 authored spacing rules.** The reset at
    `style.css:34` is written as an element-qualified selector:
 
@@ -63,7 +63,7 @@ found by reading `index.html` and `assets/css/style.css`:
 
 ## Goals
 
-1. Give Selected Work three visible tiers of importance instead of thirteen equal cards.
+1. Give Selected Work three visible tiers of importance instead of twelve equal cards.
 2. Make elevation mean something: only genuinely prominent elements carry a shadow.
 3. Meet WCAG AA (4.5:1) for all text colour pairs, and keep it met.
 4. Replace the thirteen ad-hoc body sizes with a five-step ramp.
@@ -131,13 +131,18 @@ Every body-text `font-size` in the stylesheet maps onto one of these five, expli
 current values sit close enough that "nearest" is ambiguous at the boundaries, so the mapping is
 fixed here:
 
-| Current sizes | Becomes |
-| --- | --- |
-| 11, 11.5, 12, 12.5 | `--fs-xs` |
-| 13, 13.5 | `--fs-sm` |
-| 14, 14.5, 15 | `--fs-base` |
-| 15.5, 16, 16.5, 17 | `--fs-md` |
-| 18 | `--fs-lg` |
+| Current sizes | Becomes | Largest shift |
+| --- | --- | --- |
+| 11, 11.5, 12, 12.5 | `--fs-xs` (12px) | +1px |
+| 13, 13.5 | `--fs-sm` (13.5px) | +0.5px |
+| 14, 14.5, 15, 15.5 | `--fs-base` (15px) | +1px |
+| 16, 16.5, 17 | `--fs-md` (17px) | +1px |
+| 18 | `--fs-lg` (19px) | +1px |
+
+The 15.5px row sits with `--fs-base`, not `--fs-md`: it is used by `.mm-btn--lg` and
+`.mm-proj__lead`, and promoting those to 17px would inflate the large buttons noticeably. Keeping
+the boundary here holds every single shift to 1px or less, which is the point of the exercise —
+the ramp should tidy the scale, not restyle the page.
 
 Display sizes — `h1`, `.mm-h2`, `.mm-proj__title`, `.mm-contact__title`, `.mm-research__title`,
 `.mm-proj__quote` — keep their existing `clamp()` expressions; those are already deliberate and
@@ -148,7 +153,7 @@ tuned to the 68px nav height.
 ### 2. Selected Work — three tiers
 
 The single `.mm-proj` wrapper card is removed. The pull-quote and the "Measured in production"
-stats row stay as a lede block. The thirteen cards then split into three explicitly-weighted
+stats row stay as a lede block. The twelve cards then split into three explicitly-weighted
 tiers, each a modifier on the existing `.mm-repo`:
 
 **Money path (4 cards) — `.mm-repo--major`.** The tier that should stop a reader. Two columns,
@@ -172,7 +177,7 @@ compact repo cards and timeline cards. Shadows remain on exactly three things: t
 contact box, and major repo cards. Secondary cards are defined by their border alone.
 
 **Hover follows clickability.** The lift, border-colour change and arrow animation move from
-`.mm-repo:hover` to `a.mm-repo:hover`. The seven `div` cards keep a static appearance. The same
+`.mm-repo:hover` to `a.mm-repo:hover`. The eight `div` cards keep a static appearance. The same
 scoping applies to the other three card types that are not links and currently animate on hover:
 `.mm-educard`, `.mm-icard` and `.mm-tl__card` lose their `:hover` rules entirely (including the
 `--shadow-md` upgrade, which would otherwise reintroduce a shadow on a card whose base shadow
