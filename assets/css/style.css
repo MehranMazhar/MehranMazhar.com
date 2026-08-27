@@ -189,7 +189,6 @@
      fully predictable by the third section. */
   .mm-head--center { margin-left: auto; margin-right: auto; text-align: center; }
   .mm-head--center .mm-eyebrow::before { display: none; }
-  .mm-head--center p { margin-left: auto; margin-right: auto; }
 
   /* ============ Hero ============ */
   .mm-hero { position: relative; overflow: hidden; padding: 96px 0 100px; }
@@ -472,7 +471,7 @@
   .mm-educard {
     background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
     padding: 26px;
-    transition: transform .15s, box-shadow .2s, border-color .2s;
+    transition: transform .15s, border-color .2s;
     display: flex; flex-direction: column; gap: 14px;
   }
   .mm-educard__ic {
@@ -535,7 +534,7 @@
   .mm-icard {
     background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
     padding: 26px;
-    transition: transform .15s, box-shadow .2s, border-color .2s;
+    transition: transform .15s, border-color .2s;
   }
   .mm-icard__ic {
     width: 48px; height: 48px; border-radius: 12px; background: var(--accent-soft);
