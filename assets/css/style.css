@@ -516,8 +516,12 @@
     font-family: var(--mono); font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase;
     color: var(--accent); font-weight: 500;
   }
-  .mm-contact__title { font-size: clamp(28px, 4.5vw, 42px); font-weight: 800; letter-spacing: -.03em; color: var(--ink); margin-top: 14px; line-height: 1.1; }
-  .mm-contact__text { margin: 18px auto 0; max-width: 500px; color: var(--ink-soft); font-size: 16.5px; line-height: 1.65; }
+  /* 10px above the title groups it with its eyebrow; 20px below separates it from the body copy.
+     Equal gaps made the three read as one undifferentiated block. */
+  .mm-contact__title { font-size: clamp(28px, 4.5vw, 42px); font-weight: 800; letter-spacing: -.03em; color: var(--ink); margin-top: 10px; line-height: 1.1; }
+  /* 620px, not 500px: the box's content width is 638px, and 500px broke the paragraph into four
+     lines ending in a 56px orphan. Inert at mobile, where content width is 269px. */
+  .mm-contact__text { margin: 20px auto 0; max-width: 620px; color: var(--ink-soft); font-size: 16.5px; line-height: 1.65; }
   .mm-contact__actions { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
 
   /* ============ Footer ============ */
