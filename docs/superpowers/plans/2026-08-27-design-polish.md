@@ -495,9 +495,10 @@ Then confirm the count of remaining literal sizes is exactly the four allowed:
 grep -cE "font-size: *(16|22|30)px" assets/css/style.css
 ```
 
-Expected: `4` (`.mm-logo`, `.mm-navlinks a` mobile is now a token so it does not count,
-`.mm-mini b`, `.mm-stat b` — plus `.mm-proj__sub` is a token now). If the number differs, list the
-matches with `grep -nE` and reconcile against the do-not-touch list above.
+Expected: `3` — exactly `.mm-logo` (line 72), `.mm-mini b` (248) and `.mm-stat b` (363). Before
+this task the same grep returns 5; `.mm-navlinks a` (132) and `.mm-proj__sub` (315) both become
+`var(--fs-md)` and drop out. If the number is not 3, list the matches with `grep -nE` and reconcile
+against the do-not-touch list above.
 
 - [ ] **Step 4: Confirm nothing shifted more than 1px**
 
