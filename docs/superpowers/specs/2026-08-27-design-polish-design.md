@@ -201,10 +201,14 @@ With the reset fixed, two faults remain in the closing panel, both measured at a
 
 **The paragraph is capped far below its container.** `.mm-contact__text` sets `max-width: 500px`
 inside a box whose content width is 638px. The paragraph renders 138px narrower than the heading
-above it and breaks into four lines whose last line is a 56px orphan — measured rag
-614 / 591 / 566 / 56. Raising the cap to **620px** gives three lines with a rag of 614 / 591 / 566,
-shortest line at 91% of measure, no orphan. At mobile the cap is inert (content width is 269px),
-so nothing regresses.
+above it and breaks into four lines — measured rag 487 / 493 / 449 / 343, shortest line at 69% of
+measure. Raising the cap to **620px** gives three lines, rag 614 / 591 / 566, shortest at 91%. At
+mobile the cap is inert (content width is 269px), so nothing regresses.
+
+620px rather than 600px: at 600px the paragraph still takes four lines and ends in a 41px orphan
+(rag 549 / 589 / 588 / 41). An earlier draft of this spec attributed that orphan to the 500px
+before-state; that was wrong — 500px rags to a perfectly ordinary 343px last line. The defect at
+500px is the 138px under-cap and the extra line, not an orphan.
 
 **The stack has no hierarchy.** Once margins apply, label→title and title→text are both 18px, so
 the three elements read as one undifferentiated block. Tightening the title's `margin-top` to 10px

@@ -192,8 +192,11 @@ At a 1280px viewport, run:
 })()
 ```
 
-Expected (before the fix): `maxWidth: "500px"`, `lines: 4`, `rag: [614, 591, 566, 56]` — the 56px
-value is the orphan.
+Expected before the fix, at a 1280px viewport: `maxWidth: "500px"`, `lines: 4`,
+`rag: [487, 493, 449, 343]`. The defect here is the cap, not the rag: 500px is 138px narrower than
+the 638px content box. (At 600px the rag becomes `[549, 589, 588, 41]` — that 41px orphan is why
+620px is the target rather than 600px.) If your viewport is not 1280px the absolute numbers differ;
+what must hold is 4 lines before and 3 after.
 
 - [ ] **Step 2: Apply the fix**
 
