@@ -215,16 +215,13 @@ resolve to zero and the declaration would do nothing. The paragraph centres via 
 
 With the reset fixed, two faults remain in the closing panel, both measured at a 1280px viewport:
 
-**The paragraph is capped far below its container.** `.mm-contact__text` sets `max-width: 500px`
-inside a box whose content width is 638px. The paragraph renders 138px narrower than the heading
-above it and breaks into four lines — measured rag 487 / 493 / 449 / 343, shortest line at 69% of
-measure. Raising the cap to **620px** gives three lines, rag 614 / 591 / 566, shortest at 91%. At
-mobile the cap is inert (content width is 269px), so nothing regresses.
-
-620px rather than 600px: at 600px the paragraph still takes four lines and ends in a 41px orphan
-(rag 549 / 589 / 588 / 41). An earlier draft of this spec attributed that orphan to the 500px
-before-state; that was wrong — 500px rags to a perfectly ordinary 343px last line. The defect at
-500px is the 138px under-cap and the extra line, not an orphan.
+**The paragraph carries no `max-width`.** `.mm-contact__text` no longer caps its width: it fills
+the box's 638px content width, breaking into three lines, rag 633 / 609 / 583, shortest line at
+91% of measure, about 79 characters per line. The 620px cap this section originally specified held
+at 16.5px but rags to four lines with a 42px orphan once the paragraph moved onto `--fs-md` (17px)
+— the same defect the cap was added to fix — so it was removed rather than retuned: 638px is the
+box's own content width, and a cap equal to the container constrains nothing. Its `margin-top: 20px`
+replaces `margin: 20px auto 0`, since auto side margins are inert without a constrained width.
 
 **The stack has no hierarchy.** Once margins apply, label→title and title→text are both 18px, so
 the three elements read as one undifferentiated block. Tightening the title's `margin-top` to 10px

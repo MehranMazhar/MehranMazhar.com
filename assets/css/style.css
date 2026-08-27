@@ -40,10 +40,11 @@
   .mm-root *, .mm-root *::before, .mm-root *::after { box-sizing: border-box; }
   .mm-root img { max-width: 100%; display: block; }
   .mm-root a { color: inherit; text-decoration: none; }
-  /* :where() keeps this reset at zero specificity, so a single-class component rule such as
-     .mm-contact__title can still set its own margin. Do NOT rewrite this as
-     `.mm-root h1, .mm-root h2, …` — that form scores (0,1,1), outranks every single-class
-     component selector, and silently deletes their spacing. Fourteen rules were dead this way. */
+  /* :where() contributes no specificity, so this selector scores (0,1,0) — from .mm-root alone.
+     That means it TIES with single-class component rules like .mm-contact__title and yields to them
+     on source order, which is why it must stay above every component rule in this file. Do NOT
+     rewrite it as `.mm-root h1, .mm-root h2, …`: that form scores (0,1,1), outranks every
+     single-class selector regardless of order, and silently deleted 14 authored margins. */
   .mm-root :where(h1,h2,h3,h4,p) { margin: 0; }
 
   .mm-root :focus-visible {
@@ -313,24 +314,10 @@
   .mm-skill svg { width: 17px; height: 17px; color: var(--accent); flex: none; }
 
   /* ============ Featured project ============ */
-  .mm-proj__top {
-    padding: 34px 36px; border-bottom: 1px solid var(--line-soft);
-    display: flex; flex-wrap: wrap; align-items: flex-end; gap: 20px; justify-content: space-between;
-    background: linear-gradient(180deg, var(--surface), var(--bg));
-  }
-  @media (max-width: 620px){ .mm-proj__top { padding: 26px 22px; } }
-  .mm-proj__tag {
-    font-family: var(--mono); font-size: var(--fs-xs); letter-spacing: 1.5px;
-    text-transform: uppercase; color: var(--accent);
-    background: var(--accent-soft); padding: 5px 11px; border-radius: 6px; font-weight: 500;
-    display: inline-block; margin-bottom: 14px;
-  }
-  .mm-proj__title { font-size: clamp(26px, 4vw, 34px); font-weight: 800; letter-spacing: -.025em; color: var(--ink); }
-  .mm-proj__sub { margin-top: 6px; color: var(--ink-mute); font-size: var(--fs-md); }
   .mm-proj__quote {
     font-family: var(--serif); font-size: clamp(18px, 2.4vw, 21px); font-style: italic;
     line-height: 1.6; color: var(--ink); border-left: 3px solid var(--accent);
-    padding-left: 20px; margin-bottom: 30px;
+    padding-left: 20px; margin-bottom: 30px; max-width: 780px;
   }
   .mm-proj__lead { color: var(--ink-soft); font-size: var(--fs-base); margin-bottom: 20px; font-weight: 500; }
 
@@ -369,6 +356,7 @@
 
   .mm-repo--major {
     padding: 24px;
+    background: var(--surface);
     border-left: 3px solid var(--accent);
     box-shadow: var(--shadow-sm);
   }
@@ -387,23 +375,24 @@
 
   .mm-repo--compact {
     padding: 16px;
-    box-shadow: none;
-    background: var(--surface);
   }
   .mm-repo--compact h4 { font-size: var(--fs-base); }
+  .mm-repo--compact .mm-repo__ic { display: none; }
   /* Tags become inline text rather than chips: the chip border repeated six times across a
      dense grid was most of the visual noise in this tier. */
-  .mm-repo--compact .mm-repo__tech { gap: 0; }
+  .mm-repo--compact .mm-repo__tech { gap: 0 6px; }
   .mm-repo--compact .mm-repo__tech span {
     border: 0; background: none; padding: 0; color: var(--ink-mute);
   }
+  /* The separator inherits --ink-mute rather than --line: --line is #e6e6e1, about 1.25:1 on the
+     card, so the dot was invisible. Spacing comes from the flex gap, not from padding inside the
+     content string, which a flex item strips at the start of a line. */
   .mm-repo--compact .mm-repo__tech span + span::before {
-    content: " · "; color: var(--line);
+    content: "·";
   }
 
   .mm-repo--aside {
     background: var(--surface-2);
-    box-shadow: none;
   }
 
   .mm-stats-label {
@@ -419,7 +408,6 @@
   .mm-stat b { display: block; font-size: 30px; font-weight: 800; letter-spacing: -.03em; color: var(--accent); line-height: 1; }
   .mm-stat span { display:block; font-size: var(--fs-base); font-weight: 600; color: var(--ink); margin-top: 8px; }
   .mm-stat em { display:block; font-size: var(--fs-xs); color: var(--ink-mute); font-style: normal; margin-top: 3px; }
-  .mm-proj__cta { margin-top: 30px; }
 
   /* ============ Timeline ============ */
   .mm-timeline { position: relative; padding-left: 34px; }

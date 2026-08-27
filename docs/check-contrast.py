@@ -37,6 +37,7 @@ PAIRS = [
 # Literal colours used outside the token set: (label, text hex, background token).
 LITERAL_PAIRS = [
     ("#fff on --accent", "#ffffff", "accent"),
+    ("#fff on --accent-ink", "#ffffff", "accent-ink"),
 ]
 
 AA = 4.5
