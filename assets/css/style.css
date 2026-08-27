@@ -569,7 +569,8 @@
      Equal gaps made the three read as one undifferentiated block. */
   .mm-contact__title { font-size: clamp(28px, 4.5vw, 42px); font-weight: 800; letter-spacing: -.03em; color: var(--ink); margin-top: 10px; line-height: 1.1; }
   /* No max-width: the paragraph fills the box's 638px content width, which at --fs-md (17px) is
-     about 75 characters per line — inside a comfortable measure. It used to be capped at 500px,
+     79 characters per line (236 chars over 3 lines) — the upper end of a comfortable measure,
+     acceptable for a three-line closing paragraph. It used to be capped at 500px,
      which sat 138px narrower than the heading and rag-ed to four lines. A 620px cap fixed that at
      the old 16.5px size but broke again at 17px (four lines, 42px orphan), so the cap is gone
      rather than retuned: a cap equal to the container is not a constraint. Auto side margins would
