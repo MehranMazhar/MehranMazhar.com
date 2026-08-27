@@ -31,12 +31,12 @@ PAIRS = [
     ("accent", "surface-2"),
     ("accent", "accent-soft"),
     ("accent-ink", "accent-soft"),
+    ("code-str", "surface"),
 ]
 
 # Literal colours used outside the token set: (label, text hex, background token).
 LITERAL_PAIRS = [
     ("#fff on --accent", "#ffffff", "accent"),
-    ("--mm-code .st on --surface", "#9a7b3a", "surface"),
 ]
 
 AA = 4.5

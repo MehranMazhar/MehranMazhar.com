@@ -5,12 +5,13 @@
     --surface-2:     #f5f5f2;
     --ink:           #1a1a1a;
     --ink-soft:      #4a4a48;
-    --ink-mute:      #82827e;
+    --ink-mute:      #6f6f6a;   /* 4.62:1 worst case (on --surface-2) — see docs/check-contrast.py */
     --line:          #e6e6e1;
     --line-soft:     #eeeee9;
     --accent:        #1f5c4d;   /* restrained deep teal-green */
     --accent-soft:   #e8f0ed;
     --accent-ink:    #164137;
+    --code-str:      #8a6c2e;   /* hero code-card string literal, 4.92:1 on --surface */
     --shadow-sm:     0 1px 2px rgba(20,20,18,.04), 0 1px 1px rgba(20,20,18,.03);
     --shadow-md:     0 2px 4px rgba(20,20,18,.04), 0 6px 16px rgba(20,20,18,.05);
     --shadow-lg:     0 4px 8px rgba(20,20,18,.04), 0 20px 40px rgba(20,20,18,.07);
@@ -241,7 +242,7 @@
   .mm-hero__card-file { margin-left: auto; font-family: var(--mono); font-size: 12px; color: var(--ink-mute); }
   .mm-code { font-family: var(--mono); font-size: 13px; line-height: 1.9; color: var(--ink-soft); }
   .mm-code .ln { display: block; white-space: pre; overflow-x: auto; }
-  .mm-code .kw { color: var(--accent); } .mm-code .st { color: #9a7b3a; }
+  .mm-code .kw { color: var(--accent); } .mm-code .st { color: var(--code-str); }
   .mm-code .cm { color: var(--ink-mute); } .mm-code .fn { color: var(--ink); font-weight:600; }
   .mm-hero__mini {
     margin-top: 22px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
