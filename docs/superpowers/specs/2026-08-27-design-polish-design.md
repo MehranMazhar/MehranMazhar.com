@@ -201,9 +201,15 @@ enforces is narrower than "hover only on links" — it is that **nothing card-sh
 gain a shadow unless it is clickable**, because lift plus shadow on a card is what actually reads
 as a button.
 
-**Section heads vary.** Research and Beyond Code get centered heads (`.mm-head--center`: `margin:
-0 auto`, `text-align: center`, and the `.mm-eyebrow::before` rule suppressed). The other six
-sections stay left-aligned. This breaks the repeat cheaply without touching the identity.
+**Section heads vary.** Research and Beyond Code get centered heads (`.mm-head--center`: `margin-left`
+and `margin-right: auto` to recentre the 720px head box inside the 1160px container,
+`text-align: center`, and the decorative `.mm-eyebrow::before` leading rule suppressed since it only
+reads correctly flush left). The other six sections stay left-aligned. This breaks the repeat cheaply
+without touching the identity.
+
+No auto-margin rule is applied to the head paragraph: with no constrained width on it, auto margins
+resolve to zero and the declaration would do nothing. The paragraph centres via the inherited
+`text-align`.
 
 ### 4. Contact box composition
 

@@ -878,7 +878,6 @@ In `assets/css/style.css`, immediately after the `.mm-head p` rule (line 173), a
      fully predictable by the third section. */
   .mm-head--center { margin-left: auto; margin-right: auto; text-align: center; }
   .mm-head--center .mm-eyebrow::before { display: none; }
-  .mm-head--center p { margin-left: auto; margin-right: auto; }
 ```
 
 - [ ] **Step 2: Apply it to the two sections**
