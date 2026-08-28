@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How I Work — Mehran Mazhar</title>
+  <meta name="description" content="Ownership and scope, engineering quality, delivery, reliability and incidents, collaboration — including the two things I have no evidence for.">
+  <meta name="author" content="Mehran Mazhar">
+
+  <link rel="canonical" href="https://mehranmazhar.com/proof/how-i-work/">
+
+  <meta property="og:title" content="How I Work — Mehran Mazhar">
+  <meta property="og:description" content="Ownership, engineering quality, delivery, incidents, collaboration — including the two things I have no evidence for.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://mehranmazhar.com/proof/how-i-work/">
+  <meta property="og:image" content="https://mehranmazhar.com/images/profile.jpg">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@mehran_mazhar4">
+  <meta name="twitter:title" content="How I Work — Mehran Mazhar">
+  <meta name="twitter:description" content="Ownership, engineering quality, delivery, incidents, collaboration — including the two things I have no evidence for.">
+  <meta name="twitter:image" content="https://mehranmazhar.com/images/profile.jpg">
+
+  <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <noscript><style>.mm-reveal{opacity:1 !important;transform:none !important}</style></noscript>
+  <style>
+    .mm-hiw { display: grid; gap: 26px; }
+    @media (min-width: 860px) { .mm-hiw { grid-template-columns: 1fr 1fr; gap: 26px 40px; } }
+    .mm-hiw__group h2 { font-size: var(--fs-lg); margin-bottom: 10px; letter-spacing: -.01em; }
+    .mm-hiw__group ul { margin: 0 0 0 18px; }
+    .mm-hiw__group li { font-size: var(--fs-base); color: var(--ink-soft); margin-bottom: 7px; }
+    .mm-hiw__group li strong { color: var(--ink); }
+    /* the two boundaries this page states about itself */
+    .mm-hiw__gap { color: var(--accent-ink); }
+  </style>
+</head>
+<body>
+<div class="mm-root">
+  <a href="#mm-main" style="position:absolute;left:-9999px;top:auto;background:var(--accent);color:#fff;padding:10px 16px;border-radius:8px;z-index:100;" onfocus="this.style.left='16px';this.style.top='12px';" onblur="this.style.left='-9999px';">Skip to content</a>
+
+  <nav class="mm-nav" id="mm-nav" aria-label="Primary">
+    <div class="mm-nav__inner">
+      <a href="/" class="mm-logo" aria-label="Mehran Mazhar — home"><b>&lt;</b>MM<b>&nbsp;/&gt;</b></a>
+      <button class="mm-hamburger" id="mm-burger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mm-links">
+        <span></span>
+      </button>
+      <ul class="mm-navlinks" id="mm-links">
+        <li><a href="/#mm-about">About</a></li>
+        <li><a href="/#mm-projects">Work</a></li>
+        <li><a href="/#mm-experience">Experience</a></li>
+        <li><a href="/proof/" aria-current="page">Proof</a></li>
+        <li><a href="/#mm-education">Education</a></li>
+        <li><a href="/#mm-research">Research</a></li>
+        <li><a href="/#mm-interests">Beyond Code</a></li>
+        <li><a href="mailto:mehran.mazhar@gmail.com" class="mm-nav-cta">Get in Touch</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="mm-main">
+    <section class="mm-section">
+      <div class="mm-container">
+
+        <div class="mm-head mm-reveal">
+          <p class="mm-eyebrow"><a href="/proof/">Proof Pack</a> · One-pager</p>
+          <h1 class="mm-h2">How I work</h1>
+        </div>
+
+        <div class="mm-hiw mm-reveal">
+
+          <div class="mm-hiw__group">
+            <h2>Ownership &amp; scope</h2>
+            <ul>
+              <li>Interlining, an airfare limit-order engine and price alerts — each from schema to live feature, each still running.</li>
+              <li>De-facto owner of the money path since January 2020 — <strong>informal, no title, no reports</strong>.</li>
+              <li>All five design specs behind the accepted ADRs for a two-airline interlining engine are mine.</li>
+              <li>I integrated four bank payment providers into a provider-agnostic abstraction <strong>I did not design</strong>.</li>
+              <li>Where a system is not mine I say so — a colleague's response cache, a supplier hub I handed over.</li>
+            </ul>
+          </div>
+
+          <div class="mm-hiw__group">
+            <h2>Engineering quality</h2>
+            <ul>
+              <li>Routine pull-request review on the money path.</li>
+              <li>A written design spec before the code whenever a decision is expensive to reverse.</li>
+              <li>Idempotency and race-condition hardening on money paths.</li>
+              <li>Findings from an external penetration test remediated — the response, not the report.</li>
+              <li class="mm-hiw__gap">I have no public evidence of automated testing practice, and no claim to make about it.</li>
+            </ul>
+          </div>
+
+          <div class="mm-hiw__group">
+            <h2>Delivery</h2>
+            <ul>
+              <li>I ship against live production traffic; the money path is never idle.</li>
+              <li>Behaviour goes behind runtime parameters, so a change can be enabled without a deploy.</li>
+              <li>Most of what I have built I still run.</li>
+              <li>I re-platform rather than rewrite where the read side can carry it.</li>
+              <li class="mm-hiw__gap">Pipelines and containers are my record's gap: no CI/CD or Docker evidence to show.</li>
+            </ul>
+          </div>
+
+          <div class="mm-hiw__group">
+            <h2>Reliability &amp; incidents</h2>
+            <ul>
+              <li>I fix incidents on the systems I own. <strong>No formal on-call rotation</strong> — ownership, not a rota.</li>
+              <li>Bounded retry under a fixed cap; re-inquiry with the bank rather than assuming an errored call failed.</li>
+              <li>Gateway state persisted before the side effect, so a duplicate cannot slip through.</li>
+              <li>Concurrency held by Redis locks keyed on what they protect — the credit, or the account.</li>
+              <li>Serilog structured logging across the money paths, and a daily stuck-refund report to supervisors.</li>
+            </ul>
+          </div>
+
+          <div class="mm-hiw__group">
+            <h2>Collaboration &amp; communication</h2>
+            <ul>
+              <li>English in writing every day: specs, tickets, code review. <strong>No certificate.</strong></li>
+              <li>I onboarded one to two junior engineers.</li>
+              <li>I exposed an admin API so the marketing team could run campaigns without a deploy and without me in the loop.</li>
+              <li>Operations tune eligibility on the limit-order engine themselves. I built the surface, not the tickets.</li>
+              <li>When retries exhaust, the customer is told. The system does not go quiet.</li>
+            </ul>
+          </div>
+
+        </div>
+
+        <p class="mm-prose mm-reveal" style="margin-top:28px">
+          <a class="mm-btn mm-btn--outline mm-btn--sm" href="/proof/refund-execution/">Read the case study →</a>
+          &nbsp;
+          <a class="mm-btn mm-btn--outline mm-btn--sm" href="/proof/">← Back to the Proof Pack</a>
+        </p>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="mm-footer">
+    <div class="mm-container">
+      <div class="mm-footer__inner">
+        <div class="mm-social">
+          <a href="https://github.com/mehranmazhar" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.6.5.5 5.6.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 5 18.3 5.3 18.3 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.6 18.4.5 12 .5z"/></svg></a>
+          <a href="https://linkedin.com/in/mehran-mazhar" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33 0-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.55V9h3.57zM22.22 0H1.77C.8 0 0 .78 0 1.75v20.5C0 23.2.8 24 1.77 24h20.45c.98 0 1.78-.8 1.78-1.75V1.75C24 .78 23.2 0 22.22 0z"/></svg></a>
+        </div>
+        <p class="mm-footer__credit">Designed &amp; Built by <strong>Mehran Mazhar</strong></p>
+        <p class="mm-footer__copy">© 2022 — Present. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</div>
+<script src="/assets/js/main.js"></script>
+</body>
+</html>

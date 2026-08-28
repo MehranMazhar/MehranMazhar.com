@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Refund execution against the bank — a design case study · Mehran Mazhar</title>
+  <meta name="description" content="How a refund path was made to fail safely: bank re-inquiry instead of assumed failure, state persisted before the side effect, bounded retry, and a lock keyed on the credit rather than the queue.">
+  <meta name="author" content="Mehran Mazhar">
+
+  <link rel="canonical" href="https://mehranmazhar.com/proof/refund-execution/">
+
+  <meta property="og:title" content="Refund execution against the bank — a design case study">
+  <meta property="og:description" content="How a refund path was made to fail safely. Design decisions, tradeoffs, and what the evidence does not prove.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://mehranmazhar.com/proof/refund-execution/">
+  <meta property="og:image" content="https://mehranmazhar.com/images/profile.jpg">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@mehran_mazhar4">
+  <meta name="twitter:title" content="Refund execution against the bank — a design case study">
+  <meta name="twitter:description" content="How a refund path was made to fail safely. Design decisions, tradeoffs, and what the evidence does not prove.">
+  <meta name="twitter:image" content="https://mehranmazhar.com/images/profile.jpg">
+
+  <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <noscript><style>.mm-reveal{opacity:1 !important;transform:none !important}</style></noscript>
+  <style>
+    /* Long-form reading column — the site has no article layout yet.
+       Kept to the existing tokens: no new colours, no new type sizes. */
+    .mm-article { max-width: 74ch; }
+    .mm-article h2 { font-size: var(--fs-lg); margin: 34px 0 10px; letter-spacing: -.01em; }
+    .mm-article h2:first-of-type { margin-top: 0; }
+    .mm-article p { font-size: var(--fs-md); color: var(--ink-soft); margin-bottom: 14px; }
+    .mm-article ul { margin: 0 0 16px 20px; }
+    .mm-article li { font-size: var(--fs-md); color: var(--ink-soft); margin-bottom: 8px; }
+    .mm-article strong { color: var(--ink); }
+    .mm-article .mm-note { font-size: var(--fs-sm); color: var(--ink-mute); }
+    .mm-adr { background: var(--surface-2); border-left: 3px solid var(--accent);
+      border-radius: var(--radius-sm); padding: 18px 20px; margin: 4px 0 18px; }
+    .mm-adr p { margin-bottom: 10px; }
+    .mm-adr p:last-child { margin-bottom: 0; }
+    .mm-limits { background: var(--accent-soft); border-radius: var(--radius-sm);
+      padding: 18px 20px; margin-top: 8px; }
+    .mm-limits p { color: var(--accent-ink); margin-bottom: 0; }
+  </style>
+</head>
+<body>
+<div class="mm-root">
+  <a href="#mm-main" style="position:absolute;left:-9999px;top:auto;background:var(--accent);color:#fff;padding:10px 16px;border-radius:8px;z-index:100;" onfocus="this.style.left='16px';this.style.top='12px';" onblur="this.style.left='-9999px';">Skip to content</a>
+
+  <nav class="mm-nav" id="mm-nav" aria-label="Primary">
+    <div class="mm-nav__inner">
+      <a href="/" class="mm-logo" aria-label="Mehran Mazhar — home"><b>&lt;</b>MM<b>&nbsp;/&gt;</b></a>
+      <button class="mm-hamburger" id="mm-burger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mm-links">
+        <span></span>
+      </button>
+      <ul class="mm-navlinks" id="mm-links">
+        <li><a href="/#mm-about">About</a></li>
+        <li><a href="/#mm-projects">Work</a></li>
+        <li><a href="/#mm-experience">Experience</a></li>
+        <li><a href="/proof/" aria-current="page">Proof</a></li>
+        <li><a href="/#mm-education">Education</a></li>
+        <li><a href="/#mm-research">Research</a></li>
+        <li><a href="/#mm-interests">Beyond Code</a></li>
+        <li><a href="mailto:mehran.mazhar@gmail.com" class="mm-nav-cta">Get in Touch</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="mm-main">
+    <section class="mm-section">
+      <div class="mm-container">
+
+        <div class="mm-head mm-reveal">
+          <p class="mm-eyebrow"><a href="/proof/">Proof Pack</a> · Case study</p>
+          <h1 class="mm-h2">Refund execution against the bank</h1>
+        </div>
+
+        <div class="mm-article mm-reveal">
+
+          <h2>Problem &amp; context</h2>
+          <p>One money path served two products: a B2C online travel agency and a B2B travel platform for agencies.</p>
+          <p>Refund execution against a bank is a distributed transaction with no rollback. Three properties have to hold, and the code held none of them. An errored call must be treated as an unknown — this one was read as a failure. The record of what the gateway was asked to do must exist before the asking — it was written after, leaving a window. And two concurrent paths must not reach the same credit — the lock was keyed on the queue identifier rather than on the money, so two paths with different identifiers for one credit did not contend.</p>
+          <p>This is the class of failure the design had to close.</p>
+
+          <h2>Constraints</h2>
+          <p>Four are on the record.</p>
+          <ul>
+            <li><strong>Finance approval had to survive automation.</strong> Refunds could become fast; they could not become unsupervised.</li>
+            <li><strong>The provider abstraction is pre-existing and not my design.</strong> I integrated four bank providers into an interface I did not own.</li>
+            <li><strong>Bank settlement time is downstream and not mine.</strong> The system can guarantee when it hands off, never when the money lands.</li>
+            <li><strong>The platform is live and carries real money.</strong> Every change shipped against production traffic.</li>
+          </ul>
+          <p class="mm-note">Two constraints I am deliberately not documenting publicly: the specific retry bound, and the compatibility window the change had to hold for in-flight refunds.</p>
+
+          <h2>My role &amp; ownership</h2>
+          <p><strong>Top author on the gateway-refund paths by a wide margin</strong>, and second only to one colleague across payment and gateway work overall, from December 2019 onward, still active as of August 2026.</p>
+          <p>De-facto owner of the money path since January 2020, when the refund system began. <strong>Informal — no title, no reports, no org-chart authority.</strong></p>
+          <p>Core changes are dated: credit-keyed locking, June 2026; retry cap, serialization lock, immediate persistence and bank re-inquiry, August 2026.</p>
+
+          <h2>Architecture</h2>
+          <p>Described in words; no diagram is embedded.</p>
+          <p><strong>Components by role, not by name:</strong> a refund request store holding state and actor attribution; a worker running the execution; a distributed lock keyed on the credit; a gateway adapter behind the pre-existing provider-agnostic abstraction; an inquiry path back to the bank for indeterminate outcomes; and an operator surface — a daily stuck-refund report plus an admin gateway report.</p>
+          <p><strong>Shape:</strong> those five in a line, with inquiry returning from the bank to the worker and a report leaving the store for operators. The lock encloses the worker.</p>
+
+          <h2>Key decisions &amp; tradeoffs</h2>
+          <p>I keyed the lock on the credit rather than the queue identifier, because what needs protecting is the money and not the message. I made execution re-inquire with the bank rather than treat an errored call as failed: an error is an unknown, not a "no". I moved gateway-state persistence ahead of the side effect, so the record exists before the request. I bounded the retry at a fixed cap rather than retrying until success, and I hold a partial outcome open rather than resolving it one way. I put a second serialization lock behind a runtime-toggleable parameter, enabled without a deploy.</p>
+          <p><strong>One decision, as an ADR:</strong></p>
+          <div class="mm-adr">
+            <p><strong>Context.</strong> Concurrent paths could reach the same credit carrying different queue identifiers, so a lock keyed on the identifier did not make them contend.</p>
+            <p><strong>Decision.</strong> Key the lock on the credit.</p>
+            <p><strong>Consequences.</strong> The races closed, and no recurrence-shaped commit appears in history since. What it cost is not measured: whether keying on the credit increases contention on a hot credit was never instrumented, and no alternative keying is on record as having been considered. I would want that number before defending the choice as optimal rather than merely correct.</p>
+          </div>
+          <p>The other five are recorded as choices rather than trade studies; their alternatives belong in a conversation.</p>
+
+          <h2>Implementation approach</h2>
+          <p>Redis holds the distributed locks. Hangfire runs the bounded retry. Refund and gateway state live in SQL Server through Entity Framework Core, written on interaction rather than on completion, with MassTransit over RabbitMQ between the B2B and B2C sides and Serilog across the gateway paths. The customer gets an SMS when retries exhaust, and admins can inquire directly against the bank for a stuck refund.</p>
+
+          <h2>Outcomes</h2>
+          <p>Every figure is labelled with its source.</p>
+          <ul>
+            <li><strong>The failure branch holds under the conditions that used to break it: a retry, a bank that goes quiet, and two requests reaching the same credit.</strong> No recurrence-shaped commit appears anywhere in history; the clean window at measurement was roughly ten weeks for the earliest fix and days for the latest. <span class="mm-note"><em>Measured from private repository history, so not independently verifiable. A clean window is not proof of absence.</em></span></li>
+            <li><strong>Refund turnaround: about a week, manual across three teams, to about a day, automated, finance approval retained — air and hotel.</strong> Automation's outcome, not the reliability work's. <span class="mm-note"><em>Recollected operational durations, not instrumentation.</em></span></li>
+            <li><strong>Authorship: top author on these paths.</strong> <span class="mm-note"><em>Proxy, not publicly verifiable — the repositories are private. A live page proves a feature, never who wrote it.</em></span></li>
+          </ul>
+
+          <h2>What this study does not prove</h2>
+          <div class="mm-limits">
+            <p>The claim is "closed", not "eliminated". The clean window is weeks, not years. The second serialization lock is confirmed enabled in production, but how long it has been enabled is not established, so the window cannot be extended backwards. And authorship of all of it is provable only from a private repository.</p>
+          </div>
+
+          <p style="margin-top:28px"><a class="mm-btn mm-btn--outline mm-btn--sm" href="/proof/">← Back to the Proof Pack</a></p>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="mm-footer">
+    <div class="mm-container">
+      <div class="mm-footer__inner">
+        <div class="mm-social">
+          <a href="https://github.com/mehranmazhar" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.6.5.5 5.6.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 5 18.3 5.3 18.3 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.6 18.4.5 12 .5z"/></svg></a>
+          <a href="https://linkedin.com/in/mehran-mazhar" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33 0-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.55V9h3.57zM22.22 0H1.77C.8 0 0 .78 0 1.75v20.5C0 23.2.8 24 1.77 24h20.45c.98 0 1.78-.8 1.78-1.75V1.75C24 .78 23.2 0 22.22 0z"/></svg></a>
+        </div>
+        <p class="mm-footer__credit">Designed &amp; Built by <strong>Mehran Mazhar</strong></p>
+        <p class="mm-footer__copy">© 2022 — Present. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</div>
+<script src="/assets/js/main.js"></script>
+</body>
+</html>
