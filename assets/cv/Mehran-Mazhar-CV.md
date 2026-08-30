@@ -4,7 +4,7 @@
 
 [mehran.mazhar@gmail.com](mailto:mehran.mazhar@gmail.com) · [linkedin.com/in/mehran-mazhar](https://linkedin.com/in/mehran-mazhar) · [mehranmazhar.com](https://mehranmazhar.com) · [github.com/MehranMazhar](https://github.com/MehranMazhar)
 
-Remote · Open to EOR contracting
+Istanbul · Remote · Open to EOR Contracting
 
 ## Summary
 
