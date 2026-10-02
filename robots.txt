@@ -1,18 +1,7 @@
+# Archived design mockups and planning docs - historical, superseded positioning.
+# Do not add per-crawler groups (Googlebot, Bingbot, ...): a crawler obeys only its own
+# group and ignores this one, which would reopen /docs/ to it.
 User-agent: *
-Allow: /
-
-# Block non-public files
-Disallow: /.nojekyll
-
-# Archived design mockups and planning docs — historical, superseded positioning
 Disallow: /docs/
 
-# Sitemap location
 Sitemap: https://mehranmazhar.com/sitemap.xml
-
-# Additional instructions for major search engines
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Open Graph card</title>
+<!-- Source for images/og.png (1200x630). Same colours and type as assets/css/style.css.
+     Render it with headless Chrome — see README, "Regenerating the social card". -->
+<style>
+  :root { --bg:#fbfbf9; --surface:#fff; --ink:#1a1a1a; --ink-soft:#4a4a48; --ink-mute:#6f6f6a;
+          --line:#e6e6e1; --line-soft:#eeeee9; --accent:#1f5c4d;
+          --sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+          --mono: ui-monospace, "SF Mono", "Cascadia Code", Consolas, monospace; }
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; }
+  body { position: relative; background: var(--bg); color: var(--ink); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
+  .grid {
+    position: absolute; inset: 0; opacity: .8;
+    background-image: linear-gradient(var(--line-soft) 1px, transparent 1px), linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+    background-size: 46px 46px;
+    -webkit-mask-image: radial-gradient(ellipse 70% 80% at 80% 30%, #000 0%, transparent 75%);
+            mask-image: radial-gradient(ellipse 70% 80% at 80% 30%, #000 0%, transparent 75%);
+  }
+  .text { position: absolute; left: 80px; top: 0; bottom: 0; width: 600px; display: flex; flex-direction: column; justify-content: center; padding-bottom: 30px; }
+  h1 { font-size: 120px; font-weight: 800; letter-spacing: -.04em; line-height: .98; }
+  .role { margin-top: 30px; font-size: 46px; font-weight: 700; letter-spacing: -.01em; line-height: 1.15; color: var(--accent); }
+  .focus { margin-top: 12px; font-size: 31px; font-weight: 500; line-height: 1.3; color: var(--ink-soft); }
+  .url { position: absolute; left: 80px; bottom: 54px; font-family: var(--mono); font-size: 24px; letter-spacing: .3px; color: var(--ink-mute); }
+  .url::before { content: ""; display: inline-block; width: 34px; height: 3px; margin-right: 14px; vertical-align: middle; border-radius: 2px; background: var(--accent); }
+  .photo {
+    position: absolute; right: 80px; top: 67px; width: 392px; height: 496px; padding: 8px;
+    background: var(--surface); border: 1px solid var(--line); border-radius: 22px;
+    box-shadow: 0 4px 8px rgba(20,20,18,.04), 0 24px 48px rgba(20,20,18,.09);
+  }
+  .photo img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 15px; }
+</style>
+</head>
+<body>
+  <div class="grid"></div>
+  <div class="text">
+    <h1>Mehran<br>Mazhar</h1>
+    <p class="role">.NET Backend Engineer</p>
+    <p class="focus">Payments, refunds &amp; money-path systems</p>
+  </div>
+  <p class="url">mehranmazhar.com</p>
+  <div class="photo"><img src="../images/profile.jpg" alt=""></div>
+</body>
+</html>
