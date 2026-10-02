@@ -3,29 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Proof Pack — Mehran Mazhar</title>
+  <title>Proof Pack — Evidence, Not Adjectives | Mehran Mazhar</title>
   <meta name="description" content="Evidence, not adjectives. How the money path of a production travel platform fails safely — refunds, wallets, withdrawals, gateway integration.">
   <meta name="author" content="Mehran Mazhar">
 
   <link rel="canonical" href="https://mehranmazhar.com/proof/">
 
-  <meta property="og:title" content="Proof Pack — Mehran Mazhar">
+  <meta property="og:title" content="Proof Pack — Evidence, Not Adjectives | Mehran Mazhar">
   <meta property="og:description" content="Evidence, not adjectives. How the money path of a production travel platform fails safely.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://mehranmazhar.com/proof/">
-  <meta property="og:image" content="https://mehranmazhar.com/images/profile.jpg">
+  <meta property="og:image" content="https://mehranmazhar.com/images/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Mehran Mazhar — .NET Backend Engineer. Payments, refunds &amp; money-path systems.">
+  <meta property="og:site_name" content="Mehran Mazhar">
 
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@mehran_mazhar4">
-  <meta name="twitter:title" content="Proof Pack — Mehran Mazhar">
+  <meta name="twitter:title" content="Proof Pack — Evidence, Not Adjectives | Mehran Mazhar">
   <meta name="twitter:description" content="Evidence, not adjectives. How the money path of a production travel platform fails safely.">
-  <meta name="twitter:image" content="https://mehranmazhar.com/images/profile.jpg">
+  <meta name="twitter:image" content="https://mehranmazhar.com/images/og.png">
+  <meta name="twitter:image:alt" content="Mehran Mazhar — .NET Backend Engineer. Payments, refunds &amp; money-path systems.">
 
-  <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/images/favicon.ico" sizes="48x48">
   <link rel="stylesheet" href="/assets/css/style.css">
   <!-- .mm-reveal starts at opacity:0 and is revealed by main.js. This page must be readable
        without JS, so restore it when scripts do not run. -->
   <noscript><style>.mm-reveal{opacity:1 !important;transform:none !important}</style></noscript>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://mehranmazhar.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Proof Pack",
+        "item": "https://mehranmazhar.com/proof/"
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 <div class="mm-root">
@@ -34,7 +60,7 @@
   <!-- NAV -->
   <nav class="mm-nav" id="mm-nav" aria-label="Primary">
     <div class="mm-nav__inner">
-      <a href="/" class="mm-logo" aria-label="Mehran Mazhar — home"><b>&lt;</b>MM<b>&nbsp;/&gt;</b></a>
+      <a href="/" class="mm-logo" aria-label="MM — Mehran Mazhar, home"><b>&lt;</b>MM<b>&nbsp;/&gt;</b></a>
       <button class="mm-hamburger" id="mm-burger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mm-links">
         <span></span>
       </button>
@@ -79,21 +105,21 @@
           <article class="mm-repo mm-repo--major">
             <span class="mm-repo__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg></span>
             <div>
-              <h4>Reliability Engineering</h4>
+              <h3>Reliability Engineering</h3>
               <p>Refunds retry under a bounded cap, re-inquire with the bank instead of assuming failure, persist gateway state immediately, and lock on the credit, not the queue. The four gateways I integrated, into an abstraction I did not design, carry 98% of card volume &mdash; about 1.33M transactions in 2025.</p>
             </div>
           </article>
           <article class="mm-repo mm-repo--major">
             <span class="mm-repo__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></span>
             <div>
-              <h4>Automation and Production Ownership</h4>
+              <h3>Automation and Production Ownership</h3>
               <p>Refund turnaround dropped about 85%, a week to a day, air and hotel, finance approval retained. Mine since 2020.</p>
             </div>
           </article>
           <article class="mm-repo mm-repo--major">
             <span class="mm-repo__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 3 7l9 5 9-5-9-5z"/><path d="m3 12 9 5 9-5"/><path d="m3 17 9 5 9-5"/></svg></span>
             <div>
-              <h4>Service and Component Delivery</h4>
+              <h3>Service and Component Delivery</h3>
               <p>Verticals from zero to live: two-airline interlining, an airfare limit-order engine, flexible search, gift cards. All five design specs behind the interlining ADRs are mine.</p>
             </div>
           </article>
@@ -112,7 +138,7 @@
           <a class="mm-repo" href="/proof/refund-execution/">
             <span class="mm-repo__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"/></svg></span>
             <div>
-              <h4>Refund execution against the bank &mdash; design case study</h4>
+              <h3>Refund execution against the bank &mdash; design case study</h3>
               <p>Proves Reliability Engineering: how the money path fails safely, one decision written as an ADR.</p>
               <div class="mm-repo__tech"><span>Case study</span></div>
             </div>
@@ -120,7 +146,7 @@
           <a class="mm-repo" href="/proof/how-i-work/">
             <span class="mm-repo__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5a2.1 2.1 0 0 0-3-3L13 8 4.8 6.2a1 1 0 0 0-.9.3l-.9.9 5 3-2 2-2.5-.5-.9.9 3 2 2 3 .9-.9L11 17l3 5 .9-.9a1 1 0 0 0 .3-.9z"/></svg></span>
             <div>
-              <h4>How I Work &mdash; one page</h4>
+              <h3>How I Work &mdash; one page</h3>
               <p>Ownership, review, incidents, English.</p>
               <div class="mm-repo__tech"><span>One-pager</span></div>
             </div>
@@ -128,7 +154,7 @@
           <a class="mm-repo" href="https://www.flytoday.ir/blog/flytoday-autoreserve/" target="_blank" rel="noopener">
             <span class="mm-repo__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M10.3 21a2 2 0 0 0 3.4 0"/></svg></span>
             <div>
-              <h4>Auto-reserve &mdash; the company&rsquo;s own feature page</h4>
+              <h3>Auto-reserve &mdash; the company&rsquo;s own feature page</h3>
               <p>Proves Automation and Production Ownership: an airfare limit order that buys and issues while the customer is offline. <strong>The page is in Persian.</strong></p>
               <div class="mm-repo__tech"><span>Live feature</span><span>Persian</span></div>
             </div>
@@ -220,6 +246,6 @@
     </div>
   </footer>
 </div>
-<script src="/assets/js/main.js"></script>
+<script src="/assets/js/main.js" defer></script>
 </body>
 </html>

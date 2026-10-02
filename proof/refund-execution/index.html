@@ -3,25 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Refund execution against the bank — a design case study · Mehran Mazhar</title>
-  <meta name="description" content="How a refund path was made to fail safely: bank re-inquiry instead of assumed failure, state persisted before the side effect, bounded retry, and a lock keyed on the credit rather than the queue.">
+  <title>Refund Execution Against the Bank: A Design Case Study</title>
+  <meta name="description" content="How a refund path fails safely: re-inquire the bank instead of assuming failure, persist state before the side effect, bound the retry, lock on the credit.">
   <meta name="author" content="Mehran Mazhar">
 
   <link rel="canonical" href="https://mehranmazhar.com/proof/refund-execution/">
 
-  <meta property="og:title" content="Refund execution against the bank — a design case study">
+  <meta property="og:title" content="Refund Execution Against the Bank: A Design Case Study">
   <meta property="og:description" content="How a refund path was made to fail safely. Design decisions, tradeoffs, and what the evidence does not prove.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://mehranmazhar.com/proof/refund-execution/">
-  <meta property="og:image" content="https://mehranmazhar.com/images/profile.jpg">
+  <meta property="og:image" content="https://mehranmazhar.com/images/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Mehran Mazhar — .NET Backend Engineer. Payments, refunds &amp; money-path systems.">
+  <meta property="og:site_name" content="Mehran Mazhar">
 
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@mehran_mazhar4">
-  <meta name="twitter:title" content="Refund execution against the bank — a design case study">
+  <meta name="twitter:title" content="Refund Execution Against the Bank: A Design Case Study">
   <meta name="twitter:description" content="How a refund path was made to fail safely. Design decisions, tradeoffs, and what the evidence does not prove.">
-  <meta name="twitter:image" content="https://mehranmazhar.com/images/profile.jpg">
+  <meta name="twitter:image" content="https://mehranmazhar.com/images/og.png">
+  <meta name="twitter:image:alt" content="Mehran Mazhar — .NET Backend Engineer. Payments, refunds &amp; money-path systems.">
 
-  <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/images/favicon.ico" sizes="48x48">
   <link rel="stylesheet" href="/assets/css/style.css">
   <noscript><style>.mm-reveal{opacity:1 !important;transform:none !important}</style></noscript>
   <style>
@@ -43,6 +49,54 @@
       padding: 18px 20px; margin-top: 8px; }
     .mm-limits p { color: var(--accent-ink); margin-bottom: 0; }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://mehranmazhar.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Proof Pack",
+        "item": "https://mehranmazhar.com/proof/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Refund execution against the bank",
+        "item": "https://mehranmazhar.com/proof/refund-execution/"
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Refund execution against the bank",
+    "description": "How a refund path fails safely: re-inquire the bank instead of assuming failure, persist state before the side effect, bound the retry, lock on the credit.",
+    "url": "https://mehranmazhar.com/proof/refund-execution/",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://mehranmazhar.com/proof/refund-execution/"
+    },
+    "inLanguage": "en",
+    "datePublished": "2026-08-29",
+    "image": "https://mehranmazhar.com/images/og.png",
+    "author": {
+      "@type": "Person",
+      "@id": "https://mehranmazhar.com/#person",
+      "name": "Mehran Mazhar",
+      "url": "https://mehranmazhar.com/"
+    }
+  }
+  </script>
 </head>
 <body>
 <div class="mm-root">
@@ -50,7 +104,7 @@
 
   <nav class="mm-nav" id="mm-nav" aria-label="Primary">
     <div class="mm-nav__inner">
-      <a href="/" class="mm-logo" aria-label="Mehran Mazhar — home"><b>&lt;</b>MM<b>&nbsp;/&gt;</b></a>
+      <a href="/" class="mm-logo" aria-label="MM — Mehran Mazhar, home"><b>&lt;</b>MM<b>&nbsp;/&gt;</b></a>
       <button class="mm-hamburger" id="mm-burger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mm-links">
         <span></span>
       </button>
@@ -149,6 +203,6 @@
     </div>
   </footer>
 </div>
-<script src="/assets/js/main.js"></script>
+<script src="/assets/js/main.js" defer></script>
 </body>
 </html>

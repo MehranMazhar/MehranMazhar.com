@@ -214,10 +214,12 @@
     font-weight: 500; margin-bottom: 14px; letter-spacing: .3px;
   }
   .mm-hero__name {
+    display: block;
     font-size: clamp(40px, 7vw, 68px); font-weight: 800;
     letter-spacing: -.03em; line-height: 1.02; color: var(--ink);
   }
   .mm-hero__title {
+    display: block;
     margin-top: 18px; font-size: clamp(19px, 2.6vw, 25px);
     font-weight: 600; color: var(--ink-soft); letter-spacing: -.01em; line-height: 1.3;
   }
@@ -339,7 +341,7 @@
   }
   a.mm-repo:hover .mm-repo__ic { background: var(--accent-soft); color: var(--accent); border-color: #cfe0da; }
   .mm-repo__ic svg { width: 19px; height: 19px; }
-  .mm-repo h4 { font-family: var(--mono); font-size: var(--fs-base); font-weight: 600; color: var(--ink); display:flex; align-items:center; gap:7px; }
+  .mm-repo :is(h3, h4) { font-family: var(--mono); font-size: var(--fs-base); font-weight: 600; color: var(--ink); display:flex; align-items:center; gap:7px; }
   .mm-repo h4 .arr { width: 13px; height: 13px; color: var(--ink-mute); transition: transform .2s, color .2s; }
   a.mm-repo:hover h4 .arr { color: var(--accent); transform: translate(2px,-2px); }
   .mm-repo p { font-size: var(--fs-sm); color: var(--ink-soft); margin-top: 6px; line-height: 1.55; }
@@ -349,6 +351,11 @@
     font-family: var(--mono); font-size: var(--fs-xs); color: var(--ink-mute);
     border: 1px solid var(--line); border-radius: 5px; padding: 3px 7px; background: var(--surface);
   }
+
+  /* The one in-card link: a descriptive pointer from the money-path card to its case study. */
+  .mm-repo .mm-repo__more { margin-top: 12px; }
+  .mm-repo__more a { color: var(--accent); font-weight: 600; text-decoration: underline; text-underline-offset: .2em; }
+  .mm-repo__more a:hover { color: var(--accent-ink); }
 
   /* ---- Selected Work tiers ----
      Three weights, not twelve identical cards. Major = money path (stop the reader).
@@ -360,7 +367,7 @@
     border-left: 3px solid var(--accent);
     box-shadow: var(--shadow-sm);
   }
-  .mm-repo--major h4 {
+  .mm-repo--major :is(h3, h4) {
     font-family: var(--sans);
     font-size: var(--fs-lg);
     font-weight: 700;

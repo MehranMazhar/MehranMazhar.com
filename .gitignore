@@ -5,3 +5,8 @@ _site
 Gemfile.lock
 *.code-workspace
 .superpowers/
+
+# local agent tooling: GitHub Pages would publish these at mehranmazhar.com/...
+.claude/
+.agents/
+skills-lock.json

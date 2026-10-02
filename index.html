@@ -3,53 +3,93 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mehran Mazhar — .NET Backend Engineer</title>
+  <title>Mehran Mazhar — .NET Backend Engineer, Payments &amp; Refunds</title>
   <meta name="description" content=".NET backend engineer, 10+ years. Owns the money path of a production travel platform — refunds, wallets, withdrawals, payment-gateway integration.">
-  <meta name="keywords" content="Mehran Mazhar, .NET Backend Engineer, C#, .NET 10, ASP.NET Core, REST API, SQL Server, Redis, RabbitMQ, Entity Framework Core, Hangfire, payments, refunds, remote">
   <meta name="author" content="Mehran Mazhar">
 
   <!-- Canonical -->
   <link rel="canonical" href="https://mehranmazhar.com/">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Mehran Mazhar — .NET Backend Engineer">
+  <meta property="og:title" content="Mehran Mazhar — .NET Backend Engineer, Payments &amp; Refunds">
   <meta property="og:description" content="Owns the money path of a production travel platform — refunds, wallets, withdrawals, payment-gateway integration. 10+ years on .NET.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://mehranmazhar.com/">
-  <meta property="og:image" content="https://mehranmazhar.com/images/profile.jpg">
+  <meta property="og:image" content="https://mehranmazhar.com/images/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Mehran Mazhar — .NET Backend Engineer. Payments, refunds &amp; money-path systems.">
+  <meta property="og:site_name" content="Mehran Mazhar">
 
   <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@mehran_mazhar4">
-  <meta name="twitter:title" content="Mehran Mazhar — .NET Backend Engineer">
+  <meta name="twitter:title" content="Mehran Mazhar — .NET Backend Engineer, Payments &amp; Refunds">
   <meta name="twitter:description" content="Owns the money path of a production travel platform — refunds, wallets, withdrawals, payment-gateway integration. 10+ years on .NET.">
-  <meta name="twitter:image" content="https://mehranmazhar.com/images/profile.jpg">
+  <meta name="twitter:image" content="https://mehranmazhar.com/images/og.png">
+  <meta name="twitter:image:alt" content="Mehran Mazhar — .NET Backend Engineer. Payments, refunds &amp; money-path systems.">
 
-  <!-- Favicon -->
-  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <!-- Favicon: Google needs a multiple of 48px or an SVG for the result icon -->
+  <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/images/favicon.ico" sizes="48x48">
 
   <!-- Styles -->
   <link rel="stylesheet" href="assets/css/style.css">
+  <!-- .mm-reveal starts at opacity:0 and main.js reveals it; keep the page readable without scripts. -->
+  <noscript><style>.mm-reveal{opacity:1 !important;transform:none !important}</style></noscript>
 
   <!-- Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Mehran Mazhar",
-    "url": "https://mehranmazhar.com/",
-    "image": "https://mehranmazhar.com/images/profile.jpg",
-    "jobTitle": ".NET Backend Engineer",
-    "sameAs": [
-      "https://github.com/MehranMazhar",
-      "https://linkedin.com/in/mehran-mazhar",
-      "https://twitter.com/mehran_mazhar4",
-      "https://stackoverflow.com/users/2676799"
-    ],
-    "alumniOf": "Islamic Azad University",
-    "knowsAbout": ["C#", ".NET", "ASP.NET Core", "REST APIs", "Entity Framework Core", "SQL Server", "Redis", "MongoDB", "RabbitMQ", "MassTransit", "Hangfire", "MediatR", "SignalR", "Distributed locking", "Payment gateway integration"]
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://mehranmazhar.com/#website",
+        "url": "https://mehranmazhar.com/",
+        "name": "Mehran Mazhar",
+        "inLanguage": "en",
+        "publisher": {
+          "@id": "https://mehranmazhar.com/#person"
+        }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://mehranmazhar.com/#person",
+        "name": "Mehran Mazhar",
+        "url": "https://mehranmazhar.com/",
+        "image": "https://mehranmazhar.com/images/profile.jpg",
+        "jobTitle": ".NET Backend Engineer",
+        "sameAs": [
+          "https://github.com/MehranMazhar",
+          "https://www.linkedin.com/in/mehran-mazhar",
+          "https://twitter.com/mehran_mazhar4",
+          "https://stackoverflow.com/users/2676799",
+          "https://dev.to/mehran_mazhar"
+        ],
+        "alumniOf": "Islamic Azad University",
+        "knowsAbout": [
+          "C#",
+          ".NET",
+          "ASP.NET Core",
+          "REST APIs",
+          "Entity Framework Core",
+          "SQL Server",
+          "Redis",
+          "MongoDB",
+          "RabbitMQ",
+          "MassTransit",
+          "Hangfire",
+          "MediatR",
+          "SignalR",
+          "Distributed locking",
+          "Payment gateway integration"
+        ]
+      }
+    ]
   }
-  </script></head>
+  </script>
+</head>
 <body>
 <div class="mm-root">
   <a href="#mm-main" style="position:absolute;left:-9999px;top:auto;background:var(--accent);color:#fff;padding:10px 16px;border-radius:8px;z-index:100;" onfocus="this.style.left='16px';this.style.top='12px';" onblur="this.style.left='-9999px';">Skip to content</a>
@@ -57,7 +97,7 @@
   <!-- NAV -->
   <nav class="mm-nav" id="mm-nav" aria-label="Primary">
     <div class="mm-nav__inner">
-      <a href="#mm-hero" class="mm-logo" aria-label="Mehran Mazhar — home"><b>&lt;</b>MM<b>&nbsp;/&gt;</b></a>
+      <a href="#mm-hero" class="mm-logo" aria-label="MM — Mehran Mazhar, home"><b>&lt;</b>MM<b>&nbsp;/&gt;</b></a>
       <button class="mm-hamburger" id="mm-burger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mm-links">
         <span></span>
       </button>
@@ -82,8 +122,10 @@
         <div class="mm-hero__inner">
           <div class="mm-reveal">
             <p class="mm-hero__greet">Hi, I'm</p>
-            <h1 class="mm-hero__name" id="mm-hero-name">Mehran Mazhar</h1>
-            <p class="mm-hero__title"><b>.NET Backend Engineer</b> — payments, refunds &amp; money-path systems</p>
+            <h1 id="mm-hero-name">
+              <span class="mm-hero__name">Mehran Mazhar</span>
+              <span class="mm-hero__title"><b>.NET Backend Engineer</b> — payments, refunds &amp; money-path systems</span>
+            </h1>
             <p class="mm-hero__desc">
               10+ years on .NET, the last 7+ on one production travel platform — owning
               <strong>money-path verticals end to end</strong>: refunds, wallets, withdrawals,
@@ -239,7 +281,7 @@
           <div class="mm-stat"><b>7+ yrs</b><span>One platform</span><em>Money path owned end to end</em></div>
         </div>
 
-        <p class="mm-proj__lead">Money path — owned end to end:</p>
+        <h3 class="mm-proj__lead">Money path — owned end to end:</h3>
 
         <div class="mm-repos mm-reveal">
           <div class="mm-repo mm-repo--major">
@@ -248,6 +290,7 @@
               <h4>Refunds, end to end</h4>
               <p>B2B and B2C, air and hotel — request, finance approval, execution against the bank, and the failure paths underneath. Turnaround went from <strong>about a week</strong>, manual across three teams, to <strong>about a day</strong>. Idempotency, credit-keyed Redis locks, re-inquiry instead of assumed failure, bounded retry.</p>
               <div class="mm-repo__tech"><span>.NET</span><span>Redis</span><span>Hangfire</span><span>SQL Server</span></div>
+              <p class="mm-repo__more"><a href="/proof/refund-execution/">Refund execution against the bank — design case study</a></p>
             </div>
           </div>
           <div class="mm-repo mm-repo--major">
@@ -276,7 +319,7 @@
           </div>
         </div>
 
-        <p class="mm-proj__lead">Product verticals — built from zero, still running:</p>
+        <h3 class="mm-proj__lead">Product verticals — built from zero, still running:</h3>
 
         <div class="mm-repos mm-repos--compact mm-reveal">
           <div class="mm-repo mm-repo--compact">
@@ -329,7 +372,7 @@
           </div>
         </div>
 
-        <p class="mm-stats-label">Side project — open source, not production</p>
+        <h3 class="mm-stats-label">Side project — open source, not production</h3>
 
         <div class="mm-repos mm-reveal">
           <a href="https://github.com/clutchprotocol" target="_blank" rel="noopener" class="mm-repo mm-repo--aside">
@@ -600,6 +643,6 @@
   </footer>
 </div>
 
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>
