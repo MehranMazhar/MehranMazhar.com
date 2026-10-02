@@ -61,6 +61,8 @@ card under a new filename and update the `og:image` / `twitter:image` tags on al
 - `robots.txt` has one group on purpose. A crawler obeys only its own group, so a `Googlebot` or
   `Bingbot` group would bypass `Disallow: /docs/`. It is a hint, not access control: everything
   in the repo is still publicly readable.
+- `/assets/cv/` (the print-styled CV page and its markdown copy) is disallowed because it
+  duplicates the home page. The PDF stays crawlable as the CV of record.
 - `.claude/`, `.agents/` and `skills-lock.json` are git-ignored because GitHub Pages would
   publish anything committed.
 - When a page's content changes, bump its `lastmod` in `sitemap.xml`.

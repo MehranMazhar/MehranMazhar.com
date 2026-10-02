@@ -3,5 +3,8 @@
 # group and ignores this one, which would reopen /docs/ to it.
 User-agent: *
 Disallow: /docs/
+# The print-styled CV page and its markdown copy duplicate the home page.
+# The PDF (/assets/Mehran-Mazhar-CV.pdf) stays crawlable as the CV of record.
+Disallow: /assets/cv/
 
 Sitemap: https://mehranmazhar.com/sitemap.xml
